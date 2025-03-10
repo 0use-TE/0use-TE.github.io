@@ -1,27 +1,27 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\bin\\Debug\\net9.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "Id": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\bin\\Debug\\net9.0\\wwwroot\\_framework\\blazor.webassembly.js",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\wwwroot\\css\\app.css",
+      "Id": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\wwwroot\\icon-192.png",
+      "Id": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\wwwroot\\icon-192.png",
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
-      "Id": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\wwwroot\\images\\大二的样子.jpg",
+      "Id": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\wwwroot\\images\\大二的样子.jpg",
       "PackagePath": "staticwebassets\\images\\大二的样子.jpg"
     },
     {
-      "Id": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\wwwroot\\index.html",
+      "Id": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\wwwroot\\manifest.webmanifest",
+      "Id": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\wwwroot\\manifest.webmanifest",
       "PackagePath": "staticwebassets\\manifest.webmanifest"
     },
     {

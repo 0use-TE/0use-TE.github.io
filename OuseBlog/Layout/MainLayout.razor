@@ -7,6 +7,7 @@
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
+
 <!-- 过渡动画层 -->
 <div class="theme-transition-overlay @(isAnimating ? "animate" : "")"></div>
 
@@ -33,7 +34,7 @@
         <MudStack Row Spacing="4">
             <MudButton Href="/" Size="Size.Large" Class="nav">主页</MudButton>
             <MudButton Href="/blog" Size="Size.Large" Class="nav">博客</MudButton>
-            <MudButton Href="/project" Size="Size.Large" Class="nav">工坊</MudButton>
+            <MudButton Href="/opensource" Size="Size.Large" Class="nav">开源</MudButton>
             <MudButton Href="/resume" Size="Size.Large" Class="nav">简历</MudButton>
         </MudStack>
         </MudHidden>
@@ -49,7 +50,7 @@
                 <ChildContent>
                     <MudButton Href="/" Size="Size.Large" Class="nav">主页</MudButton>
                     <MudButton Href="/blog" Size="Size.Large" Class="nav">博客</MudButton>
-                    <MudButton Href="/project" Size="Size.Large" Class="nav">工坊</MudButton>
+                    <MudButton Href="/opensource" Size="Size.Large" Class="nav">开源</MudButton>
                     <MudButton Href="/resume" Size="Size.Large" Class="nav">简历</MudButton>
                 </ChildContent>
             </MudMenu>
@@ -59,6 +60,7 @@
     </MudAppBar>
     <MudMainContent  Class="pal">
         @Body
+        <MudScrollToTop></MudScrollToTop>
     </MudMainContent>
 </MudLayout>
 

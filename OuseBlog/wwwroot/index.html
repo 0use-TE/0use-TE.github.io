@@ -12,20 +12,27 @@
     <link href="manifest.webmanifest" rel="manifest" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300,400,500,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+        <div class="wrap">
+            <div class="spacer"></div>
+            <div id="outer-barG">
+                <div id="front-barG" class="bar-animationG">
+                    <div id="barG_1" class="bar-lineG"></div>
+                    <div id="barG_2" class="bar-lineG"></div>
+                    <div id="barG_3" class="bar-lineG"></div>
+                </div>
+            </div>
+            <h2>请稍等<br />正在加载很棒的东西...</h2>
+        </div>
     </div>
-
+    
     <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="." class="reload">Reload</a>
+        出现异常处理,请刷新页面!
+        <a href="." class="reload">刷新</a>
         <span class="dismiss">🗙</span>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
