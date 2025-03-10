@@ -1,0 +1,17 @@
+C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\obj\Release\net9.0\wasm\for-publish\aot-in\OuseBlog.dll
+D337E5B3-8772-4048-A655-A6A9F2489672
+6000001
+6000002
+6000004
+6000005
+6000006
+6000007
+6000008
+6000009
+600000a
+600000b
+600000c
+600000d
+600000e
+600000f
+6000010

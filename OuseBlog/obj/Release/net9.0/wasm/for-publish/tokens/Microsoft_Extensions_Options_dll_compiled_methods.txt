@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\obj\Release\net9.0\wasm\for-publish\aot-in\Microsoft.Extensions.Options.dll
+78EC2327-3497-408F-B6E3-0643E7B7AD5A
+6000001
+6000002
+6000003
+6000014
+6000041
+6000042
+6000043
+6000048
+6000049
