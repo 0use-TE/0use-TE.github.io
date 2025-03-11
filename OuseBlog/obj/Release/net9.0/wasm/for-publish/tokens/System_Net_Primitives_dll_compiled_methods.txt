@@ -1,3 +1,0 @@
-C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\obj\Release\net9.0\wasm\for-publish\aot-in\System.Net.Primitives.dll
-F513B609-C47F-4BB1-A7EA-32297A32AB65
-6000001
