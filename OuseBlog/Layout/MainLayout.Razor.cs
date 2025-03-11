@@ -11,6 +11,10 @@ namespace OuseBlog.Layout
 		private bool isAnimating = false;
 		private bool isHidden = false;
 
+		public MainLayout()
+		{
+		}
+
 		// 根据当前状态返回主题
 		private async Task ToggleTheme()
 		{
