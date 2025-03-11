@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "OuseBlog",
   "resources": {
-    "hash": "sha256-THegl/VcwCXK3ZuCazV+ThgKFpvAIb9AqaL/7x6290o=",
+    "hash": "sha256-GN5WfQLyr8FPZBuoF5pGNnEXwezMprQ6+7yV8tVJHBI=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Components.lw845htguz.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Web.0i3zj3nzug.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
@@ -21,7 +21,7 @@
       "Microsoft.JSInterop.WebAssembly.p386u0jty9.wasm": "Microsoft.JSInterop.WebAssembly.wasm",
       "MudBlazor.Markdown.z07610erbj.wasm": "MudBlazor.Markdown.wasm",
       "MudBlazor.be0foxp5uw.wasm": "MudBlazor.wasm",
-      "OuseBlog.twgpit443z.wasm": "OuseBlog.wasm",
+      "OuseBlog.hbwop13ec3.wasm": "OuseBlog.wasm",
       "System.Collections.Concurrent.fzjfrdn2ak.wasm": "System.Collections.Concurrent.wasm",
       "System.Collections.Immutable.2sznr7iy82.wasm": "System.Collections.Immutable.wasm",
       "System.Collections.brrglgptr7.wasm": "System.Collections.wasm",
@@ -84,7 +84,7 @@
       "Microsoft.JSInterop.WebAssembly.p386u0jty9.wasm": "sha256-hbzWuXrlepIqY/y+nQ2ZAFer2/njy1dc+Y4LUaAaL5E=",
       "MudBlazor.Markdown.z07610erbj.wasm": "sha256-E6pImwVBRVNOyY/2r4PPP+ci+QkFRbkOfrcvFiJvlPY=",
       "MudBlazor.be0foxp5uw.wasm": "sha256-PUThsrVoefTUyaNofO2CbCCOkKkrYlusnbRTdeJvAzc=",
-      "OuseBlog.twgpit443z.wasm": "sha256-I7iX+d98Gsz85v2HsM3zlu2m81U8UrPBhUtXMv+BHCQ=",
+      "OuseBlog.hbwop13ec3.wasm": "sha256-YzlGBQeE+Wv4vzePO8KLRTzRCa6nfoyxNWfYJVCULKw=",
       "System.Collections.Concurrent.fzjfrdn2ak.wasm": "sha256-61G6RdWky6wSKMoiBGmJfoebCUZviZ5ID5YVq4HzR40=",
       "System.Collections.Immutable.2sznr7iy82.wasm": "sha256-HtRM8z6SWCHMrKQrNZIALzy2FMivErM+NlMU8wP0mA4=",
       "System.Collections.brrglgptr7.wasm": "sha256-hzX9IA3YHht9LkWEYuXvkC+yeSi97VBrLADX64XddGQ=",
