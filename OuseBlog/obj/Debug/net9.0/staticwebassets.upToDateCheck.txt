@@ -1,8 +1,10 @@
 C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\wwwroot\index.html
 C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\wwwroot\manifest.webmanifest
 C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\wwwroot\css\app.css
+C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\wwwroot\myjs.js
 wwwroot\css\app.css
 wwwroot\icon-192.png
 wwwroot\images\大二的样子.jpg
 wwwroot\index.html
 wwwroot\manifest.webmanifest
+wwwroot\myjs.js

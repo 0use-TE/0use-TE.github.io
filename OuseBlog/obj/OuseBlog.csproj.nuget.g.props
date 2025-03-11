@@ -14,12 +14,11 @@
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.webassembly\9.0.2\build\net9.0\Microsoft.AspNetCore.Components.WebAssembly.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.webassembly\9.0.2\build\net9.0\Microsoft.AspNetCore.Components.WebAssembly.props')" />
-    <Import Project="$(NuGetPackageRoot)spawndev.blazorjs\2.7.0\buildTransitive\SpawnDev.BlazorJS.props" Condition="Exists('$(NuGetPackageRoot)spawndev.blazorjs\2.7.0\buildTransitive\SpawnDev.BlazorJS.props')" />
     <Import Project="$(NuGetPackageRoot)mudblazor\8.3.0\buildTransitive\MudBlazor.props" Condition="Exists('$(NuGetPackageRoot)mudblazor\8.3.0\buildTransitive\MudBlazor.props')" />
     <Import Project="$(NuGetPackageRoot)mudblazor.markdown\8.0.0\buildTransitive\MudBlazor.Markdown.props" Condition="Exists('$(NuGetPackageRoot)mudblazor.markdown\8.0.0\buildTransitive\MudBlazor.Markdown.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.net.sdk.webassembly.pack\9.0.2\build\Microsoft.NET.Sdk.WebAssembly.Pack.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.sdk.webassembly.pack\9.0.2\build\Microsoft.NET.Sdk.WebAssembly.Pack.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.net.illink.tasks\9.0.2\build\Microsoft.NET.ILLink.Tasks.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.illink.tasks\9.0.2\build\Microsoft.NET.ILLink.Tasks.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.webassembly\9.0.2\build\net9.0\Microsoft.AspNetCore.Components.WebAssembly.props" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.webassembly\9.0.2\build\net9.0\Microsoft.AspNetCore.Components.WebAssembly.props')" />
     <Import Project="$(NuGetPackageRoot)blazoranimate\3.0.0\buildTransitive\BlazorAnimate.props" Condition="Exists('$(NuGetPackageRoot)blazoranimate\3.0.0\buildTransitive\BlazorAnimate.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">

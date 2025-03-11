@@ -550,28 +550,6 @@
         "buildMultiTargeting": {
           "buildMultiTargeting/MudBlazor.Markdown.props": {}
         }
-      },
-      "SpawnDev.BlazorJS/2.7.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.WebAssembly": "9.0.0"
-        },
-        "compile": {
-          "lib/net9.0/SpawnDev.BlazorJS.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/SpawnDev.BlazorJS.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/SpawnDev.BlazorJS.props": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/SpawnDev.BlazorJS.props": {}
-        }
       }
     },
     "net9.0/browser-wasm": {
@@ -1122,28 +1100,6 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/MudBlazor.Markdown.props": {}
-        }
-      },
-      "SpawnDev.BlazorJS/2.7.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.WebAssembly": "9.0.0"
-        },
-        "compile": {
-          "lib/net9.0/SpawnDev.BlazorJS.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/SpawnDev.BlazorJS.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/SpawnDev.BlazorJS.props": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/SpawnDev.BlazorJS.props": {}
         }
       }
     }
@@ -2443,34 +2399,6 @@
         "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
         "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Zero.woff"
       ]
-    },
-    "SpawnDev.BlazorJS/2.7.0": {
-      "sha512": "HkQZgyRSw7xcUi327/W0xmXNVlUtWqgSrWX9Gsi+dXlBxQ1Egbzqu2vjqOlr2WmtERRMo12X74bNATLxoevo8A==",
-      "type": "package",
-      "path": "spawndev.blazorjs/2.7.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "README.md",
-        "build/Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
-        "build/Microsoft.AspNetCore.StaticWebAssets.props",
-        "build/SpawnDev.BlazorJS.props",
-        "buildMultiTargeting/SpawnDev.BlazorJS.props",
-        "buildTransitive/SpawnDev.BlazorJS.props",
-        "icon-128.png",
-        "lib/net6.0/SpawnDev.BlazorJS.dll",
-        "lib/net6.0/SpawnDev.BlazorJS.xml",
-        "lib/net7.0/SpawnDev.BlazorJS.dll",
-        "lib/net7.0/SpawnDev.BlazorJS.xml",
-        "lib/net8.0/SpawnDev.BlazorJS.dll",
-        "lib/net8.0/SpawnDev.BlazorJS.xml",
-        "lib/net9.0/SpawnDev.BlazorJS.dll",
-        "lib/net9.0/SpawnDev.BlazorJS.xml",
-        "spawndev.blazorjs.2.7.0.nupkg.sha512",
-        "spawndev.blazorjs.nuspec",
-        "staticwebassets/SpawnDev.BlazorJS.2htzozka3f.lib.module.js"
-      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -2481,8 +2409,7 @@
       "Microsoft.NET.ILLink.Tasks >= 9.0.2",
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.2",
       "MudBlazor >= 8.3.0",
-      "MudBlazor.Markdown >= 8.0.0",
-      "SpawnDev.BlazorJS >= 2.7.0"
+      "MudBlazor.Markdown >= 8.0.0"
     ]
   },
   "packageFolders": {
@@ -2568,10 +2495,6 @@
           "MudBlazor.Markdown": {
             "target": "Package",
             "version": "[8.0.0, )"
-          },
-          "SpawnDev.BlazorJS": {
-            "target": "Package",
-            "version": "[2.7.0, )"
           }
         },
         "imports": [

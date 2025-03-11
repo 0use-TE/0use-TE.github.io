@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor;
 using MudBlazor.Services;
 using OuseBlog;
-using SpawnDev.BlazorJS;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
@@ -17,6 +16,4 @@ builder.Services.AddMudServices();
 
 builder.Services.AddMudMarkdownServices();
 
-builder.Services.AddBlazorJSRuntime();
-
-await builder.Build().BlazorJSRunAsync();
+await builder.Build().RunAsync();

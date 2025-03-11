@@ -83,10 +83,6 @@
             "MudBlazor.Markdown": {
               "target": "Package",
               "version": "[8.0.0, )"
-            },
-            "SpawnDev.BlazorJS": {
-              "target": "Package",
-              "version": "[2.7.0, )"
             }
           },
           "imports": [

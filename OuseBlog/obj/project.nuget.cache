@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/mcPGAKqZyQ=",
+  "dgSpecHash": "W11eav9gF4s=",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
   "expectedPackageFiles": [
@@ -36,8 +36,7 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.2\\microsoft.net.sdk.webassembly.pack.9.0.2.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\minver\\2.0.0\\minver.2.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\mudblazor\\8.3.0\\mudblazor.8.3.0.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\mudblazor.markdown\\8.0.0\\mudblazor.markdown.8.0.0.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\spawndev.blazorjs\\2.7.0\\spawndev.blazorjs.2.7.0.nupkg.sha512"
+    "C:\\Users\\Administrator\\.nuget\\packages\\mudblazor.markdown\\8.0.0\\mudblazor.markdown.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

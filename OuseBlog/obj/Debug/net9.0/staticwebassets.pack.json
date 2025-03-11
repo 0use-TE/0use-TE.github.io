@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\manifest.webmanifest"
     },
     {
+      "Id": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\wwwroot\\myjs.js",
+      "PackagePath": "staticwebassets\\myjs.js"
+    },
+    {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.OuseBlog.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
