@@ -40,13 +40,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"f0351o5fkw"},{"Name":"integrity","Value":"sha256-gVCeEM0/L\u002BqtWCLTWJawoCxXWXF7brG9zUZ\u002B3kewxyo="},{"Name":"label","Value":"index.html"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2084"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022gVCeEM0/L\u002BqtWCLTWJawoCxXWXF7brG9zUZ\u002B3kewxyo=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Mar 2025 09:21:13 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2084"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022gVCeEM0/L\u002BqtWCLTWJawoCxXWXF7brG9zUZ\u002B3kewxyo=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Mar 2025 09:39:48 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="index.html">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-gVCeEM0/L\u002BqtWCLTWJawoCxXWXF7brG9zUZ\u002B3kewxyo="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2084"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022gVCeEM0/L\u002BqtWCLTWJawoCxXWXF7brG9zUZ\u002B3kewxyo=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Mar 2025 09:21:13 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2084"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022gVCeEM0/L\u002BqtWCLTWJawoCxXWXF7brG9zUZ\u002B3kewxyo=\u0022"},{"Name":"Last-Modified","Value":"Tue, 11 Mar 2025 09:39:48 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="manifest.7pymnh6mnf.webmanifest">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\manifest.webmanifest'))</AssetFile>
