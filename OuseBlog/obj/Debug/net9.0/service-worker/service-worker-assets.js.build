@@ -1,9 +1,21 @@
 self.assetsManifest = {
-  "version": "RZy85irB",
+  "version": "N4Qi0vit",
   "assets": [
+    {
+      "hash": "sha256-8Cjlnef9SMYiYjgwnpyhW4GqGEkbaDdSg1baLLnskNY=",
+      "url": "OuseBlog.styles.css"
+    },
     {
       "hash": "sha256-CjwgItoyheD/tAPt4H9wK+LxY/cO7KM3e0uy51lfuoA=",
       "url": "SpawnDev.BlazorJS.2htzozka3f.lib.module.js"
+    },
+    {
+      "hash": "sha256-GqiEX9BuR1rv5zPU5Vs2qS/NSHl1BJyBcjQYJ6ycwD4=",
+      "url": "_content/BlazorAnimate/aos.css"
+    },
+    {
+      "hash": "sha256-DybIYDc6jH0DSjC296BHo1mWVjUSHWjUunUOd3BTP+4=",
+      "url": "_content/BlazorAnimate/blazorAnimateInterop.js"
     },
     {
       "hash": "sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=",
@@ -1094,6 +1106,10 @@ self.assetsManifest = {
       "url": "_content/MudBlazor/MudBlazor.min.js"
     },
     {
+      "hash": "sha256-rwFvQE7EmQQRmAK0NmiigoQvxYT6a6KaBWPYzSV4+Jk=",
+      "url": "_framework/BlazorAnimate.v094vrnnoa.wasm"
+    },
+    {
       "hash": "sha256-gPUwGTHTe/sd4xmteeOSYd4a/J4deDy13pbwodSYfwc=",
       "url": "_framework/Markdig.82zk74d1io.wasm"
     },
@@ -1222,12 +1238,12 @@ self.assetsManifest = {
       "url": "_framework/MudBlazor.d77vteuu8h.wasm"
     },
     {
-      "hash": "sha256-XHLuntCkxSl7qeaWDRDfFuH4VSQb/vW5/sKrF5ww9nI=",
-      "url": "_framework/OuseBlog.cgttgy2547.pdb"
+      "hash": "sha256-jdcz9yHAmwoWbLt7Y5OPb6ZbS6VSh2mNka9RU1rtJFQ=",
+      "url": "_framework/OuseBlog.1ro1wpsfdn.pdb"
     },
     {
-      "hash": "sha256-k0oAGpW+ajMx5CZRNvUE/FS3mnf74Zl2TDSV/BE1XBU=",
-      "url": "_framework/OuseBlog.ftbf5bfd5g.wasm"
+      "hash": "sha256-gdJcvJJy59IqoRWQzM8J5d88/NQiWRuHqqqtVLX05ws=",
+      "url": "_framework/OuseBlog.lz8seqwpbz.wasm"
     },
     {
       "hash": "sha256-iecVCH6iwHnrEBNzYiUD2bqRhl4Gll/S9wP8Wv6HHPA=",
@@ -1882,7 +1898,7 @@ self.assetsManifest = {
       "url": "_framework/WindowsBase.tuf34ieu7y.wasm"
     },
     {
-      "hash": "sha256-9ENcC9302mWERix9DlofFhUvEzQu7heeI+MOMd2XIG8=",
+      "hash": "sha256-RLSIKk86j9r7/gl/9DJFxzYGdd5WymUMWgzUJYh1ZiY=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -1934,7 +1950,7 @@ self.assetsManifest = {
       "url": "_framework/netstandard.w8gk1pigg1.wasm"
     },
     {
-      "hash": "sha256-FEcjGL5Vayj/vVFfza9Fl7AOyv/PLNTZoBBgB6QciYc=",
+      "hash": "sha256-STGJIr2meYx7PkHFFbeqgV3w2sd0BGQ/Y11TyfUau9c=",
       "url": "css/app.css"
     },
     {
@@ -1946,7 +1962,7 @@ self.assetsManifest = {
       "url": "images/大二的样子.jpg"
     },
     {
-      "hash": "sha256-Ylu963ybXUCpvdQSAFeJnPGT/s1XeeT5qeqH+gp9QW4=",
+      "hash": "sha256-kaZObpm/RG0o7aZlng1ONa/7PKBbVGPoRaNKRPMtZVU=",
       "url": "index.html"
     },
     {
