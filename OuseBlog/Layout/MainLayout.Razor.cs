@@ -12,10 +12,6 @@ namespace OuseBlog.Layout
 		private bool isAnimating = false;
 		private bool isHidden = false;
 
-		public MainLayout()
-		{
-		}
-
 		// 根据当前状态返回主题
 		private async Task ToggleTheme()
 		{
@@ -30,8 +26,7 @@ namespace OuseBlog.Layout
 			StateHasChanged();
 		}
 
-		[Inject]
-		private IJSRuntime JS { get; set; } // 注入 IJSRuntime
+
 		protected override async Task OnAfterRenderAsync(bool firstRender)
 		{
 			if (firstRender)
