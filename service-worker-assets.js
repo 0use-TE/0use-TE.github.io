@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "BqYso+ae",
+  "version": "ZrC1JS2H",
   "assets": [
     {
       "hash": "sha256-CjwgItoyheD/tAPt4H9wK+LxY/cO7KM3e0uy51lfuoA=",
@@ -1174,8 +1174,8 @@ self.assetsManifest = {
       "url": "_framework/MudBlazor.be0foxp5uw.wasm"
     },
     {
-      "hash": "sha256-hs/EPa8wAGiQhV7zO2Ay7pdHVJQfL89zigAQozoaUL4=",
-      "url": "_framework/OuseBlog.69n3c3mnux.wasm"
+      "hash": "sha256-aced6yGiSKZf6s4VY3IecyX5istiDKYXno+VLj0nQ7o=",
+      "url": "_framework/OuseBlog.xamuntz3c8.wasm"
     },
     {
       "hash": "sha256-z5gu/l5eZ7F2wljTYSSszHP/GvMs/OrYKXdzCv+Jjcg=",
@@ -1266,7 +1266,7 @@ self.assetsManifest = {
       "url": "_framework/System.Text.RegularExpressions.rolbxlngn3.wasm"
     },
     {
-      "hash": "sha256-FK+P+0SvHbjTrDg3zxDE2azLACRB9pFZV+4BMmCTPiQ=",
+      "hash": "sha256-jYdjyxk6QH9MaxINHxm1/a4dvGyHmHZf1kLmMNqUt0U=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -1314,7 +1314,7 @@ self.assetsManifest = {
       "url": "images/大二的样子.jpg"
     },
     {
-      "hash": "sha256-qTnIAL5cjIDA45LXUdgzPCQP0k0Iy8wU3nifM52qHkE=",
+      "hash": "sha256-xLNtF78lZEpsM2suAnVXUyeSIaYEHqhX8DMIWUd7Z3w=",
       "url": "index.html"
     },
     {
