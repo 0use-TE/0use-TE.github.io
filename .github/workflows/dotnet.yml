@@ -1,0 +1,33 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: build and test and deploy
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+        
+    - name: Install .NET WASM Build Tools
+      run: dotnet workload install wasm-tools
+      
+      # Publishes Blazor project to the release-folder
+    - name: Publish Blazor WASM Project
+      run: dotnet publish ./OuseBlog/OuseBlog.csproj -c:Release -p:GHPages=true -o dist/Web --nologo
+
+
+    - name: Commit wwwroot to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        BRANCH: gh-pages
+        FOLDER: dist/Web/wwwroot
