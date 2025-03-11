@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "OuseBlog",
   "resources": {
-    "hash": "sha256-zpgWubO0djzh04y7JJYj6PDE5PgXJhbDPoJ6jtuI8G0=",
+    "hash": "sha256-TfxCv3fLsTiBL0edP+wFZBd2m+zuIjV0zh6cwtjz6sE=",
     "fingerprinting": {
       "BlazorAnimate.v094vrnnoa.wasm": "BlazorAnimate.wasm",
       "Markdig.82zk74d1io.wasm": "Markdig.wasm",
@@ -207,8 +207,8 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "OuseBlog.gqtbo6jtx5.wasm": "OuseBlog.wasm",
-      "OuseBlog.j4wcn8wubd.pdb": "OuseBlog.pdb"
+      "OuseBlog.0j6aje7477.wasm": "OuseBlog.wasm",
+      "OuseBlog.q4scvb68x7.pdb": "OuseBlog.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.8bti36lthm.js": "sha256-HFADmT26AarHu4tMjFaTPxINmQjBJGtdPN+CKjtNMFE="
@@ -424,10 +424,10 @@
       "WindowsBase.tuf34ieu7y.wasm": "sha256-Bd+l972cOS1eVeLzrQNlgD6LPWV1QXBSzJhv8Tx1WGI=",
       "mscorlib.5q5u0swn6q.wasm": "sha256-g9cI1sECkF7bxMqOSB+W0a4utdDsqTrqZzyiAEeA65g=",
       "netstandard.w8gk1pigg1.wasm": "sha256-QFR5QNPfvyZTexW3IA/AFx6ZmIF/TecvOUsSK4gM4po=",
-      "OuseBlog.gqtbo6jtx5.wasm": "sha256-uDTQioeSC7HgNRcMHSUuNlXn2KLTdjrOt0WQ1TMK/I0="
+      "OuseBlog.0j6aje7477.wasm": "sha256-dGU3QbL/sGSnz0zxhLFrFMK3DsrGnhX92oUIJZsUCdU="
     },
     "pdb": {
-      "OuseBlog.j4wcn8wubd.pdb": "sha256-XbsX4iOfX0iasqwuQf7QfMbV3xZqmlFscvvafATtNgE="
+      "OuseBlog.q4scvb68x7.pdb": "sha256-lvu9LdWkhUTiVXtipbAw1WijJyNFRcD3e+90nAlML/U="
     }
   },
   "cacheBootResources": true,

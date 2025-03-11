@@ -1,8 +1,7 @@
 ﻿// 在页面加载完成后执行
-document.addEventListener("DOMContentLoaded", function () {
+window.initappbar=function () {
     // 获取 appbar 元素
     const appbar = document.getElementById("appbar");
-    console.log('player')
     // 如果找到 appbar，则添加 "visible" 类
     if (appbar) {
         appbar.classList.add("visible");
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 为 window 添加滚轮事件监听器
     window.addEventListener("wheel", function (event) {
-        console.log('wheel');
         // 根据滚动方向（DeltaY）切换 appbar 的显示状态
         if (event.deltaY > 0 && !isHidden) {
             // 向下滚动，且当前未隐藏
@@ -31,4 +29,4 @@ document.addEventListener("DOMContentLoaded", function () {
             isHidden = false;
         }
     });
-});
+};

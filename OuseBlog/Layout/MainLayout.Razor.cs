@@ -1,5 +1,6 @@
 ﻿using BlazorApp1.Layout;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using MudBlazor;
 
 namespace OuseBlog.Layout
@@ -29,6 +30,16 @@ namespace OuseBlog.Layout
 			StateHasChanged();
 		}
 
-		
+		[Inject]
+		private IJSRuntime JS { get; set; } // 注入 IJSRuntime
+		protected override async Task OnAfterRenderAsync(bool firstRender)
+		{
+			if (firstRender)
+			{
+				// 调用 JavaScript 函数
+				await JS.InvokeVoidAsync("initappbar");
+			}
+			await base.OnAfterRenderAsync(firstRender);
+		}
 	}
 }
