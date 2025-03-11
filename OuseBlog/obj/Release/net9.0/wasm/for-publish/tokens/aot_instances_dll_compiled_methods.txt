@@ -1,2 +1,0 @@
-C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\obj\Release\net9.0\wasm\for-publish\aot-in\aot-instances.dll
-A0DC68B0-1AA9-4F06-BD3F-22B479E32612

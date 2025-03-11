@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\obj\Release\net9.0\wasm\for-publish\aot-in\System.IO.Pipelines.dll
-EAF13649-9D40-4788-8ECA-2D542150AB51
-6000003
-6000004
-6000005

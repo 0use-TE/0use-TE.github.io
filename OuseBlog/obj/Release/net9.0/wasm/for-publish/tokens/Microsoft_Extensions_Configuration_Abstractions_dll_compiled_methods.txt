@@ -1,3 +1,0 @@
-C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\obj\Release\net9.0\wasm\for-publish\aot-in\Microsoft.Extensions.Configuration.Abstractions.dll
-6E880D45-4358-4C2C-B253-5D1D4894DDA1
-6000002

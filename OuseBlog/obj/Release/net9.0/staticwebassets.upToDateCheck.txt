@@ -1,8 +1,0 @@
-C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\wwwroot\index.html
-C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\wwwroot\manifest.webmanifest
-C:\Users\Administrator\Desktop\Project\OuseBlog\OuseBlog\wwwroot\css\app.css
-wwwroot\css\app.css
-wwwroot\icon-192.png
-wwwroot\icon-512.png
-wwwroot\index.html
-wwwroot\manifest.webmanifest
