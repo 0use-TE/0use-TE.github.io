@@ -1,5 +1,11 @@
-﻿<h3>Resume</h3>
-
-@code {
-
+﻿@page "/resume"
+<Width Class="pa-4">
+	<MudPaper  Width="300px">
+		<MudChart ChartType="ChartType.Pie"    InputLabels="labels" InputData="doubles" ChartOptions="new ChartOptions{   }"></MudChart>
+	</MudPaper>
+</Width>
+@code
+{
+	private string[] labels = ["Dotnet全栈", "Unity", "MySql", "嵌入式", "其它"];
+	private double[] doubles = [45,25,10,10,10];
 }

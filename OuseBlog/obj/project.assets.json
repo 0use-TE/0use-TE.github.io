@@ -2,6 +2,26 @@
   "version": 3,
   "targets": {
     "net9.0": {
+      "BlazorAnimate/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.0",
+          "Microsoft.AspNetCore.Components.Web": "3.1.0",
+          "MinVer": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/BlazorAnimate.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BlazorAnimate.dll": {}
+        },
+        "build": {
+          "buildTransitive/BlazorAnimate.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorAnimate.props": {}
+        }
+      },
       "Markdig/0.40.0": {
         "type": "package",
         "compile": {
@@ -476,6 +496,15 @@
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets": {}
+        }
+      },
+      "MinVer/2.0.0": {
+        "type": "package",
+        "build": {
+          "build/_._": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/_._": {}
         }
       },
       "MudBlazor/8.3.0": {
@@ -546,6 +575,26 @@
       }
     },
     "net9.0/browser-wasm": {
+      "BlazorAnimate/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.0",
+          "Microsoft.AspNetCore.Components.Web": "3.1.0",
+          "MinVer": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/BlazorAnimate.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BlazorAnimate.dll": {}
+        },
+        "build": {
+          "buildTransitive/BlazorAnimate.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorAnimate.props": {}
+        }
+      },
       "Markdig/0.40.0": {
         "type": "package",
         "compile": {
@@ -1020,6 +1069,15 @@
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets": {}
+        }
+      },
+      "MinVer/2.0.0": {
+        "type": "package",
+        "build": {
+          "build/_._": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/_._": {}
         }
       },
       "MudBlazor/8.3.0": {
@@ -1091,6 +1149,24 @@
     }
   },
   "libraries": {
+    "BlazorAnimate/3.0.0": {
+      "sha512": "IUX/IFdEKiQ5ncZ5/iVhaZynWL2dA04lH9ieza9JhBj/jJH8f2NwM6OqdJFm7RfkFdbkIH8t2Bxd/laZS2EXWQ==",
+      "type": "package",
+      "path": "blazoranimate/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazoranimate.3.0.0.nupkg.sha512",
+        "blazoranimate.nuspec",
+        "build/BlazorAnimate.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/BlazorAnimate.props",
+        "buildTransitive/BlazorAnimate.props",
+        "lib/netstandard2.0/BlazorAnimate.dll",
+        "staticwebassets/aos.css",
+        "staticwebassets/blazorAnimateInterop.js"
+      ]
+    },
     "Markdig/0.40.0": {
       "sha512": "4ve14zs+gt1irldTQE3y5FLAHuzmhW7T99lAAvVipe/q2LWT/nUCO0iICb9TXGvMX6n7Z1OZroFXkdSy91rO8w==",
       "type": "package",
@@ -2030,6 +2106,27 @@
         "tools/net9.0/Microsoft.NET.WebAssembly.Webcil.dll"
       ]
     },
+    "MinVer/2.0.0": {
+      "sha512": "1U1JIwD47a/m9S1LXdDm+fByP3LYR9hTeFfi1MlizScXF4e4yUpZvunEyQAovVfi4qYaUlVzIbk08OXFfz3FfQ==",
+      "type": "package",
+      "path": "minver/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MinVer.targets",
+        "buildMultiTargeting/MinVer.targets",
+        "minver.2.0.0.nupkg.sha512",
+        "minver.nuspec",
+        "minver.png",
+        "minver/McMaster.Extensions.CommandLineUtils.dll",
+        "minver/MinVer.Lib.dll",
+        "minver/MinVer.Lib.pdb",
+        "minver/MinVer.deps.json",
+        "minver/MinVer.dll",
+        "minver/MinVer.pdb",
+        "minver/MinVer.runtimeconfig.json"
+      ]
+    },
     "MudBlazor/8.3.0": {
       "sha512": "DLc1aK8AgSas82AERWLLefWKadIF7HhYhvgO8Y7jYLZe5v1r4v3rX9pzrzTsQkuPGe6y65tob73kM6gael+WdQ==",
       "type": "package",
@@ -2378,6 +2475,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "BlazorAnimate >= 3.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 9.0.2",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 9.0.2",
       "Microsoft.NET.ILLink.Tasks >= 9.0.2",
@@ -2388,23 +2486,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\22165\\.nuget\\packages\\": {},
-    "D:\\SoftWare\\Visual Studio\\VS SDK\\NuGetPackages": {}
+    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
       "projectName": "OuseBlog",
-      "projectPath": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
-      "packagesPath": "C:\\Users\\22165\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\obj\\",
+      "projectPath": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
+      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Administrator\\Desktop\\Project\\OuseBlog\\OuseBlog\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\SoftWare\\Visual Studio\\VS SDK\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\22165\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2413,6 +2511,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2437,6 +2536,10 @@
       "net9.0": {
         "targetAlias": "net9.0",
         "dependencies": {
+          "BlazorAnimate": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",
             "version": "[9.0.2, )"
@@ -2482,12 +2585,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[9.0.2, 9.0.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

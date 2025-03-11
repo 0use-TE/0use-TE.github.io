@@ -1,1 +1,26 @@
-﻿
+﻿@page "/loading/{url}"
+@inject NavigationManager Navigation
+<div class="background">
+    <div class="wrap">
+        <div class="spacer"></div>
+        <div id="outer-barG">
+            <div id="front-barG" class="bar-animationG">
+                <div id="barG_1" class="bar-lineG"></div>
+                <div id="barG_2" class="bar-lineG"></div>
+                <div id="barG_3" class="bar-lineG"></div>
+            </div>
+        </div>
+        <h2>请稍等<br />正在加载很棒的东西...</h2>
+    </div>
+</div>
+@code
+{
+    [Parameter]
+    public string? url{ get; set; }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await Task.Delay(2000);
+            Navigation.NavigateTo($"/{url}",replace:true);
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}

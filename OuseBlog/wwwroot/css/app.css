@@ -42,8 +42,10 @@
     }
 
 
-/*--blazor-load-percentage*/
 
+#loadingtext:after {
+    content: var(--blazor-load-percentage-text, "Loading");
+}
 
 code {
     color: #c02d76;
@@ -177,7 +179,7 @@ code {
 }
 
 .spacer {
-    height: 30%;
+    height: 40%;
 }
 
 h2 {
@@ -185,4 +187,35 @@ h2 {
     font-family: 'Alegreya Sans SC', sans-serif;
     font-weight: 300;
     font-size: 26px;
+}
+.background {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+    background-size: 400% 400%; /* 放大背景以便动画 */
+    animation: rainbow 10s infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 确保内容在前景 */
+.wrap {
+    position: relative;
+    z-index: 1;
+    text-align: center;
 }
