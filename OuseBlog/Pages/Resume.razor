@@ -1,5 +1,6 @@
 ﻿@page "/resume"
 @inject IJSRuntime JSRuntime
+@inject IDialogService DialogService
 @if (!isShow)
 {
     <div style="position:fixed;height:100vh;width:100vw">
@@ -25,35 +26,17 @@ else
       <Animate DurationMs="400" Animation="Animations.SlideLeft" >
         <Width xs="12" sm="10" >
             <MudTabs Border Centered  Outlined  Rounded  >
-                <MudTabPanel Text="技术栈" >
-                        <MudPaper   Outlined  Style="min-height:400px">
-                            <MudStepper Vertical ShowResetButton NonLinear  >
-                                <ChildContent>
-                                    <MudStep Title="Dotnet" SecondaryText="构建强大的应用">
-                                        Asp.Net Core Web Api<br/>
-                                        Blazor(MudBlazor)<br />
-                                        EF Core <br />
-                                        Identity
-                                    </MudStep>
-                                    <MudStep Title="Unity" SecondaryText="强大的游戏开发引擎" Skippable="true"></MudStep>
-                                    <MudStep Title="嵌入式" SecondaryText=""></MudStep>
-                                    <MudStep Title="其他" SecondaryText=""></MudStep>
-                                </ChildContent>
-                                <CompletedContent>
-                                   谢谢您的查看!
-                                </CompletedContent>
-                            </MudStepper>
-                        </MudPaper>
+                <MudTabPanel Text="我是？">
+                    <Resume_My></Resume_My>
                 </MudTabPanel>
-            <MudTabPanel  Text="查看时间线">
-                    <MudPaper Outlined Style="min-height:400px">
-                      
-                    </MudPaper>
+                <MudTabPanel Text="技术栈" >
+                       <Resume_Stack></Resume_Stack>
+                </MudTabPanel>
+            <MudTabPanel  Text="时间线">
+                <Resume_Timeline></Resume_Timeline>
             </MudTabPanel>
-                <MudTabPanel Text="未来规划">
-                    <MudPaper Outlined Style="min-height:400px">
-
-                    </MudPaper>
+                <MudTabPanel Text="Q&A">
+                    <Resume_Future></Resume_Future>
                 </MudTabPanel>
             </MudTabs>
         </Width>

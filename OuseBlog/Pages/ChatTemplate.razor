@@ -1,0 +1,43 @@
+﻿<Animate Animation="Animations.FadeLeft" DurationMs="300"   Once=true   DelayMs="DelayTime">
+    <MudChat ChatPosition="ChatBubblePosition.End" >
+        <MudAvatar>
+            P
+        </MudAvatar>
+        @foreach(var item in P)
+        {
+            <MudChatBubble>@item</MudChatBubble>
+        }
+    </MudChat>
+</Animate>
+<Animate Animation="Animations.FadeRight" DurationMs="300" Once=true DelayMs="DelayTime">
+    <MudChat>
+        <MudAvatar>
+            <MudImage Src="@Src"></MudImage>
+        </MudAvatar>
+        @foreach (var item in Ouse)
+        {
+            <MudChatBubble>@item</MudChatBubble>
+        }
+    </MudChat>
+</Animate>
+@code
+{
+    [Parameter]
+    public string? Src { get; set; } = "images/大二的样子.jpg";
+    [Parameter]
+    public string[] Ouse { get; set; } = new string[] { };
+    [Parameter]
+    public string[] P { get; set; } = new string[] { };
+    public int DelayTime{
+        get
+        {
+            if (Index < 3)
+                return Index * 300;
+            else
+                return 0;
+        }
+    }
+    [Parameter]
+    public int Index{ get; set; }
+
+}

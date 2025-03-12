@@ -1,0 +1,25 @@
+﻿@inject ISnackbar Snackbar
+<MudPaper Outlined Style="min-height:400px" Class="pa-4 d-flex flex-column">
+    <br />
+    <MudText Class="" Style="text-indent:30px;font-weight:500">
+        👋 你好，我是Ouse，一名热爱 .NET 的开发者，代码如诗，架构如画。我热爱微软技术栈，后端用 Web API，前端玩 MudBlazor，偶尔还会折腾 Unity。
+    </MudText>
+    <br />
+    <MudText Class="" Style="text-indent:30px;font-weight:500">
+        说起我啊，从小就喜欢玩游戏，喜欢摆弄电脑。13 岁那年，我便开始折腾装机，学习各种电脑组装知识，给别人配电脑、装系统，完全不在话下。
+        到了高中，我开始接触编程，但奈何学业繁忙，没能坚持太久……直到上了大学，我终于彻底沉迷在了编程的世界。记得第一次走进学校图书馆的自然科学书籍区，我惊讶得说不出话——天哪，这里竟然有这么多关于计算机、电子、数学的书籍！
+        从那一刻起，我便下定决心，要用代码去探索世界，去创造价值。。我坚信，代码不仅仅是工具，更是一种艺术，而编程，是我与世界对话的方式。
+    </MudText>
+    <br />
+    <MudText Class="" Style="text-indent:30px;font-weight:500">
+        除了写代码，我还养了一只名叫 Code（扣嘚）的非洲迷你刺猬，它是我调试 bug 时最忠实的听众。我喜欢生椰拿铁，喜欢音乐，喜欢一切能让世界变得更有秩序的东西。
+        这个博客是我思考与成长的记录，关于技术，关于生活，也关于代码之外的世界。😁
+    </MudText>
+    <div class="d-flex flex-column mt-auto justify-end">
+        <div class="ml-auto ">
+            <MudTooltip Text="请我喝咖啡" Inline>
+                <MudButton Class="buttonhover" OnClick="@(()=>Snackbar.Add("感谢您的支持!",Severity.Success))" Variant=Variant.Outlined EndIcon="@Icons.Material.Filled.Coffee">咖啡</MudButton>
+            </MudTooltip>
+        </div>
+    </div>
+</MudPaper>

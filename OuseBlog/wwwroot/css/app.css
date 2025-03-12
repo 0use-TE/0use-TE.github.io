@@ -219,3 +219,10 @@ h2 {
     z-index: 1;
     text-align: center;
 }
+.buttonhover{
+    transition:all 0.7s;
+}
+.buttonhover:hover
+{
+    transform:scale(1.2)
+}

@@ -1,0 +1,25 @@
+﻿<MudPaper Outlined Style="min-height:400px" Class="pa-4">
+    @foreach (var item in content.Select((value,index)=>new {item=value,index=index }))
+    {
+        <ChatTemplate Index=item.index P="@item.item.P" Ouse="@item.item.Ouse"></ChatTemplate>
+    }
+</MudPaper>
+
+@code {
+    // 使用 List 初始化 ChatItem 对象数组
+    List<ChatItem> content = new List<ChatItem>
+    {
+        new ChatItem { P =[ "您好"], Ouse = [ "您好", "请问有什么问题吗?" ] },
+        new ChatItem { P = [ "您将来想干什么?" ], Ouse = ["我想成为一名软件设计师", "我想让每一个人都能体验到科技带来的便利!"]},
+        new ChatItem { P = ["您为什么这么喜欢编程?" ], Ouse = [ "这个嘛,我是一个喜欢'捣鼓'的人,从小就喜欢做点'小玩意',编程也是如此,我喜欢创作的感觉!"] },
+        new ChatItem { P = ["您的最终目标是什么?" ], Ouse = [ "实现财富自由,和喜欢的人去环游世界,不断在GitHub开源自己的项目,制作优秀的教程为他人带来帮助!", "请问还有什么问题吗?" ] },
+        new ChatItem { P = ["暂时没有了,谢谢您的回复!" ], Ouse = ["没关系,如果您有任何问题,可以联系我的邮箱(2216528769@qq.com)", "我会第一时间回复您" ] }
+    };
+    
+    // 定义 ChatItem 类来存储 P 和 Ouse 数据
+    class ChatItem
+    {
+        public string[]? P { get; set; } // 使用数组类型
+        public string[]? Ouse { get; set; } // 使用数组类型
+    }
+}

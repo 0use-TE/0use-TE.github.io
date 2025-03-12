@@ -6,7 +6,10 @@ using OuseBlog;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-builder.Services.AddMudServices();
+builder.Services.AddMudServices(config=>config.SnackbarConfiguration=new SnackbarConfiguration
+{
+    PositionClass=Defaults.Classes.Position.BottomLeft  
+});
 
 builder.RootComponents.Add<App>("#app");
 
