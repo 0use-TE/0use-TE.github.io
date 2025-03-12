@@ -1,11 +1,21 @@
 ﻿@page "/resume"
-<Width Class="pa-4">
-	<MudPaper  Width="300px">
-		<MudChart ChartType="ChartType.Pie"    InputLabels="labels" InputData="doubles" ChartOptions="new ChartOptions{   }"></MudChart>
-	</MudPaper>
-</Width>
+@inject IJSRuntime JSRuntime
+<div style="position:fixed;height:100vh;width:100vw">
+    <MudStack  Style="width:100%;height:90%" Class="flex-grow-1" Justify="Justify.Center" AlignItems="AlignItems.Center"> 
+        <MudText>踏上0use的学习旅程!</MudText>
+    <MudButton Variant="Variant.Filled">前往</MudButton>
+     </MudStack>
+</div>
 @code
 {
-	private string[] labels = ["Dotnet全栈", "Unity", "MySql", "嵌入式", "其它"];
-	private double[] doubles = [45,25,10,10,10];
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+            JSRuntime.InvokeVoidAsync("window.hideAppbar");
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
 }
+<style>
+</style>
