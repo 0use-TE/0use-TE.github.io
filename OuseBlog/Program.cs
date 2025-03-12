@@ -2,9 +2,12 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor;
 using MudBlazor.Services;
+using MudBlazor.Translations;
 using OuseBlog;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
+
+builder.Services.AddMudTranslations();
 
 builder.Services.AddMudServices(config=>config.SnackbarConfiguration=new SnackbarConfiguration
 {

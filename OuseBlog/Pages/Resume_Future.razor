@@ -1,4 +1,5 @@
-﻿<MudPaper Outlined Style="min-height:400px" Class="pa-4">
+﻿@using OuseBlog.Componments
+<MudPaper Outlined Style="min-height:400px" Class="pa-4">
     @foreach (var item in content.Select((value,index)=>new {item=value,index=index }))
     {
         <ChatTemplate Index=item.index P="@item.item.P" Ouse="@item.item.Ouse"></ChatTemplate>

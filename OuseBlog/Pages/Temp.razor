@@ -1,24 +1,17 @@
 ﻿@page "/temp"  
+@using OuseBlog.Componments
 
-<Width xs="12" sm="10">
-    <div style="height:90vh" class="d-flex flex-column justify-center">
-    <MudGrid Class="" >
-        <MudItem xs="12" sm="6">
-            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Style="width:100%;aspect-ratio:2;background-color:red">
-            </MudImage>
-        </MudItem>
-        <MudItem xs="12" sm="6">
-            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Style="width:100%;aspect-ratio:2;background-color:red">
-            </MudImage>
-        </MudItem>
-        <MudItem xs="12" sm="6">
-            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Style="width:100%;aspect-ratio:2;background-color:red">
-            </MudImage>
-        </MudItem>
-        <MudItem xs="12" sm="6">
-            <MudImage ObjectFit="ObjectFit.Cover" ObjectPosition="ObjectPosition.Center" Style="width:100%;aspect-ratio:2;background-color:red">
-            </MudImage>
-        </MudItem>
-    </MudGrid>
-    </div>
-</Width>
+<MudPaper Outlined Style="min-height:400px mt-4">
+    <MudTimeline TimelineOrientation="TimelineOrientation.Vertical">
+        <TimeLineTemplate Time="2022" Content="卧槽" Title="逆天"></TimeLineTemplate>
+    <TimeLineTemplate Time="2022" Content="卧槽" Title="逆天"></TimeLineTemplate>
+    <TimeLineTemplate Time="2022" Content="卧槽" Title="逆天"></TimeLineTemplate>
+        <TimeLineTemplate Time="2022" Content="卧槽" Title="逆天"></TimeLineTemplate>
+        <TimeLineTemplate Time="2022" Content="卧槽" Title="逆天"></TimeLineTemplate>
+    </MudTimeline>
+
+</MudPaper>
+@code
+{
+
+}
