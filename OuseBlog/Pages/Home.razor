@@ -53,7 +53,7 @@
             <!-- 博客卡片 -->
             <MudItem xs="12" sm="4" Class="d-flex" >
                 <Animate Animation="Animations.FadeIn" DurationMs="2000">
-                    <MudCard Elevation="4" Class="card" @onclick="@(() => LoadToPage("blog"))">
+                    <MudCard Elevation="4" Class="card" @onclick="@(() => LoadToPage("blog"))" Style="height:100%">
                         <MudCardHeader>
                             <MudText Typo="Typo.h6">博客</MudText>
                             <MudIcon Class="ml-auto" Icon="@Icons.Material.Rounded.Article"></MudIcon> <!-- 博客图标 -->
@@ -71,7 +71,7 @@
             <!-- 开源卡片 -->
             <MudItem xs="12" sm="4" Class="d-flex">
                 <Animate Animation="Animations.FadeIn" DurationMs="2000">
-                    <MudCard Elevation="4" Class="card" @onclick="@(() => LoadToPage("opensource"))">
+                    <MudCard Elevation="4" Class="card" @onclick="@(() => LoadToPage("opensource"))" Style="height:100%">
                         <MudCardHeader>
                             <MudText Typo="Typo.h6">开源</MudText>
                             <MudIcon Class="ml-auto" Icon="@Icons.Material.Rounded.Public"></MudIcon> <!-- 开源图标 -->
@@ -89,7 +89,7 @@
             <!-- 简历卡片 -->
             <MudItem xs="12" sm="4" Class="d-flex">
                 <Animate Animation="Animations.FadeIn" DurationMs="2000">
-                    <MudCard Elevation="4" Class="card" @onclick="@(()=>LoadToPage("resume"))" >
+                    <MudCard Elevation="4" Class="card" @onclick="@(()=>LoadToPage("resume"))" Style="height:100%">
                         <MudCardHeader>
                             <MudText Typo="Typo.h6">简历</MudText>
                             <MudIcon Class="ml-auto" Icon="@Icons.Material.Rounded.PersonPin"></MudIcon> <!-- 简历图标 -->

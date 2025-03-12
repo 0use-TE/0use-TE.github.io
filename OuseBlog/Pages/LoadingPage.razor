@@ -19,7 +19,7 @@
     public string? url{ get; set; }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await Task.Delay(2000);
+        await Task.Delay(1000);
             Navigation.NavigateTo($"/{url}",replace:true);
         await base.OnAfterRenderAsync(firstRender);
     }

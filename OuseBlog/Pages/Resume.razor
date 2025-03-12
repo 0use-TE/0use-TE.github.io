@@ -1,9 +1,17 @@
 ﻿@page "/resume"
 @inject IJSRuntime JSRuntime
 <div style="position:fixed;height:100vh;width:100vw">
-    <MudStack  Style="width:100%;height:90%" Class="flex-grow-1" Justify="Justify.Center" AlignItems="AlignItems.Center"> 
-        <MudText>踏上0use的学习旅程!</MudText>
-    <MudButton Variant="Variant.Filled">前往</MudButton>
+    <MudStack  Style="width:100%;height:90%" Class="flex-grow-1" Justify="Justify.Center" AlignItems="AlignItems.Center">
+       <Animate Animation="Animations.FadeIn" DurationMs="500" >
+        <MudText Typo="Typo.h3" Align="Align.Center"  Class="text pb-10"  Style="" Color="Color.Primary">从
+            <MudText Inline Typo="Typo.h4" Style="color:rebeccapurple">0</MudText>到Use</MudText>
+       </Animate>
+        <Animate  DurationMs="500" Animation="Animations.FadeIn" >
+        <MudText Typo="Typo.h6" Style="font-weight:800" >踏上0use的学习旅程!</MudText>
+      </Animate>
+        <Animate DurationMs="600" DelayMs="500" Animation="Animations.SlideUp" class="shake-element">
+    <MudButton Variant="Variant.Outlined" >前往</MudButton>
+      </Animate>
      </MudStack>
 </div>
 @code
@@ -18,4 +26,5 @@
     }
 }
 <style>
+
 </style>
