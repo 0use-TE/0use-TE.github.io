@@ -1,0 +1,60 @@
+/* /Pages/Resume.razor.rz.scp.css */
+@keyframes shake-b-fptx3m0ld4 {
+    0% {
+        transform: translate(0, 0); /* 初始位置 */
+    }
+
+    10% {
+        transform: translate(-5px, 5px); /* 左上抖动 */
+    }
+
+    20% {
+        transform: translate(0, 0); /* 回到原位 */
+    }
+
+    30% {
+        transform: translate(5px, 5px); /* 右上抖动 */
+    }
+
+    40% {
+        transform: translate(0, 0); /* 回到原位 */
+    }
+
+    50% {
+        transform: translate(5px, -5px); /* 右下抖动 */
+    }
+
+    60% {
+        transform: translate(0, 0); /* 回到原位 */
+    }
+
+    70% {
+        transform: translate(-5px, -5px); /* 左下抖动 */
+    }
+
+    80% {
+        transform: translate(0, 0); /* 回到原位 */
+    }
+
+    100% {
+        transform: translate(0, 0); /* 结束时回到原位 */
+    }
+}
+
+[b-fptx3m0ld4] .shake-element :hover{
+    animation: shake-b-fptx3m0ld4 1s infinite;
+    transform:scale(1.2);
+}
+[b-fptx3m0ld4] .gradient-text {
+    background: linear-gradient(to right, #ff0000, #ffff00);
+}
+[b-fptx3m0ld4] .text {
+    font-weight: 800;
+    letter-spacing: calc( 4px);
+    transition: all 0.3s ease-in-out;
+}
+
+ [b-fptx3m0ld4]   .text:hover {
+        letter-spacing: calc( 6px);
+    }
+
