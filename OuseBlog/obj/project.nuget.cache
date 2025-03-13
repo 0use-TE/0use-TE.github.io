@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "D7FfgWJSi78=",
+  "dgSpecHash": "gp8dehLmZjs=",
   "success": true,
   "projectFilePath": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
   "expectedPackageFiles": [
@@ -35,8 +35,7 @@
     "C:\\Users\\22165\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.2\\microsoft.net.sdk.webassembly.pack.9.0.2.nupkg.sha512",
     "C:\\Users\\22165\\.nuget\\packages\\minver\\2.0.0\\minver.2.0.0.nupkg.sha512",
     "C:\\Users\\22165\\.nuget\\packages\\mudblazor\\8.3.0\\mudblazor.8.3.0.nupkg.sha512",
-    "C:\\Users\\22165\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
-    "C:\\Users\\22165\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.13\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.13.nupkg.sha512"
+    "C:\\Users\\22165\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

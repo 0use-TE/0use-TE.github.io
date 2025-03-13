@@ -23,3 +23,12 @@
         </div>
     </div>
 </MudPaper>
+@code{
+    protected override  async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await    InvokeAsync(StateHasChanged);   
+        }
+    }
+}
