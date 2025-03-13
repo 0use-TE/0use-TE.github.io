@@ -552,6 +552,108 @@
           "buildMultiTargeting/MudBlazor.Markdown.props": {}
         }
       },
+      "MudBlazor.Translations/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "MudBlazor": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/MudBlazor.Translations.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MudBlazor.Translations.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "resource": {
+          "lib/net8.0/ar/MudBlazor.Translations.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net8.0/da/MudBlazor.Translations.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net8.0/de/MudBlazor.Translations.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0/es/MudBlazor.Translations.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0/fa/MudBlazor.Translations.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/net8.0/fi/MudBlazor.Translations.resources.dll": {
+            "locale": "fi"
+          },
+          "lib/net8.0/fr/MudBlazor.Translations.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0/hr/MudBlazor.Translations.resources.dll": {
+            "locale": "hr"
+          },
+          "lib/net8.0/hu/MudBlazor.Translations.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net8.0/it/MudBlazor.Translations.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0/ku/MudBlazor.Translations.resources.dll": {
+            "locale": "ku"
+          },
+          "lib/net8.0/lb/MudBlazor.Translations.resources.dll": {
+            "locale": "lb"
+          },
+          "lib/net8.0/lv/MudBlazor.Translations.resources.dll": {
+            "locale": "lv"
+          },
+          "lib/net8.0/nb-NO/MudBlazor.Translations.resources.dll": {
+            "locale": "nb-NO"
+          },
+          "lib/net8.0/nl/MudBlazor.Translations.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net8.0/pl/MudBlazor.Translations.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0/pt-BR/MudBlazor.Translations.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0/pt/MudBlazor.Translations.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net8.0/ru/MudBlazor.Translations.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0/sk/MudBlazor.Translations.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net8.0/sv/MudBlazor.Translations.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net8.0/ta/MudBlazor.Translations.resources.dll": {
+            "locale": "ta"
+          },
+          "lib/net8.0/tr/MudBlazor.Translations.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0/uk/MudBlazor.Translations.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/net8.0/ur/MudBlazor.Translations.resources.dll": {
+            "locale": "ur"
+          },
+          "lib/net8.0/uz/MudBlazor.Translations.resources.dll": {
+            "locale": "uz"
+          },
+          "lib/net8.0/vi/MudBlazor.Translations.resources.dll": {
+            "locale": "vi"
+          },
+          "lib/net8.0/zh-Hans/MudBlazor.Translations.resources.dll": {
+            "locale": "zh-Hans"
+          }
+        }
+      },
       "System.IO.Pipelines/8.0.0": {
         "type": "package",
         "compile": {
@@ -1118,6 +1220,108 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/MudBlazor.Markdown.props": {}
+        }
+      },
+      "MudBlazor.Translations/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "MudBlazor": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/MudBlazor.Translations.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MudBlazor.Translations.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "resource": {
+          "lib/net8.0/ar/MudBlazor.Translations.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net8.0/da/MudBlazor.Translations.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net8.0/de/MudBlazor.Translations.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0/es/MudBlazor.Translations.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0/fa/MudBlazor.Translations.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/net8.0/fi/MudBlazor.Translations.resources.dll": {
+            "locale": "fi"
+          },
+          "lib/net8.0/fr/MudBlazor.Translations.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0/hr/MudBlazor.Translations.resources.dll": {
+            "locale": "hr"
+          },
+          "lib/net8.0/hu/MudBlazor.Translations.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net8.0/it/MudBlazor.Translations.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0/ku/MudBlazor.Translations.resources.dll": {
+            "locale": "ku"
+          },
+          "lib/net8.0/lb/MudBlazor.Translations.resources.dll": {
+            "locale": "lb"
+          },
+          "lib/net8.0/lv/MudBlazor.Translations.resources.dll": {
+            "locale": "lv"
+          },
+          "lib/net8.0/nb-NO/MudBlazor.Translations.resources.dll": {
+            "locale": "nb-NO"
+          },
+          "lib/net8.0/nl/MudBlazor.Translations.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net8.0/pl/MudBlazor.Translations.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0/pt-BR/MudBlazor.Translations.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0/pt/MudBlazor.Translations.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net8.0/ru/MudBlazor.Translations.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0/sk/MudBlazor.Translations.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net8.0/sv/MudBlazor.Translations.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net8.0/ta/MudBlazor.Translations.resources.dll": {
+            "locale": "ta"
+          },
+          "lib/net8.0/tr/MudBlazor.Translations.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0/uk/MudBlazor.Translations.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/net8.0/ur/MudBlazor.Translations.resources.dll": {
+            "locale": "ur"
+          },
+          "lib/net8.0/uz/MudBlazor.Translations.resources.dll": {
+            "locale": "uz"
+          },
+          "lib/net8.0/vi/MudBlazor.Translations.resources.dll": {
+            "locale": "vi"
+          },
+          "lib/net8.0/zh-Hans/MudBlazor.Translations.resources.dll": {
+            "locale": "zh-Hans"
+          }
         }
       },
       "System.IO.Pipelines/8.0.0": {
@@ -2459,6 +2663,81 @@
         "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Zero.woff"
       ]
     },
+    "MudBlazor.Translations/2.2.0": {
+      "sha512": "L/CJq3y1RoZyyq0XSF/VHnj3BC+z85KLJR2h6BgQTr+a8aCubK6LKwVSj5IlO/BIVXdHuVDqboRq9GB+ookMOw==",
+      "type": "package",
+      "path": "mudblazor.translations/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net8.0/MudBlazor.Translations.dll",
+        "lib/net8.0/MudBlazor.Translations.pdb",
+        "lib/net8.0/MudBlazor.Translations.xml",
+        "lib/net8.0/ar/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/da/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/de/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/es/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/fa/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/fi/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/fr/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/hr/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/hu/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/it/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/ku/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/lb/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/lv/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/nb-NO/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/nl/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/pl/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/pt-BR/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/pt/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/ru/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/sk/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/sv/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/ta/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/tr/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/uk/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/ur/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/uz/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/vi/MudBlazor.Translations.resources.dll",
+        "lib/net8.0/zh-Hans/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/MudBlazor.Translations.dll",
+        "lib/net9.0/MudBlazor.Translations.pdb",
+        "lib/net9.0/MudBlazor.Translations.xml",
+        "lib/net9.0/ar/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/da/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/de/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/es/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/fa/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/fi/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/fr/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/hr/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/hu/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/it/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/ku/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/lb/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/lv/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/nb-NO/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/nl/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/pl/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/pt-BR/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/pt/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/ru/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/sk/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/sv/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/ta/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/tr/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/uk/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/ur/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/uz/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/vi/MudBlazor.Translations.resources.dll",
+        "lib/net9.0/zh-Hans/MudBlazor.Translations.resources.dll",
+        "mudblazor.translations.2.2.0.nupkg.sha512",
+        "mudblazor.translations.nuspec"
+      ]
+    },
     "System.IO.Pipelines/8.0.0": {
       "sha512": "FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA==",
       "type": "package",
@@ -2497,7 +2776,8 @@
       "Microsoft.NET.ILLink.Tasks >= 8.0.13",
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.2",
       "MudBlazor >= 8.3.0",
-      "MudBlazor.Markdown >= 8.0.0"
+      "MudBlazor.Markdown >= 8.0.0",
+      "MudBlazor.Translations >= 2.2.0"
     ]
   },
   "packageFolders": {
@@ -2583,6 +2863,10 @@
           "MudBlazor.Markdown": {
             "target": "Package",
             "version": "[8.0.0, )"
+          },
+          "MudBlazor.Translations": {
+            "target": "Package",
+            "version": "[2.2.0, )"
           }
         },
         "imports": [
@@ -2596,12 +2880,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[8.0.13, 8.0.13]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
