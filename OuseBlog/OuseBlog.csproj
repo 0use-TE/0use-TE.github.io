@@ -4,8 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
-
+  <RunAotCompilation>false</RunAotCompilation>
+    <InvariantTimezone>true</InvariantTimezone>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,8 +20,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.13" PrivateAssets="all" />
     <PackageReference Include="MudBlazor" Version="8.3.0" />
-    <PackageReference Include="MudBlazor.Markdown" Version="8.0.0" />
-    <PackageReference Include="MudBlazor.Translations" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
