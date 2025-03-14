@@ -1,17 +1,14 @@
 ﻿@page "/temp"  
-@using OuseBlog.Componments
+@inject HttpClient HttpClient
+<Width xs="11"md="6" >
+<MudMarkdown Value="@text" >
+</MudMarkdown>
+</Width>
 
-<MudPaper Outlined Style="min-height:400px mt-4">
-    <MudTimeline TimelineOrientation="TimelineOrientation.Vertical">
-        <TimeLineTemplate Time="2022" Content="卧槽" Title="逆天"></TimeLineTemplate>
-    <TimeLineTemplate Time="2022" Content="卧槽" Title="逆天"></TimeLineTemplate>
-    <TimeLineTemplate Time="2022" Content="卧槽" Title="逆天"></TimeLineTemplate>
-        <TimeLineTemplate Time="2022" Content="卧槽" Title="逆天"></TimeLineTemplate>
-        <TimeLineTemplate Time="2022" Content="卧槽" Title="逆天"></TimeLineTemplate>
-    </MudTimeline>
-
-</MudPaper>
-@code
-{
-
+@code{
+    private string text=string.Empty;
+    protected override async Task OnInitializedAsync()
+    {
+        text= await HttpClient.GetStringAsync("blog/英语学习笔记/英语学习.md");
+    }
 }

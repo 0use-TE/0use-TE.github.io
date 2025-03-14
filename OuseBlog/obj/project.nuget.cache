@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "gp8dehLmZjs=",
+  "dgSpecHash": "ttdxbllJGj0=",
   "success": true,
   "projectFilePath": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\22165\\.nuget\\packages\\blazoranimate\\3.0.0\\blazoranimate.3.0.0.nupkg.sha512",
+    "C:\\Users\\22165\\.nuget\\packages\\markdig\\0.40.0\\markdig.0.40.0.nupkg.sha512",
     "C:\\Users\\22165\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.13\\microsoft.aspnetcore.authorization.8.0.13.nupkg.sha512",
     "C:\\Users\\22165\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.13\\microsoft.aspnetcore.components.8.0.13.nupkg.sha512",
     "C:\\Users\\22165\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.13\\microsoft.aspnetcore.components.analyzers.8.0.13.nupkg.sha512",
@@ -35,6 +36,7 @@
     "C:\\Users\\22165\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.2\\microsoft.net.sdk.webassembly.pack.9.0.2.nupkg.sha512",
     "C:\\Users\\22165\\.nuget\\packages\\minver\\2.0.0\\minver.2.0.0.nupkg.sha512",
     "C:\\Users\\22165\\.nuget\\packages\\mudblazor\\8.3.0\\mudblazor.8.3.0.nupkg.sha512",
+    "C:\\Users\\22165\\.nuget\\packages\\mudblazor.markdown\\8.0.0\\mudblazor.markdown.8.0.0.nupkg.sha512",
     "C:\\Users\\22165\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512"
   ],
   "logs": []

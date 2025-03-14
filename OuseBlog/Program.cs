@@ -12,6 +12,8 @@ builder.RootComponents.Add<App>("#app");
 
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
+builder.Services.AddMudMarkdownServices();
+
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 builder.Services.AddMudServices(config => config.SnackbarConfiguration = new SnackbarConfiguration

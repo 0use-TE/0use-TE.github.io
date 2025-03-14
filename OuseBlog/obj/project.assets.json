@@ -22,6 +22,19 @@
           "buildMultiTargeting/BlazorAnimate.props": {}
         }
       },
+      "Markdig/0.40.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authorization/8.0.13": {
         "type": "package",
         "dependencies": {
@@ -518,6 +531,25 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
+      "MudBlazor.Markdown/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Markdig": "0.40.0",
+          "MudBlazor": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/MudBlazor.Markdown.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/MudBlazor.Markdown.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.Markdown.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.Markdown.props": {}
         }
       },
       "System.IO.Pipelines/8.0.0": {
@@ -558,6 +590,19 @@
           "buildMultiTargeting/BlazorAnimate.props": {}
         }
       },
+      "Markdig/0.40.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authorization/8.0.13": {
         "type": "package",
         "dependencies": {
@@ -1056,6 +1101,25 @@
           "buildMultiTargeting/MudBlazor.props": {}
         }
       },
+      "MudBlazor.Markdown/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Markdig": "0.40.0",
+          "MudBlazor": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/MudBlazor.Markdown.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/MudBlazor.Markdown.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.Markdown.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.Markdown.props": {}
+        }
+      },
       "System.IO.Pipelines/8.0.0": {
         "type": "package",
         "compile": {
@@ -1091,6 +1155,29 @@
         "lib/netstandard2.0/BlazorAnimate.dll",
         "staticwebassets/aos.css",
         "staticwebassets/blazorAnimateInterop.js"
+      ]
+    },
+    "Markdig/0.40.0": {
+      "sha512": "4ve14zs+gt1irldTQE3y5FLAHuzmhW7T99lAAvVipe/q2LWT/nUCO0iICb9TXGvMX6n7Z1OZroFXkdSy91rO8w==",
+      "type": "package",
+      "path": "markdig/0.40.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/Markdig.dll",
+        "lib/net462/Markdig.xml",
+        "lib/net8.0/Markdig.dll",
+        "lib/net8.0/Markdig.xml",
+        "lib/net9.0/Markdig.dll",
+        "lib/net9.0/Markdig.xml",
+        "lib/netstandard2.0/Markdig.dll",
+        "lib/netstandard2.0/Markdig.xml",
+        "lib/netstandard2.1/Markdig.dll",
+        "lib/netstandard2.1/Markdig.xml",
+        "markdig.0.40.0.nupkg.sha512",
+        "markdig.nuspec",
+        "markdig.png",
+        "readme.md"
       ]
     },
     "Microsoft.AspNetCore.Authorization/8.0.13": {
@@ -2082,6 +2169,296 @@
         "staticwebassets/MudBlazor.min.js"
       ]
     },
+    "MudBlazor.Markdown/8.0.0": {
+      "sha512": "0DcXQFEIgKJsaMCDva0Ck3gempoctyc7s8GLK5VagozlZdXql6W4SKX/imM/NfyfV7SxLrUTRJyLJX0Te+02sQ==",
+      "type": "package",
+      "path": "mudblazor.markdown/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/MudBlazor.Markdown.props",
+        "buildMultiTargeting/MudBlazor.Markdown.props",
+        "buildTransitive/MudBlazor.Markdown.props",
+        "favico.png",
+        "lib/net8.0/MudBlazor.Markdown.dll",
+        "lib/net9.0/MudBlazor.Markdown.dll",
+        "mudblazor.markdown.8.0.0.nupkg.sha512",
+        "mudblazor.markdown.nuspec",
+        "staticwebassets/MudBlazor.Markdown.MathJax.min.js",
+        "staticwebassets/MudBlazor.Markdown.min.css",
+        "staticwebassets/MudBlazor.Markdown.min.js",
+        "staticwebassets/code-styles/a11y-dark.min.css",
+        "staticwebassets/code-styles/a11y-light.min.css",
+        "staticwebassets/code-styles/agate.min.css",
+        "staticwebassets/code-styles/an-old-hope.min.css",
+        "staticwebassets/code-styles/androidstudio.min.css",
+        "staticwebassets/code-styles/arduino-light.min.css",
+        "staticwebassets/code-styles/arta.min.css",
+        "staticwebassets/code-styles/ascetic.min.css",
+        "staticwebassets/code-styles/atom-one-dark-reasonable.min.css",
+        "staticwebassets/code-styles/atom-one-dark.min.css",
+        "staticwebassets/code-styles/atom-one-light.min.css",
+        "staticwebassets/code-styles/base16/apathy.min.css",
+        "staticwebassets/code-styles/base16/apprentice.min.css",
+        "staticwebassets/code-styles/base16/ashes.min.css",
+        "staticwebassets/code-styles/base16/atelier-cave-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-cave.min.css",
+        "staticwebassets/code-styles/base16/atelier-dune-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-dune.min.css",
+        "staticwebassets/code-styles/base16/atelier-estuary-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-estuary.min.css",
+        "staticwebassets/code-styles/base16/atelier-forest-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-forest.min.css",
+        "staticwebassets/code-styles/base16/atelier-heath-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-heath.min.css",
+        "staticwebassets/code-styles/base16/atelier-lakeside-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-lakeside.min.css",
+        "staticwebassets/code-styles/base16/atelier-plateau-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-plateau.min.css",
+        "staticwebassets/code-styles/base16/atelier-savanna-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-savanna.min.css",
+        "staticwebassets/code-styles/base16/atelier-seaside-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-seaside.min.css",
+        "staticwebassets/code-styles/base16/atelier-sulphurpool-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-sulphurpool.min.css",
+        "staticwebassets/code-styles/base16/atlas.min.css",
+        "staticwebassets/code-styles/base16/bespin.min.css",
+        "staticwebassets/code-styles/base16/black-metal-bathory.min.css",
+        "staticwebassets/code-styles/base16/black-metal-burzum.min.css",
+        "staticwebassets/code-styles/base16/black-metal-dark-funeral.min.css",
+        "staticwebassets/code-styles/base16/black-metal-gorgoroth.min.css",
+        "staticwebassets/code-styles/base16/black-metal-immortal.min.css",
+        "staticwebassets/code-styles/base16/black-metal-khold.min.css",
+        "staticwebassets/code-styles/base16/black-metal-marduk.min.css",
+        "staticwebassets/code-styles/base16/black-metal-mayhem.min.css",
+        "staticwebassets/code-styles/base16/black-metal-nile.min.css",
+        "staticwebassets/code-styles/base16/black-metal-venom.min.css",
+        "staticwebassets/code-styles/base16/black-metal.min.css",
+        "staticwebassets/code-styles/base16/brewer.min.css",
+        "staticwebassets/code-styles/base16/bright.min.css",
+        "staticwebassets/code-styles/base16/brogrammer.min.css",
+        "staticwebassets/code-styles/base16/brush-trees-dark.min.css",
+        "staticwebassets/code-styles/base16/brush-trees.min.css",
+        "staticwebassets/code-styles/base16/chalk.min.css",
+        "staticwebassets/code-styles/base16/circus.min.css",
+        "staticwebassets/code-styles/base16/classic-dark.min.css",
+        "staticwebassets/code-styles/base16/classic-light.min.css",
+        "staticwebassets/code-styles/base16/codeschool.min.css",
+        "staticwebassets/code-styles/base16/colors.min.css",
+        "staticwebassets/code-styles/base16/cupcake.min.css",
+        "staticwebassets/code-styles/base16/cupertino.min.css",
+        "staticwebassets/code-styles/base16/danqing.min.css",
+        "staticwebassets/code-styles/base16/darcula.min.css",
+        "staticwebassets/code-styles/base16/dark-violet.min.css",
+        "staticwebassets/code-styles/base16/darkmoss.min.css",
+        "staticwebassets/code-styles/base16/darktooth.min.css",
+        "staticwebassets/code-styles/base16/decaf.min.css",
+        "staticwebassets/code-styles/base16/default-dark.min.css",
+        "staticwebassets/code-styles/base16/default-light.min.css",
+        "staticwebassets/code-styles/base16/dirtysea.min.css",
+        "staticwebassets/code-styles/base16/dracula.min.css",
+        "staticwebassets/code-styles/base16/edge-dark.min.css",
+        "staticwebassets/code-styles/base16/edge-light.min.css",
+        "staticwebassets/code-styles/base16/eighties.min.css",
+        "staticwebassets/code-styles/base16/embers.min.css",
+        "staticwebassets/code-styles/base16/equilibrium-dark.min.css",
+        "staticwebassets/code-styles/base16/equilibrium-gray-dark.min.css",
+        "staticwebassets/code-styles/base16/equilibrium-gray-light.min.css",
+        "staticwebassets/code-styles/base16/equilibrium-light.min.css",
+        "staticwebassets/code-styles/base16/espresso.min.css",
+        "staticwebassets/code-styles/base16/eva-dim.min.css",
+        "staticwebassets/code-styles/base16/eva.min.css",
+        "staticwebassets/code-styles/base16/flat.min.css",
+        "staticwebassets/code-styles/base16/framer.min.css",
+        "staticwebassets/code-styles/base16/fruit-soda.min.css",
+        "staticwebassets/code-styles/base16/gigavolt.min.css",
+        "staticwebassets/code-styles/base16/github.min.css",
+        "staticwebassets/code-styles/base16/google-dark.min.css",
+        "staticwebassets/code-styles/base16/google-light.min.css",
+        "staticwebassets/code-styles/base16/grayscale-dark.min.css",
+        "staticwebassets/code-styles/base16/grayscale-light.min.css",
+        "staticwebassets/code-styles/base16/green-screen.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-dark-hard.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-dark-medium.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-dark-pale.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-dark-soft.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-light-hard.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-light-medium.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-light-soft.min.css",
+        "staticwebassets/code-styles/base16/hardcore.min.css",
+        "staticwebassets/code-styles/base16/harmonic16-dark.min.css",
+        "staticwebassets/code-styles/base16/harmonic16-light.min.css",
+        "staticwebassets/code-styles/base16/heetch-dark.min.css",
+        "staticwebassets/code-styles/base16/heetch-light.min.css",
+        "staticwebassets/code-styles/base16/helios.min.css",
+        "staticwebassets/code-styles/base16/hopscotch.min.css",
+        "staticwebassets/code-styles/base16/horizon-dark.min.css",
+        "staticwebassets/code-styles/base16/horizon-light.min.css",
+        "staticwebassets/code-styles/base16/humanoid-dark.min.css",
+        "staticwebassets/code-styles/base16/humanoid-light.min.css",
+        "staticwebassets/code-styles/base16/ia-dark.min.css",
+        "staticwebassets/code-styles/base16/ia-light.min.css",
+        "staticwebassets/code-styles/base16/icy-dark.min.css",
+        "staticwebassets/code-styles/base16/ir-black.min.css",
+        "staticwebassets/code-styles/base16/isotope.min.css",
+        "staticwebassets/code-styles/base16/kimber.min.css",
+        "staticwebassets/code-styles/base16/london-tube.min.css",
+        "staticwebassets/code-styles/base16/macintosh.min.css",
+        "staticwebassets/code-styles/base16/marrakesh.min.css",
+        "staticwebassets/code-styles/base16/materia.min.css",
+        "staticwebassets/code-styles/base16/material-darker.min.css",
+        "staticwebassets/code-styles/base16/material-lighter.min.css",
+        "staticwebassets/code-styles/base16/material-palenight.min.css",
+        "staticwebassets/code-styles/base16/material-vivid.min.css",
+        "staticwebassets/code-styles/base16/material.min.css",
+        "staticwebassets/code-styles/base16/mellow-purple.min.css",
+        "staticwebassets/code-styles/base16/mexico-light.min.css",
+        "staticwebassets/code-styles/base16/mocha.min.css",
+        "staticwebassets/code-styles/base16/monokai.min.css",
+        "staticwebassets/code-styles/base16/nebula.min.css",
+        "staticwebassets/code-styles/base16/nord.min.css",
+        "staticwebassets/code-styles/base16/nova.min.css",
+        "staticwebassets/code-styles/base16/ocean.min.css",
+        "staticwebassets/code-styles/base16/oceanicnext.min.css",
+        "staticwebassets/code-styles/base16/one-light.min.css",
+        "staticwebassets/code-styles/base16/onedark.min.css",
+        "staticwebassets/code-styles/base16/outrun-dark.min.css",
+        "staticwebassets/code-styles/base16/papercolor-dark.min.css",
+        "staticwebassets/code-styles/base16/papercolor-light.min.css",
+        "staticwebassets/code-styles/base16/paraiso.min.css",
+        "staticwebassets/code-styles/base16/pasque.min.css",
+        "staticwebassets/code-styles/base16/phd.min.css",
+        "staticwebassets/code-styles/base16/pico.min.css",
+        "staticwebassets/code-styles/base16/pop.min.css",
+        "staticwebassets/code-styles/base16/porple.min.css",
+        "staticwebassets/code-styles/base16/qualia.min.css",
+        "staticwebassets/code-styles/base16/railscasts.min.css",
+        "staticwebassets/code-styles/base16/rebecca.min.css",
+        "staticwebassets/code-styles/base16/ros-pine-dawn.min.css",
+        "staticwebassets/code-styles/base16/ros-pine-moon.min.css",
+        "staticwebassets/code-styles/base16/ros-pine.min.css",
+        "staticwebassets/code-styles/base16/sagelight.min.css",
+        "staticwebassets/code-styles/base16/sandcastle.min.css",
+        "staticwebassets/code-styles/base16/seti-ui.min.css",
+        "staticwebassets/code-styles/base16/shapeshifter.min.css",
+        "staticwebassets/code-styles/base16/silk-dark.min.css",
+        "staticwebassets/code-styles/base16/silk-light.min.css",
+        "staticwebassets/code-styles/base16/snazzy.min.css",
+        "staticwebassets/code-styles/base16/solar-flare-light.min.css",
+        "staticwebassets/code-styles/base16/solar-flare.min.css",
+        "staticwebassets/code-styles/base16/solarized-dark.min.css",
+        "staticwebassets/code-styles/base16/solarized-light.min.css",
+        "staticwebassets/code-styles/base16/spacemacs.min.css",
+        "staticwebassets/code-styles/base16/summercamp.min.css",
+        "staticwebassets/code-styles/base16/summerfruit-dark.min.css",
+        "staticwebassets/code-styles/base16/summerfruit-light.min.css",
+        "staticwebassets/code-styles/base16/synth-midnight-terminal-dark.min.css",
+        "staticwebassets/code-styles/base16/synth-midnight-terminal-light.min.css",
+        "staticwebassets/code-styles/base16/t3024.min.css",
+        "staticwebassets/code-styles/base16/tango.min.css",
+        "staticwebassets/code-styles/base16/tender.min.css",
+        "staticwebassets/code-styles/base16/tomorrow-night.min.css",
+        "staticwebassets/code-styles/base16/tomorrow.min.css",
+        "staticwebassets/code-styles/base16/twilight.min.css",
+        "staticwebassets/code-styles/base16/unikitty-dark.min.css",
+        "staticwebassets/code-styles/base16/unikitty-light.min.css",
+        "staticwebassets/code-styles/base16/vulcan.min.css",
+        "staticwebassets/code-styles/base16/windows-10-light.min.css",
+        "staticwebassets/code-styles/base16/windows-10.min.css",
+        "staticwebassets/code-styles/base16/windows-95-light.min.css",
+        "staticwebassets/code-styles/base16/windows-95.min.css",
+        "staticwebassets/code-styles/base16/windows-high-contrast-light.min.css",
+        "staticwebassets/code-styles/base16/windows-high-contrast.min.css",
+        "staticwebassets/code-styles/base16/windows-nt-light.min.css",
+        "staticwebassets/code-styles/base16/windows-nt.min.css",
+        "staticwebassets/code-styles/base16/woodland.min.css",
+        "staticwebassets/code-styles/base16/xcode-dusk.min.css",
+        "staticwebassets/code-styles/base16/zenburn.min.css",
+        "staticwebassets/code-styles/brown-paper.min.css",
+        "staticwebassets/code-styles/brown-papersq.png",
+        "staticwebassets/code-styles/codepen-embed.min.css",
+        "staticwebassets/code-styles/color-brewer.min.css",
+        "staticwebassets/code-styles/dark.min.css",
+        "staticwebassets/code-styles/default.min.css",
+        "staticwebassets/code-styles/devibeans.min.css",
+        "staticwebassets/code-styles/docco.min.css",
+        "staticwebassets/code-styles/far.min.css",
+        "staticwebassets/code-styles/foundation.min.css",
+        "staticwebassets/code-styles/github-dark-dimmed.min.css",
+        "staticwebassets/code-styles/github-dark.min.css",
+        "staticwebassets/code-styles/github.min.css",
+        "staticwebassets/code-styles/gml.min.css",
+        "staticwebassets/code-styles/googlecode.min.css",
+        "staticwebassets/code-styles/gradient-dark.min.css",
+        "staticwebassets/code-styles/gradient-light.min.css",
+        "staticwebassets/code-styles/grayscale.min.css",
+        "staticwebassets/code-styles/hybrid.min.css",
+        "staticwebassets/code-styles/idea.min.css",
+        "staticwebassets/code-styles/ir-black.min.css",
+        "staticwebassets/code-styles/isbl-editor-dark.min.css",
+        "staticwebassets/code-styles/isbl-editor-light.min.css",
+        "staticwebassets/code-styles/kimbie-dark.min.css",
+        "staticwebassets/code-styles/kimbie-light.min.css",
+        "staticwebassets/code-styles/lightfair.min.css",
+        "staticwebassets/code-styles/lioshi.min.css",
+        "staticwebassets/code-styles/magula.min.css",
+        "staticwebassets/code-styles/mono-blue.min.css",
+        "staticwebassets/code-styles/monokai-sublime.min.css",
+        "staticwebassets/code-styles/monokai.min.css",
+        "staticwebassets/code-styles/night-owl.min.css",
+        "staticwebassets/code-styles/nnfx-dark.min.css",
+        "staticwebassets/code-styles/nnfx-light.min.css",
+        "staticwebassets/code-styles/nord.min.css",
+        "staticwebassets/code-styles/obsidian.min.css",
+        "staticwebassets/code-styles/paraiso-dark.min.css",
+        "staticwebassets/code-styles/paraiso-light.min.css",
+        "staticwebassets/code-styles/pojoaque.jpg",
+        "staticwebassets/code-styles/pojoaque.min.css",
+        "staticwebassets/code-styles/purebasic.min.css",
+        "staticwebassets/code-styles/qtcreator-dark.min.css",
+        "staticwebassets/code-styles/qtcreator-light.min.css",
+        "staticwebassets/code-styles/rainbow.min.css",
+        "staticwebassets/code-styles/routeros.min.css",
+        "staticwebassets/code-styles/school-book.min.css",
+        "staticwebassets/code-styles/shades-of-purple.min.css",
+        "staticwebassets/code-styles/srcery.min.css",
+        "staticwebassets/code-styles/stackoverflow-dark.min.css",
+        "staticwebassets/code-styles/stackoverflow-light.min.css",
+        "staticwebassets/code-styles/sunburst.min.css",
+        "staticwebassets/code-styles/tomorrow-night-blue.min.css",
+        "staticwebassets/code-styles/tomorrow-night-bright.min.css",
+        "staticwebassets/code-styles/vs.min.css",
+        "staticwebassets/code-styles/vs2015.min.css",
+        "staticwebassets/code-styles/xcode.min.css",
+        "staticwebassets/code-styles/xt256.min.css",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Zero.woff"
+      ]
+    },
     "System.IO.Pipelines/8.0.0": {
       "sha512": "FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA==",
       "type": "package",
@@ -2119,7 +2496,8 @@
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 8.0.13",
       "Microsoft.NET.ILLink.Tasks >= 8.0.13",
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.2",
-      "MudBlazor >= 8.3.0"
+      "MudBlazor >= 8.3.0",
+      "MudBlazor.Markdown >= 8.0.0"
     ]
   },
   "packageFolders": {
@@ -2200,6 +2578,10 @@
           "MudBlazor": {
             "target": "Package",
             "version": "[8.3.0, )"
+          },
+          "MudBlazor.Markdown": {
+            "target": "Package",
+            "version": "[8.0.0, )"
           }
         },
         "imports": [
