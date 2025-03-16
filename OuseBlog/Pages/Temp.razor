@@ -1,14 +1,10 @@
 ﻿@page "/temp"  
-@inject HttpClient HttpClient
-<Width xs="11"md="6" >
-<MudMarkdown Value="@text" >
-</MudMarkdown>
-</Width>
-
+@using OuseBlog.Models
+@inject IHttpClientFactory HttpClientFactory
 @code{
-    private string text=string.Empty;
+
     protected override async Task OnInitializedAsync()
     {
-        text= await HttpClient.GetStringAsync("blog/英语学习笔记/英语学习.md");
     }
+
 }
