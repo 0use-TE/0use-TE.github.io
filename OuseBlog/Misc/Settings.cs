@@ -10,6 +10,7 @@ namespace OuseBlog.Misc
             NoHeader = true,
             BackdropClick = true,
         };
-
+        public static string ProjectUrl { get; set; }=nameof(ProjectUrl);
+        public static string BlogUrl { get; set; } = nameof(BlogUrl);
     }
 }

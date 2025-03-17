@@ -16,6 +16,17 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddMudMarkdownServices();
 
+var config=builder.Configuration.Get<AppSettingsModel>();
+
+builder.Services.AddHttpClient(Settings.ProjectUrl, http =>
+    {
+        http.BaseAddress = new Uri(config?.ContentRootPath + "/Projects/");
+    });
+
+builder.Services.AddHttpClient(Settings.BlogUrl, http =>
+{
+    http.BaseAddress = new Uri(config?.ContentRootPath + "/Blogs/");
+});
 
 builder.Services.AddMudServices(config => config.SnackbarConfiguration = new SnackbarConfiguration
 {

@@ -1,5 +1,6 @@
 ﻿@page "/opensource"
 @using OuseBlog.Models
+@inject IHttpClientFactory HttpClientFactory
 <Width>
     <Animate DurationMs="500" Animation="Animations.SlideDown" DelayMs="200" class="mt-10">
         <MudText  Typo="Typo.h4" Align="Align.Center">欣赏Ouse的小玩意</MudText>
@@ -8,11 +9,20 @@
         <MudDivider></MudDivider>
     </Width>
 
+    @foreach(var item in projects)
+    {
+        @item.Name
+    }
 
 </Width>
 
 
 
 @code{
-    private List<ProjectModel> project = new List<ProjectModel>();
+    private List<ProjectModel> projects = new List<ProjectModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient= HttpClientFactory.CreateClient(Settings.ProjectUrl);
+        projects= await  httpClient.GetFromJsonAsync<List<ProjectModel>>("Project.json")??new List<ProjectModel>();
+    }
 }
