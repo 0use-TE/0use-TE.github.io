@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj": {}
+    "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj": {}
   },
   "projects": {
-    "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj": {
+    "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
+        "projectUniqueName": "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
         "projectName": "OuseBlog",
-        "projectPath": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
+        "projectPath": "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
         "packagesPath": "C:\\Users\\22165\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\obj\\publish\\browser-wasm\\",
+        "outputPath": "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\obj\\publish\\browser-wasm\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\SoftWare\\Visual Studio\\VS SDK\\NuGetPackages"
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -63,6 +64,10 @@
               "target": "Package",
               "version": "[8.0.13, )"
             },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
@@ -78,6 +83,10 @@
             "MudBlazor": {
               "target": "Package",
               "version": "[8.3.0, )"
+            },
+            "MudBlazor.Markdown": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [

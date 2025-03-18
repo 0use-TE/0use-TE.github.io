@@ -22,6 +22,19 @@
           "buildMultiTargeting/BlazorAnimate.props": {}
         }
       },
+      "Markdig/0.40.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authorization/8.0.13": {
         "type": "package",
         "dependencies": {
@@ -142,11 +155,11 @@
           }
         }
       },
-      "Microsoft.Extensions.Configuration/8.0.0": {
+      "Microsoft.Extensions.Configuration/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Primitives": "8.0.0"
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Primitives": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Configuration.dll": {
@@ -159,13 +172,13 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
+      "Microsoft.Extensions.Configuration.Abstractions/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "8.0.0"
+          "Microsoft.Extensions.Primitives": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
@@ -178,13 +191,13 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Binder/8.0.2": {
+      "Microsoft.Extensions.Configuration.Binder/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Configuration.Binder.dll": {
@@ -245,10 +258,10 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection/8.0.1": {
+      "Microsoft.Extensions.DependencyInjection/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
@@ -261,10 +274,10 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.3": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -277,7 +290,49 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "9.0.3",
+          "Microsoft.Extensions.Diagnostics.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "9.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.Abstractions/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Options": "9.0.3",
+          "System.Diagnostics.DiagnosticSource": "9.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "Microsoft.Extensions.FileProviders.Abstractions/8.0.0": {
@@ -336,6 +391,30 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "Microsoft.Extensions.Http/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.3",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Diagnostics": "9.0.3",
+          "Microsoft.Extensions.Logging": "9.0.3",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Options": "9.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Http.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Http.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Localization/8.0.12": {
         "type": "package",
         "dependencies": {
@@ -368,12 +447,12 @@
           }
         }
       },
-      "Microsoft.Extensions.Logging/8.0.1": {
+      "Microsoft.Extensions.Logging/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection": "8.0.1",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
-          "Microsoft.Extensions.Options": "8.0.2"
+          "Microsoft.Extensions.DependencyInjection": "9.0.3",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Options": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Logging.dll": {
@@ -386,13 +465,14 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+      "Microsoft.Extensions.Logging.Abstractions/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3",
+          "System.Diagnostics.DiagnosticSource": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
@@ -405,14 +485,14 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
+          "buildTransitive/net8.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
         }
       },
-      "Microsoft.Extensions.Options/8.0.2": {
+      "Microsoft.Extensions.Options/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Primitives": "8.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Primitives": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Options.dll": {
@@ -425,10 +505,33 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/Microsoft.Extensions.Options.targets": {}
+          "buildTransitive/net8.0/Microsoft.Extensions.Options.targets": {}
         }
       },
-      "Microsoft.Extensions.Primitives/8.0.0": {
+      "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Configuration.Binder": "9.0.3",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Options": "9.0.3",
+          "Microsoft.Extensions.Primitives": "9.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Primitives/9.0.3": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
@@ -441,7 +544,7 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "Microsoft.JSInterop/8.0.13": {
@@ -518,6 +621,48 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
+      "MudBlazor.Markdown/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Markdig": "0.40.0",
+          "MudBlazor": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/MudBlazor.Markdown.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/MudBlazor.Markdown.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.Markdown.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.Markdown.props": {}
+        }
+      },
+      "System.Diagnostics.DiagnosticSource/9.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
+            "related": ".xml"
+          }
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "System.IO.Pipelines/8.0.0": {
@@ -558,6 +703,19 @@
           "buildMultiTargeting/BlazorAnimate.props": {}
         }
       },
+      "Markdig/0.40.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authorization/8.0.13": {
         "type": "package",
         "dependencies": {
@@ -678,11 +836,11 @@
           }
         }
       },
-      "Microsoft.Extensions.Configuration/8.0.0": {
+      "Microsoft.Extensions.Configuration/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Primitives": "8.0.0"
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Primitives": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Configuration.dll": {
@@ -695,13 +853,13 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
+      "Microsoft.Extensions.Configuration.Abstractions/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "8.0.0"
+          "Microsoft.Extensions.Primitives": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
@@ -714,13 +872,13 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Binder/8.0.2": {
+      "Microsoft.Extensions.Configuration.Binder/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Configuration.Binder.dll": {
@@ -781,10 +939,10 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection/8.0.1": {
+      "Microsoft.Extensions.DependencyInjection/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
@@ -797,10 +955,10 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.3": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -813,7 +971,49 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "9.0.3",
+          "Microsoft.Extensions.Diagnostics.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "9.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.Abstractions/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Options": "9.0.3",
+          "System.Diagnostics.DiagnosticSource": "9.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "Microsoft.Extensions.FileProviders.Abstractions/8.0.0": {
@@ -872,6 +1072,30 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "Microsoft.Extensions.Http/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.3",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Diagnostics": "9.0.3",
+          "Microsoft.Extensions.Logging": "9.0.3",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Options": "9.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Http.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Http.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Localization/8.0.12": {
         "type": "package",
         "dependencies": {
@@ -904,12 +1128,12 @@
           }
         }
       },
-      "Microsoft.Extensions.Logging/8.0.1": {
+      "Microsoft.Extensions.Logging/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection": "8.0.1",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
-          "Microsoft.Extensions.Options": "8.0.2"
+          "Microsoft.Extensions.DependencyInjection": "9.0.3",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Options": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Logging.dll": {
@@ -922,13 +1146,14 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+      "Microsoft.Extensions.Logging.Abstractions/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3",
+          "System.Diagnostics.DiagnosticSource": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
@@ -941,14 +1166,14 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
+          "buildTransitive/net8.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
         }
       },
-      "Microsoft.Extensions.Options/8.0.2": {
+      "Microsoft.Extensions.Options/9.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Primitives": "8.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Primitives": "9.0.3"
         },
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Options.dll": {
@@ -961,10 +1186,33 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/Microsoft.Extensions.Options.targets": {}
+          "buildTransitive/net8.0/Microsoft.Extensions.Options.targets": {}
         }
       },
-      "Microsoft.Extensions.Primitives/8.0.0": {
+      "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Configuration.Binder": "9.0.3",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3",
+          "Microsoft.Extensions.Options": "9.0.3",
+          "Microsoft.Extensions.Primitives": "9.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Primitives/9.0.3": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
@@ -977,7 +1225,7 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "Microsoft.JSInterop/8.0.13": {
@@ -1056,6 +1304,48 @@
           "buildMultiTargeting/MudBlazor.props": {}
         }
       },
+      "MudBlazor.Markdown/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Markdig": "0.40.0",
+          "MudBlazor": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/MudBlazor.Markdown.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/MudBlazor.Markdown.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.Markdown.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.Markdown.props": {}
+        }
+      },
+      "System.Diagnostics.DiagnosticSource/9.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
+            "related": ".xml"
+          }
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
       "System.IO.Pipelines/8.0.0": {
         "type": "package",
         "compile": {
@@ -1091,6 +1381,29 @@
         "lib/netstandard2.0/BlazorAnimate.dll",
         "staticwebassets/aos.css",
         "staticwebassets/blazorAnimateInterop.js"
+      ]
+    },
+    "Markdig/0.40.0": {
+      "sha512": "4ve14zs+gt1irldTQE3y5FLAHuzmhW7T99lAAvVipe/q2LWT/nUCO0iICb9TXGvMX6n7Z1OZroFXkdSy91rO8w==",
+      "type": "package",
+      "path": "markdig/0.40.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/Markdig.dll",
+        "lib/net462/Markdig.xml",
+        "lib/net8.0/Markdig.dll",
+        "lib/net8.0/Markdig.xml",
+        "lib/net9.0/Markdig.dll",
+        "lib/net9.0/Markdig.xml",
+        "lib/netstandard2.0/Markdig.dll",
+        "lib/netstandard2.0/Markdig.xml",
+        "lib/netstandard2.1/Markdig.dll",
+        "lib/netstandard2.1/Markdig.xml",
+        "markdig.0.40.0.nupkg.sha512",
+        "markdig.nuspec",
+        "markdig.png",
+        "readme.md"
       ]
     },
     "Microsoft.AspNetCore.Authorization/8.0.13": {
@@ -1376,10 +1689,10 @@
         "microsoft.aspnetcore.metadata.nuspec"
       ]
     },
-    "Microsoft.Extensions.Configuration/8.0.0": {
-      "sha512": "0J/9YNXTMWSZP2p2+nvl8p71zpSwokZXZuJW+VjdErkegAnFdO1XlqtA62SJtgVYHdKu3uPxJHcMR/r35HwFBA==",
+    "Microsoft.Extensions.Configuration/9.0.3": {
+      "sha512": "RIEeZxWYm77+OWLwgik7DzSVSONjqkmcbuCb1koZdGAV7BgOUWnLz80VMyHZMw3onrVwFCCMHBBdruBPuQTvkg==",
       "type": "package",
-      "path": "microsoft.extensions.configuration/8.0.0",
+      "path": "microsoft.extensions.configuration/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1389,27 +1702,25 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.Configuration.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Configuration.targets",
         "lib/net462/Microsoft.Extensions.Configuration.dll",
         "lib/net462/Microsoft.Extensions.Configuration.xml",
-        "lib/net6.0/Microsoft.Extensions.Configuration.dll",
-        "lib/net6.0/Microsoft.Extensions.Configuration.xml",
-        "lib/net7.0/Microsoft.Extensions.Configuration.dll",
-        "lib/net7.0/Microsoft.Extensions.Configuration.xml",
         "lib/net8.0/Microsoft.Extensions.Configuration.dll",
         "lib/net8.0/Microsoft.Extensions.Configuration.xml",
+        "lib/net9.0/Microsoft.Extensions.Configuration.dll",
+        "lib/net9.0/Microsoft.Extensions.Configuration.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
-        "microsoft.extensions.configuration.8.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.9.0.3.nupkg.sha512",
         "microsoft.extensions.configuration.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
-      "sha512": "3lE/iLSutpgX1CC0NOW70FJoGARRHbyKmG7dc0klnUZ9Dd9hS6N/POPWhKhMLCEuNN5nXEY5agmlFtH562vqhQ==",
+    "Microsoft.Extensions.Configuration.Abstractions/9.0.3": {
+      "sha512": "q5qlbm6GRUrle2ZZxy9aqS/wWoc+mRD3JeP6rcpiJTh5XcemYkplAcJKq8lU11ZfPom5lfbZZfnQvDqcUhqD5Q==",
       "type": "package",
-      "path": "microsoft.extensions.configuration.abstractions/8.0.0",
+      "path": "microsoft.extensions.configuration.abstractions/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1419,27 +1730,25 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.Configuration.Abstractions.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Configuration.Abstractions.targets",
         "lib/net462/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/net462/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "lib/net6.0/Microsoft.Extensions.Configuration.Abstractions.dll",
-        "lib/net6.0/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "lib/net7.0/Microsoft.Extensions.Configuration.Abstractions.dll",
-        "lib/net7.0/Microsoft.Extensions.Configuration.Abstractions.xml",
         "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.Configuration.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.9.0.3.nupkg.sha512",
         "microsoft.extensions.configuration.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Configuration.Binder/8.0.2": {
-      "sha512": "7IQhGK+wjyGrNsPBjJcZwWAr+Wf6D4+TwOptUt77bWtgNkiV8tDEbhFS+dDamtQFZ2X7kWG9m71iZQRj2x3zgQ==",
+    "Microsoft.Extensions.Configuration.Binder/9.0.3": {
+      "sha512": "ad82pYBUSQbd3WIboxsS1HzFdRuHKRa2CpYwie/o6dZAxUjt62yFwjoVdM7Iw2VO5fHV1rJwa7jJZBNZin0E7Q==",
       "type": "package",
-      "path": "microsoft.extensions.configuration.binder/8.0.2",
+      "path": "microsoft.extensions.configuration.binder/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1464,15 +1773,13 @@
         "buildTransitive/netstandard2.0/Microsoft.Extensions.Configuration.Binder.targets",
         "lib/net462/Microsoft.Extensions.Configuration.Binder.dll",
         "lib/net462/Microsoft.Extensions.Configuration.Binder.xml",
-        "lib/net6.0/Microsoft.Extensions.Configuration.Binder.dll",
-        "lib/net6.0/Microsoft.Extensions.Configuration.Binder.xml",
-        "lib/net7.0/Microsoft.Extensions.Configuration.Binder.dll",
-        "lib/net7.0/Microsoft.Extensions.Configuration.Binder.xml",
         "lib/net8.0/Microsoft.Extensions.Configuration.Binder.dll",
         "lib/net8.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/net9.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net9.0/Microsoft.Extensions.Configuration.Binder.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.xml",
-        "microsoft.extensions.configuration.binder.8.0.2.nupkg.sha512",
+        "microsoft.extensions.configuration.binder.9.0.3.nupkg.sha512",
         "microsoft.extensions.configuration.binder.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -1539,10 +1846,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection/8.0.1": {
-      "sha512": "BmANAnR5Xd4Oqw7yQ75xOAYODybZQRzdeNucg7kS5wWKd2PNnMdYtJ2Vciy0QLylRmv42DGl5+AFL9izA6F1Rw==",
+    "Microsoft.Extensions.DependencyInjection/9.0.3": {
+      "sha512": "lDbxJpkl6X8KZGpkAxgrrthQ42YeiR0xjPp7KPx+sCPc3ZbpaIbjzd0QQ+9kDdK2RU2DOl3pc6tQyAgEZY3V0A==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection/8.0.1",
+      "path": "microsoft.extensions.dependencyinjection/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1552,29 +1859,27 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.targets",
         "lib/net462/Microsoft.Extensions.DependencyInjection.dll",
         "lib/net462/Microsoft.Extensions.DependencyInjection.xml",
-        "lib/net6.0/Microsoft.Extensions.DependencyInjection.dll",
-        "lib/net6.0/Microsoft.Extensions.DependencyInjection.xml",
-        "lib/net7.0/Microsoft.Extensions.DependencyInjection.dll",
-        "lib/net7.0/Microsoft.Extensions.DependencyInjection.xml",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.xml",
-        "microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.9.0.3.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
-      "sha512": "3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.3": {
+      "sha512": "TfaHPSe39NyL2wxkisRxXK7xvHGZYBZ+dy3r+mqGvnxKgAPdHkMu3QMQZI4pquP6W5FIQBqs8FJpWV8ffCgDqQ==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1584,22 +1889,74 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
         "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.9.0.3.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Diagnostics/9.0.3": {
+      "sha512": "gqhbIq6adm0+/9IlDYmchekoxNkmUTm7rfTG3k4zzoQkjRuD8TQGwL1WnIcTDt4aQ+j+Vu0OQrjI8GlpJQQhIA==",
+      "type": "package",
+      "path": "microsoft.extensions.diagnostics/9.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Diagnostics.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Diagnostics.targets",
+        "lib/net462/Microsoft.Extensions.Diagnostics.dll",
+        "lib/net462/Microsoft.Extensions.Diagnostics.xml",
+        "lib/net8.0/Microsoft.Extensions.Diagnostics.dll",
+        "lib/net8.0/Microsoft.Extensions.Diagnostics.xml",
+        "lib/net9.0/Microsoft.Extensions.Diagnostics.dll",
+        "lib/net9.0/Microsoft.Extensions.Diagnostics.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.xml",
+        "microsoft.extensions.diagnostics.9.0.3.nupkg.sha512",
+        "microsoft.extensions.diagnostics.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Diagnostics.Abstractions/9.0.3": {
+      "sha512": "/fn0Xe8t+3YbMfwyTk4hFirWyAG1pBA5ogVYsrKAuuD2gbqOWhFuSA28auCmS3z8Y2eq3miDIKq4pFVRWA+J6g==",
+      "type": "package",
+      "path": "microsoft.extensions.diagnostics.abstractions/9.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Diagnostics.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Diagnostics.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.Abstractions.xml",
+        "microsoft.extensions.diagnostics.abstractions.9.0.3.nupkg.sha512",
+        "microsoft.extensions.diagnostics.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -1691,6 +2048,34 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Microsoft.Extensions.Http/9.0.3": {
+      "sha512": "rwChgI3lPqvUzsCN3egSW/6v4kP9/RQ2QrkZUwyAiHiwEoIB6QbYkATNvUsgjV6nfrekocyciCzy53ZFRuSaHA==",
+      "type": "package",
+      "path": "microsoft.extensions.http/9.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Http.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Http.targets",
+        "lib/net462/Microsoft.Extensions.Http.dll",
+        "lib/net462/Microsoft.Extensions.Http.xml",
+        "lib/net8.0/Microsoft.Extensions.Http.dll",
+        "lib/net8.0/Microsoft.Extensions.Http.xml",
+        "lib/net9.0/Microsoft.Extensions.Http.dll",
+        "lib/net9.0/Microsoft.Extensions.Http.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Http.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Http.xml",
+        "microsoft.extensions.http.9.0.3.nupkg.sha512",
+        "microsoft.extensions.http.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "Microsoft.Extensions.Localization/8.0.12": {
       "sha512": "Ef7P8kpJzX/khXB8oYxt3vFHXw48uWY+NirCrh8u8gokCHxr/Noc3OxME+Ji1ugqoMvUVSPu73mYctmUMDlOCA==",
       "type": "package",
@@ -1729,10 +2114,10 @@
         "microsoft.extensions.localization.abstractions.nuspec"
       ]
     },
-    "Microsoft.Extensions.Logging/8.0.1": {
-      "sha512": "4x+pzsQEbqxhNf1QYRr5TDkLP9UsLT3A6MdRKDDEgrW7h1ljiEPgTNhKYUhNCCAaVpQECVQ+onA91PTPnIp6Lw==",
+    "Microsoft.Extensions.Logging/9.0.3": {
+      "sha512": "utIi2R1nm+PCWkvWBf1Ou6LWqg9iLfHU23r8yyU9VCvda4dEs7xbTZSwGa5KuwbpzpgCbHCIuKaFHB3zyFmnGw==",
       "type": "package",
-      "path": "microsoft.extensions.logging/8.0.1",
+      "path": "microsoft.extensions.logging/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1742,29 +2127,27 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.Logging.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Logging.targets",
         "lib/net462/Microsoft.Extensions.Logging.dll",
         "lib/net462/Microsoft.Extensions.Logging.xml",
-        "lib/net6.0/Microsoft.Extensions.Logging.dll",
-        "lib/net6.0/Microsoft.Extensions.Logging.xml",
-        "lib/net7.0/Microsoft.Extensions.Logging.dll",
-        "lib/net7.0/Microsoft.Extensions.Logging.xml",
         "lib/net8.0/Microsoft.Extensions.Logging.dll",
         "lib/net8.0/Microsoft.Extensions.Logging.xml",
+        "lib/net9.0/Microsoft.Extensions.Logging.dll",
+        "lib/net9.0/Microsoft.Extensions.Logging.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.xml",
         "lib/netstandard2.1/Microsoft.Extensions.Logging.dll",
         "lib/netstandard2.1/Microsoft.Extensions.Logging.xml",
-        "microsoft.extensions.logging.8.0.1.nupkg.sha512",
+        "microsoft.extensions.logging.9.0.3.nupkg.sha512",
         "microsoft.extensions.logging.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
-      "sha512": "dL0QGToTxggRLMYY4ZYX5AMwBb+byQBd/5dMiZE07Nv73o6I5Are3C7eQTh7K2+A4ct0PVISSr7TZANbiNb2yQ==",
+    "Microsoft.Extensions.Logging.Abstractions/9.0.3": {
+      "sha512": "H/MBMLt9A/69Ux4OrV7oCKt3DcMT04o5SCqDolulzQA66TLFEpYYb4qedMs/uwrLtyHXGuDGWKZse/oa8W9AZw==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/8.0.3",
+      "path": "microsoft.extensions.logging.abstractions/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1816,28 +2199,26 @@
         "analyzers/dotnet/roslyn4.4/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
         "buildTransitive/net461/Microsoft.Extensions.Logging.Abstractions.targets",
         "buildTransitive/net462/Microsoft.Extensions.Logging.Abstractions.targets",
-        "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/net8.0/Microsoft.Extensions.Logging.Abstractions.targets",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Logging.Abstractions.targets",
         "buildTransitive/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.targets",
         "lib/net462/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/net462/Microsoft.Extensions.Logging.Abstractions.xml",
-        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll",
-        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.dll",
-        "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.8.0.3.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.9.0.3.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Options/8.0.2": {
-      "sha512": "dWGKvhFybsaZpGmzkGCbNNwBD1rVlWzrZKANLW/CcbFJpCEceMCGzT7zZwHOGBCbwM0SzBuceMj5HN1LKV1QqA==",
+    "Microsoft.Extensions.Options/9.0.3": {
+      "sha512": "xE7MpY70lkw1oiid5y6FbL9dVw8oLfkx8RhSNGN8sSzBlCqGn0SyT3Fqc8tZnDaPIq7Z8R9RTKlS564DS+MV3g==",
       "type": "package",
-      "path": "microsoft.extensions.options/8.0.2",
+      "path": "microsoft.extensions.options/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1861,30 +2242,56 @@
         "analyzers/dotnet/roslyn4.4/cs/zh-Hant/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
         "buildTransitive/net461/Microsoft.Extensions.Options.targets",
         "buildTransitive/net462/Microsoft.Extensions.Options.targets",
-        "buildTransitive/net6.0/Microsoft.Extensions.Options.targets",
+        "buildTransitive/net8.0/Microsoft.Extensions.Options.targets",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Options.targets",
         "buildTransitive/netstandard2.0/Microsoft.Extensions.Options.targets",
         "lib/net462/Microsoft.Extensions.Options.dll",
         "lib/net462/Microsoft.Extensions.Options.xml",
-        "lib/net6.0/Microsoft.Extensions.Options.dll",
-        "lib/net6.0/Microsoft.Extensions.Options.xml",
-        "lib/net7.0/Microsoft.Extensions.Options.dll",
-        "lib/net7.0/Microsoft.Extensions.Options.xml",
         "lib/net8.0/Microsoft.Extensions.Options.dll",
         "lib/net8.0/Microsoft.Extensions.Options.xml",
+        "lib/net9.0/Microsoft.Extensions.Options.dll",
+        "lib/net9.0/Microsoft.Extensions.Options.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Options.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
         "lib/netstandard2.1/Microsoft.Extensions.Options.dll",
         "lib/netstandard2.1/Microsoft.Extensions.Options.xml",
-        "microsoft.extensions.options.8.0.2.nupkg.sha512",
+        "microsoft.extensions.options.9.0.3.nupkg.sha512",
         "microsoft.extensions.options.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Primitives/8.0.0": {
-      "sha512": "bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g==",
+    "Microsoft.Extensions.Options.ConfigurationExtensions/9.0.3": {
+      "sha512": "PcyYHQglKnWVZHSPaL6v2qnfsIuFw8tSq7cyXHg3OeuDVn/CqmdWUjRiZomCF/Gi+qCi+ksz0lFphg2cNvB8zQ==",
       "type": "package",
-      "path": "microsoft.extensions.primitives/8.0.0",
+      "path": "microsoft.extensions.options.configurationextensions/9.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Options.ConfigurationExtensions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Options.ConfigurationExtensions.targets",
+        "lib/net462/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net462/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/net9.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net9.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "microsoft.extensions.options.configurationextensions.9.0.3.nupkg.sha512",
+        "microsoft.extensions.options.configurationextensions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Primitives/9.0.3": {
+      "sha512": "yCCJHvBcRyqapMSNzP+kTc57Eaavq2cr5Tmuil6/XVnipQf5xmskxakSQ1enU6S4+fNg3sJ27WcInV64q24JsA==",
+      "type": "package",
+      "path": "microsoft.extensions.primitives/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1894,19 +2301,17 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.Primitives.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Primitives.targets",
         "lib/net462/Microsoft.Extensions.Primitives.dll",
         "lib/net462/Microsoft.Extensions.Primitives.xml",
-        "lib/net6.0/Microsoft.Extensions.Primitives.dll",
-        "lib/net6.0/Microsoft.Extensions.Primitives.xml",
-        "lib/net7.0/Microsoft.Extensions.Primitives.dll",
-        "lib/net7.0/Microsoft.Extensions.Primitives.xml",
         "lib/net8.0/Microsoft.Extensions.Primitives.dll",
         "lib/net8.0/Microsoft.Extensions.Primitives.xml",
+        "lib/net9.0/Microsoft.Extensions.Primitives.dll",
+        "lib/net9.0/Microsoft.Extensions.Primitives.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+        "microsoft.extensions.primitives.9.0.3.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -2082,6 +2487,328 @@
         "staticwebassets/MudBlazor.min.js"
       ]
     },
+    "MudBlazor.Markdown/8.0.0": {
+      "sha512": "0DcXQFEIgKJsaMCDva0Ck3gempoctyc7s8GLK5VagozlZdXql6W4SKX/imM/NfyfV7SxLrUTRJyLJX0Te+02sQ==",
+      "type": "package",
+      "path": "mudblazor.markdown/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/MudBlazor.Markdown.props",
+        "buildMultiTargeting/MudBlazor.Markdown.props",
+        "buildTransitive/MudBlazor.Markdown.props",
+        "favico.png",
+        "lib/net8.0/MudBlazor.Markdown.dll",
+        "lib/net9.0/MudBlazor.Markdown.dll",
+        "mudblazor.markdown.8.0.0.nupkg.sha512",
+        "mudblazor.markdown.nuspec",
+        "staticwebassets/MudBlazor.Markdown.MathJax.min.js",
+        "staticwebassets/MudBlazor.Markdown.min.css",
+        "staticwebassets/MudBlazor.Markdown.min.js",
+        "staticwebassets/code-styles/a11y-dark.min.css",
+        "staticwebassets/code-styles/a11y-light.min.css",
+        "staticwebassets/code-styles/agate.min.css",
+        "staticwebassets/code-styles/an-old-hope.min.css",
+        "staticwebassets/code-styles/androidstudio.min.css",
+        "staticwebassets/code-styles/arduino-light.min.css",
+        "staticwebassets/code-styles/arta.min.css",
+        "staticwebassets/code-styles/ascetic.min.css",
+        "staticwebassets/code-styles/atom-one-dark-reasonable.min.css",
+        "staticwebassets/code-styles/atom-one-dark.min.css",
+        "staticwebassets/code-styles/atom-one-light.min.css",
+        "staticwebassets/code-styles/base16/apathy.min.css",
+        "staticwebassets/code-styles/base16/apprentice.min.css",
+        "staticwebassets/code-styles/base16/ashes.min.css",
+        "staticwebassets/code-styles/base16/atelier-cave-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-cave.min.css",
+        "staticwebassets/code-styles/base16/atelier-dune-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-dune.min.css",
+        "staticwebassets/code-styles/base16/atelier-estuary-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-estuary.min.css",
+        "staticwebassets/code-styles/base16/atelier-forest-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-forest.min.css",
+        "staticwebassets/code-styles/base16/atelier-heath-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-heath.min.css",
+        "staticwebassets/code-styles/base16/atelier-lakeside-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-lakeside.min.css",
+        "staticwebassets/code-styles/base16/atelier-plateau-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-plateau.min.css",
+        "staticwebassets/code-styles/base16/atelier-savanna-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-savanna.min.css",
+        "staticwebassets/code-styles/base16/atelier-seaside-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-seaside.min.css",
+        "staticwebassets/code-styles/base16/atelier-sulphurpool-light.min.css",
+        "staticwebassets/code-styles/base16/atelier-sulphurpool.min.css",
+        "staticwebassets/code-styles/base16/atlas.min.css",
+        "staticwebassets/code-styles/base16/bespin.min.css",
+        "staticwebassets/code-styles/base16/black-metal-bathory.min.css",
+        "staticwebassets/code-styles/base16/black-metal-burzum.min.css",
+        "staticwebassets/code-styles/base16/black-metal-dark-funeral.min.css",
+        "staticwebassets/code-styles/base16/black-metal-gorgoroth.min.css",
+        "staticwebassets/code-styles/base16/black-metal-immortal.min.css",
+        "staticwebassets/code-styles/base16/black-metal-khold.min.css",
+        "staticwebassets/code-styles/base16/black-metal-marduk.min.css",
+        "staticwebassets/code-styles/base16/black-metal-mayhem.min.css",
+        "staticwebassets/code-styles/base16/black-metal-nile.min.css",
+        "staticwebassets/code-styles/base16/black-metal-venom.min.css",
+        "staticwebassets/code-styles/base16/black-metal.min.css",
+        "staticwebassets/code-styles/base16/brewer.min.css",
+        "staticwebassets/code-styles/base16/bright.min.css",
+        "staticwebassets/code-styles/base16/brogrammer.min.css",
+        "staticwebassets/code-styles/base16/brush-trees-dark.min.css",
+        "staticwebassets/code-styles/base16/brush-trees.min.css",
+        "staticwebassets/code-styles/base16/chalk.min.css",
+        "staticwebassets/code-styles/base16/circus.min.css",
+        "staticwebassets/code-styles/base16/classic-dark.min.css",
+        "staticwebassets/code-styles/base16/classic-light.min.css",
+        "staticwebassets/code-styles/base16/codeschool.min.css",
+        "staticwebassets/code-styles/base16/colors.min.css",
+        "staticwebassets/code-styles/base16/cupcake.min.css",
+        "staticwebassets/code-styles/base16/cupertino.min.css",
+        "staticwebassets/code-styles/base16/danqing.min.css",
+        "staticwebassets/code-styles/base16/darcula.min.css",
+        "staticwebassets/code-styles/base16/dark-violet.min.css",
+        "staticwebassets/code-styles/base16/darkmoss.min.css",
+        "staticwebassets/code-styles/base16/darktooth.min.css",
+        "staticwebassets/code-styles/base16/decaf.min.css",
+        "staticwebassets/code-styles/base16/default-dark.min.css",
+        "staticwebassets/code-styles/base16/default-light.min.css",
+        "staticwebassets/code-styles/base16/dirtysea.min.css",
+        "staticwebassets/code-styles/base16/dracula.min.css",
+        "staticwebassets/code-styles/base16/edge-dark.min.css",
+        "staticwebassets/code-styles/base16/edge-light.min.css",
+        "staticwebassets/code-styles/base16/eighties.min.css",
+        "staticwebassets/code-styles/base16/embers.min.css",
+        "staticwebassets/code-styles/base16/equilibrium-dark.min.css",
+        "staticwebassets/code-styles/base16/equilibrium-gray-dark.min.css",
+        "staticwebassets/code-styles/base16/equilibrium-gray-light.min.css",
+        "staticwebassets/code-styles/base16/equilibrium-light.min.css",
+        "staticwebassets/code-styles/base16/espresso.min.css",
+        "staticwebassets/code-styles/base16/eva-dim.min.css",
+        "staticwebassets/code-styles/base16/eva.min.css",
+        "staticwebassets/code-styles/base16/flat.min.css",
+        "staticwebassets/code-styles/base16/framer.min.css",
+        "staticwebassets/code-styles/base16/fruit-soda.min.css",
+        "staticwebassets/code-styles/base16/gigavolt.min.css",
+        "staticwebassets/code-styles/base16/github.min.css",
+        "staticwebassets/code-styles/base16/google-dark.min.css",
+        "staticwebassets/code-styles/base16/google-light.min.css",
+        "staticwebassets/code-styles/base16/grayscale-dark.min.css",
+        "staticwebassets/code-styles/base16/grayscale-light.min.css",
+        "staticwebassets/code-styles/base16/green-screen.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-dark-hard.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-dark-medium.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-dark-pale.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-dark-soft.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-light-hard.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-light-medium.min.css",
+        "staticwebassets/code-styles/base16/gruvbox-light-soft.min.css",
+        "staticwebassets/code-styles/base16/hardcore.min.css",
+        "staticwebassets/code-styles/base16/harmonic16-dark.min.css",
+        "staticwebassets/code-styles/base16/harmonic16-light.min.css",
+        "staticwebassets/code-styles/base16/heetch-dark.min.css",
+        "staticwebassets/code-styles/base16/heetch-light.min.css",
+        "staticwebassets/code-styles/base16/helios.min.css",
+        "staticwebassets/code-styles/base16/hopscotch.min.css",
+        "staticwebassets/code-styles/base16/horizon-dark.min.css",
+        "staticwebassets/code-styles/base16/horizon-light.min.css",
+        "staticwebassets/code-styles/base16/humanoid-dark.min.css",
+        "staticwebassets/code-styles/base16/humanoid-light.min.css",
+        "staticwebassets/code-styles/base16/ia-dark.min.css",
+        "staticwebassets/code-styles/base16/ia-light.min.css",
+        "staticwebassets/code-styles/base16/icy-dark.min.css",
+        "staticwebassets/code-styles/base16/ir-black.min.css",
+        "staticwebassets/code-styles/base16/isotope.min.css",
+        "staticwebassets/code-styles/base16/kimber.min.css",
+        "staticwebassets/code-styles/base16/london-tube.min.css",
+        "staticwebassets/code-styles/base16/macintosh.min.css",
+        "staticwebassets/code-styles/base16/marrakesh.min.css",
+        "staticwebassets/code-styles/base16/materia.min.css",
+        "staticwebassets/code-styles/base16/material-darker.min.css",
+        "staticwebassets/code-styles/base16/material-lighter.min.css",
+        "staticwebassets/code-styles/base16/material-palenight.min.css",
+        "staticwebassets/code-styles/base16/material-vivid.min.css",
+        "staticwebassets/code-styles/base16/material.min.css",
+        "staticwebassets/code-styles/base16/mellow-purple.min.css",
+        "staticwebassets/code-styles/base16/mexico-light.min.css",
+        "staticwebassets/code-styles/base16/mocha.min.css",
+        "staticwebassets/code-styles/base16/monokai.min.css",
+        "staticwebassets/code-styles/base16/nebula.min.css",
+        "staticwebassets/code-styles/base16/nord.min.css",
+        "staticwebassets/code-styles/base16/nova.min.css",
+        "staticwebassets/code-styles/base16/ocean.min.css",
+        "staticwebassets/code-styles/base16/oceanicnext.min.css",
+        "staticwebassets/code-styles/base16/one-light.min.css",
+        "staticwebassets/code-styles/base16/onedark.min.css",
+        "staticwebassets/code-styles/base16/outrun-dark.min.css",
+        "staticwebassets/code-styles/base16/papercolor-dark.min.css",
+        "staticwebassets/code-styles/base16/papercolor-light.min.css",
+        "staticwebassets/code-styles/base16/paraiso.min.css",
+        "staticwebassets/code-styles/base16/pasque.min.css",
+        "staticwebassets/code-styles/base16/phd.min.css",
+        "staticwebassets/code-styles/base16/pico.min.css",
+        "staticwebassets/code-styles/base16/pop.min.css",
+        "staticwebassets/code-styles/base16/porple.min.css",
+        "staticwebassets/code-styles/base16/qualia.min.css",
+        "staticwebassets/code-styles/base16/railscasts.min.css",
+        "staticwebassets/code-styles/base16/rebecca.min.css",
+        "staticwebassets/code-styles/base16/ros-pine-dawn.min.css",
+        "staticwebassets/code-styles/base16/ros-pine-moon.min.css",
+        "staticwebassets/code-styles/base16/ros-pine.min.css",
+        "staticwebassets/code-styles/base16/sagelight.min.css",
+        "staticwebassets/code-styles/base16/sandcastle.min.css",
+        "staticwebassets/code-styles/base16/seti-ui.min.css",
+        "staticwebassets/code-styles/base16/shapeshifter.min.css",
+        "staticwebassets/code-styles/base16/silk-dark.min.css",
+        "staticwebassets/code-styles/base16/silk-light.min.css",
+        "staticwebassets/code-styles/base16/snazzy.min.css",
+        "staticwebassets/code-styles/base16/solar-flare-light.min.css",
+        "staticwebassets/code-styles/base16/solar-flare.min.css",
+        "staticwebassets/code-styles/base16/solarized-dark.min.css",
+        "staticwebassets/code-styles/base16/solarized-light.min.css",
+        "staticwebassets/code-styles/base16/spacemacs.min.css",
+        "staticwebassets/code-styles/base16/summercamp.min.css",
+        "staticwebassets/code-styles/base16/summerfruit-dark.min.css",
+        "staticwebassets/code-styles/base16/summerfruit-light.min.css",
+        "staticwebassets/code-styles/base16/synth-midnight-terminal-dark.min.css",
+        "staticwebassets/code-styles/base16/synth-midnight-terminal-light.min.css",
+        "staticwebassets/code-styles/base16/t3024.min.css",
+        "staticwebassets/code-styles/base16/tango.min.css",
+        "staticwebassets/code-styles/base16/tender.min.css",
+        "staticwebassets/code-styles/base16/tomorrow-night.min.css",
+        "staticwebassets/code-styles/base16/tomorrow.min.css",
+        "staticwebassets/code-styles/base16/twilight.min.css",
+        "staticwebassets/code-styles/base16/unikitty-dark.min.css",
+        "staticwebassets/code-styles/base16/unikitty-light.min.css",
+        "staticwebassets/code-styles/base16/vulcan.min.css",
+        "staticwebassets/code-styles/base16/windows-10-light.min.css",
+        "staticwebassets/code-styles/base16/windows-10.min.css",
+        "staticwebassets/code-styles/base16/windows-95-light.min.css",
+        "staticwebassets/code-styles/base16/windows-95.min.css",
+        "staticwebassets/code-styles/base16/windows-high-contrast-light.min.css",
+        "staticwebassets/code-styles/base16/windows-high-contrast.min.css",
+        "staticwebassets/code-styles/base16/windows-nt-light.min.css",
+        "staticwebassets/code-styles/base16/windows-nt.min.css",
+        "staticwebassets/code-styles/base16/woodland.min.css",
+        "staticwebassets/code-styles/base16/xcode-dusk.min.css",
+        "staticwebassets/code-styles/base16/zenburn.min.css",
+        "staticwebassets/code-styles/brown-paper.min.css",
+        "staticwebassets/code-styles/brown-papersq.png",
+        "staticwebassets/code-styles/codepen-embed.min.css",
+        "staticwebassets/code-styles/color-brewer.min.css",
+        "staticwebassets/code-styles/dark.min.css",
+        "staticwebassets/code-styles/default.min.css",
+        "staticwebassets/code-styles/devibeans.min.css",
+        "staticwebassets/code-styles/docco.min.css",
+        "staticwebassets/code-styles/far.min.css",
+        "staticwebassets/code-styles/foundation.min.css",
+        "staticwebassets/code-styles/github-dark-dimmed.min.css",
+        "staticwebassets/code-styles/github-dark.min.css",
+        "staticwebassets/code-styles/github.min.css",
+        "staticwebassets/code-styles/gml.min.css",
+        "staticwebassets/code-styles/googlecode.min.css",
+        "staticwebassets/code-styles/gradient-dark.min.css",
+        "staticwebassets/code-styles/gradient-light.min.css",
+        "staticwebassets/code-styles/grayscale.min.css",
+        "staticwebassets/code-styles/hybrid.min.css",
+        "staticwebassets/code-styles/idea.min.css",
+        "staticwebassets/code-styles/ir-black.min.css",
+        "staticwebassets/code-styles/isbl-editor-dark.min.css",
+        "staticwebassets/code-styles/isbl-editor-light.min.css",
+        "staticwebassets/code-styles/kimbie-dark.min.css",
+        "staticwebassets/code-styles/kimbie-light.min.css",
+        "staticwebassets/code-styles/lightfair.min.css",
+        "staticwebassets/code-styles/lioshi.min.css",
+        "staticwebassets/code-styles/magula.min.css",
+        "staticwebassets/code-styles/mono-blue.min.css",
+        "staticwebassets/code-styles/monokai-sublime.min.css",
+        "staticwebassets/code-styles/monokai.min.css",
+        "staticwebassets/code-styles/night-owl.min.css",
+        "staticwebassets/code-styles/nnfx-dark.min.css",
+        "staticwebassets/code-styles/nnfx-light.min.css",
+        "staticwebassets/code-styles/nord.min.css",
+        "staticwebassets/code-styles/obsidian.min.css",
+        "staticwebassets/code-styles/paraiso-dark.min.css",
+        "staticwebassets/code-styles/paraiso-light.min.css",
+        "staticwebassets/code-styles/pojoaque.jpg",
+        "staticwebassets/code-styles/pojoaque.min.css",
+        "staticwebassets/code-styles/purebasic.min.css",
+        "staticwebassets/code-styles/qtcreator-dark.min.css",
+        "staticwebassets/code-styles/qtcreator-light.min.css",
+        "staticwebassets/code-styles/rainbow.min.css",
+        "staticwebassets/code-styles/routeros.min.css",
+        "staticwebassets/code-styles/school-book.min.css",
+        "staticwebassets/code-styles/shades-of-purple.min.css",
+        "staticwebassets/code-styles/srcery.min.css",
+        "staticwebassets/code-styles/stackoverflow-dark.min.css",
+        "staticwebassets/code-styles/stackoverflow-light.min.css",
+        "staticwebassets/code-styles/sunburst.min.css",
+        "staticwebassets/code-styles/tomorrow-night-blue.min.css",
+        "staticwebassets/code-styles/tomorrow-night-bright.min.css",
+        "staticwebassets/code-styles/vs.min.css",
+        "staticwebassets/code-styles/vs2015.min.css",
+        "staticwebassets/code-styles/xcode.min.css",
+        "staticwebassets/code-styles/xt256.min.css",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+        "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Zero.woff"
+      ]
+    },
+    "System.Diagnostics.DiagnosticSource/9.0.3": {
+      "sha512": "cBA+28xDW33tSiGht/H8xvr8lnaCrgJ7EdO348AfSGsX4PPJUOULKxny/cc9DVNGExaCrtqagsnm5M2mkWIZ+g==",
+      "type": "package",
+      "path": "system.diagnostics.diagnosticsource/9.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Diagnostics.DiagnosticSource.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Diagnostics.DiagnosticSource.targets",
+        "content/ILLink/ILLink.Descriptors.LibraryBuild.xml",
+        "contentFiles/any/net462/ILLink/ILLink.Descriptors.LibraryBuild.xml",
+        "contentFiles/any/net8.0/ILLink/ILLink.Descriptors.LibraryBuild.xml",
+        "contentFiles/any/net9.0/ILLink/ILLink.Descriptors.LibraryBuild.xml",
+        "contentFiles/any/netstandard2.0/ILLink/ILLink.Descriptors.LibraryBuild.xml",
+        "lib/net462/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net462/System.Diagnostics.DiagnosticSource.xml",
+        "lib/net8.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net8.0/System.Diagnostics.DiagnosticSource.xml",
+        "lib/net9.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net9.0/System.Diagnostics.DiagnosticSource.xml",
+        "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.xml",
+        "system.diagnostics.diagnosticsource.9.0.3.nupkg.sha512",
+        "system.diagnostics.diagnosticsource.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.IO.Pipelines/8.0.0": {
       "sha512": "FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA==",
       "type": "package",
@@ -2117,9 +2844,11 @@
       "BlazorAnimate >= 3.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 8.0.13",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 8.0.13",
+      "Microsoft.Extensions.Http >= 9.0.3",
       "Microsoft.NET.ILLink.Tasks >= 8.0.13",
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.2",
-      "MudBlazor >= 8.3.0"
+      "MudBlazor >= 8.3.0",
+      "MudBlazor.Markdown >= 8.0.0"
     ]
   },
   "packageFolders": {
@@ -2129,11 +2858,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
+      "projectUniqueName": "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
       "projectName": "OuseBlog",
-      "projectPath": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
+      "projectPath": "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
       "packagesPath": "C:\\Users\\22165\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\22165\\Desktop\\MyProject\\OuseBlog\\OuseBlog\\obj\\publish\\browser-wasm\\",
+      "outputPath": "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\obj\\publish\\browser-wasm\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\SoftWare\\Visual Studio\\VS SDK\\NuGetPackages"
@@ -2148,6 +2877,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2185,6 +2915,10 @@
             "target": "Package",
             "version": "[8.0.13, )"
           },
+          "Microsoft.Extensions.Http": {
+            "target": "Package",
+            "version": "[9.0.3, )"
+          },
           "Microsoft.NET.ILLink.Tasks": {
             "suppressParent": "All",
             "target": "Package",
@@ -2200,6 +2934,10 @@
           "MudBlazor": {
             "target": "Package",
             "version": "[8.3.0, )"
+          },
+          "MudBlazor.Markdown": {
+            "target": "Package",
+            "version": "[8.0.0, )"
           }
         },
         "imports": [

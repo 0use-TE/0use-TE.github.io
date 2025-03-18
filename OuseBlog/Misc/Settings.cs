@@ -2,6 +2,18 @@
 
 namespace OuseBlog.Misc
 {
+
+
+    public enum SvgType
+    {
+        Github,
+        Gitee,
+        QQ,
+        Microsoft,
+        Download,
+        Go,
+        Blog,
+    }
     public static class Settings
     {
         public static DialogOptions DialogOptions { get; set; } = new DialogOptions()

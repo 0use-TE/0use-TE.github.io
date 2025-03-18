@@ -8,7 +8,10 @@
         public string Description { get; set; } = string.Empty;
         public string Platform { get; set; } = string.Empty;
         public string  DevelpmentTools { get; set; } = string.Empty;
-        public string? ImageUrl { get; set; } 
         public string? Link { get; set; }
+        public string? GithubLink { get; set; }
+        public string? GiteeLink { get; set; }
+        public string? DownloadLink { get; set; }
+        public string? BlogLink { get; set; }
     }
 }
