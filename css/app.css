@@ -226,3 +226,8 @@ h2 {
 {
     transform:scale(1.2)
 }
+.text_overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
