@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "OuseBlog",
   "resources": {
-    "hash": "sha256-AZx/8CfRZ9b3r+SY0z7tppcrVYISSID/d+5vzVu5aa0=",
+    "hash": "sha256-gdsEh3IiGZk8iO6i/u1CxMBXcOa0BNR316eDbGwFvg8=",
     "jsModuleNative": {
       "dotnet.native.8.0.14.5i1zfi7gtl.js": "sha256-fNP5coJc63rScgCCbNMVTjK8w2VLyXL44oGO7aagZpM="
     },
@@ -43,7 +43,7 @@
       "MudBlazor.Markdown.wasm": "sha256-bjTWuM7TATCHtBBwOCPvvEdd+OLKPEOtv/t1bo0V388=",
       "MudBlazor.wasm": "sha256-41BBi/2Y7CAJQuJW2cc3nDkXvkI1RPnxCg1ux5Dd1vc=",
       "netstandard.wasm": "sha256-gYO8RjC0VBDJGX+08SJvuLrierowkTB4Pcv3l2/2TwE=",
-      "OuseBlog.wasm": "sha256-UATL1NUK1LFUMxfxG5BoBo0CxjBZiD09LDbOl+kg1eU=",
+      "OuseBlog.wasm": "sha256-lu0FT26j562t5ftBJ9dljXg1QGLHdr98b2ZHhkPHsxg=",
       "System.Collections.Concurrent.wasm": "sha256-rrWcyQniL0oIB1lxgNqFb4U5e1LFjPGzKJ0yFXr5wFg=",
       "System.Collections.Immutable.wasm": "sha256-yRlVrKTQXYva+kH7rQwe8cm/xP+AfpriW6PDVdhy+yI=",
       "System.Collections.NonGeneric.wasm": "sha256-bea161CpPpAU/C7TWSV/9rPr8K36KdCUJ4WQghGEIjk=",
