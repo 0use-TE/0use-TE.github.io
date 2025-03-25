@@ -5,13 +5,16 @@
     AdornmentIcon="@Icons.Material.Rounded.Search"
     Adornment="Adornment.Start" T="string"></MudTextField>
     <div class="d-flex flex-column gap-4">
-    <BlogOverflow></BlogOverflow>
-    <BlogOverflow></BlogOverflow>
-    <BlogOverflow></BlogOverflow>
+        <BlogOverflow></BlogOverflow>
     </div>
     <MudText Align="Align.Center" Typo="Typo.h6">持续完善中....</MudText>
 </Width>
 @code
 {
     private string? searchContent;
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        return base.OnAfterRenderAsync(firstRender);
+    }
 }
