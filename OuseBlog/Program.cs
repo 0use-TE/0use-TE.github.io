@@ -14,8 +14,6 @@ builder.RootComponents.Add<App>("#app");
 
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddMudMarkdownServices();
-
 var config=builder.Configuration.Get<AppSettingsModel>();
 
 builder.Services.AddHttpClient(Settings.ProjectUrl, http =>
@@ -32,5 +30,9 @@ builder.Services.AddMudServices(config => config.SnackbarConfiguration = new Sna
 {
     PositionClass = Defaults.Classes.Position.BottomLeft
 });
+
+builder.Services.AddMudMarkdownServices();
+
+builder.Services.AddScoped(sp => new HttpClient {  BaseAddress=new(builder.HostEnvironment.BaseAddress)});
 
 await builder.Build().RunAsync();

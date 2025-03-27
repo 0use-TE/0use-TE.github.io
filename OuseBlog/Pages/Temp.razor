@@ -1,10 +1,44 @@
 ﻿@page "/temp"  
+@using Markdig
 @using OuseBlog.Models
-@inject IHttpClientFactory HttpClientFactory
-@code{
-
+@inject HttpClient HttpClient
+<MudTreeView Items="@TreeItems">
+    <ItemTemplate>
+        @{
+            var  node= context as TreeTocItem;
+        }
+        <MudTreeViewItem Items="node?.Children" Text="@node.Text"></MudTreeViewItem>
+    </ItemTemplate>
+</MudTreeView>
+<MudMarkdown Value="@Value" CodeBlockTheme="CodeBlockTheme.A11yDark" />
+@code
+{
+    private string Value { get; set; } = "初始化";
+    private List<TreeItemData<string>> TreeItems = new();
     protected override async Task OnInitializedAsync()
     {
+        Value = await HttpClient.GetStringAsync("Linux.md");
+        var dom = Markdown.ToHtml(Value);
+        var toc= Untilies.GenerateTocItems(dom);
+        var tree = Untilies.BuildTree(toc);
+        TreeItems = ConvertToTreeItems(tree);
+
     }
 
+    private List<TreeItemData<string>> ConvertToTreeItems(List<TocNode> nodes)
+    {
+        var items = new List<TreeItemData<string>>(); 
+        foreach (var node in nodes)
+        {
+            var item = new TreeTocItem
+            {
+             Text=node.Title,
+              Id=node.Id
+            };
+            if(node.Children.Any())
+                item.Children = ConvertToTreeItems(node.Children); 
+            items.Add(item); 
+        }
+        return items;
+    }
 }
