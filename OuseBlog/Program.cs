@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.Options;
 using MudBlazor;
 using MudBlazor.Services;
 using OuseBlog;
@@ -14,7 +15,9 @@ builder.RootComponents.Add<App>("#app");
 
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-var config=builder.Configuration.Get<AppSettingsModel>();
+builder.Services.Configure<AppSettingsModel>(builder.Configuration);
+
+var config = builder.Configuration.Get<AppSettingsModel>();
 
 builder.Services.AddHttpClient(Settings.ProjectUrl, http =>
     {

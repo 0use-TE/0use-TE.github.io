@@ -1,8 +1,11 @@
 ﻿@page "/blogContent"
+@using Microsoft.Extensions.Options
+@using System.Text.RegularExpressions
 @inject NavigationManager Navigation
 @inject IHttpClientFactory HttpClientFactory
 @inject IJSRuntime JSRuntime
-
+@inject ISnackbar Snackbar
+@inject IOptions<AppSettingsModel> config
 @if(string.IsNullOrEmpty(Value))
 {
     <div style="width:100%;height:100vh " class="d-flex flex-column  justify-center align-center">
@@ -40,7 +43,7 @@ else
 
 @code
 {
-    [SupplyParameterFromQuery]
+    [SupplyParameterFromQuery(Name ="url")]
     public string BlogUrl { get; set; } = string.Empty;
     private string? Value { get; set; } 
     private List<TreeItemData<string>> TreeItems = new();
@@ -51,9 +54,24 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        var httpClient = HttpClientFactory.CreateClient(Settings.BlogUrl);
-        Value = await httpClient.GetStringAsync(BlogUrl);
         url = Navigation.Uri;
+        try
+        {
+            var httpClient = HttpClientFactory.CreateClient(Settings.BlogUrl);
+            string result = await httpClient.GetStringAsync(BlogUrl);
+            string blogName = BlogUrl.Contains('/') ? BlogUrl.Substring(0, BlogUrl.IndexOf('/')) : "default";
+            string pattern = @"assets\\([^\s""')]+\.(png|jpg|jpeg|gif))";
+            string replacement = $"{config.Value.Picture}/{blogName}/assets/$1";
+            var matches = Regex.Matches(result, pattern);
+            string updatedValue = Regex.Replace(result, pattern, replacement);
+            Value = updatedValue;
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("错误:"+ex.Message);
+            Snackbar.Add("找不到资源!", Severity.Error);
+            Navigation.NavigateTo("/ouseBlog");
+        }
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

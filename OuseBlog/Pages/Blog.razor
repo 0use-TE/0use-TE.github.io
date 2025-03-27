@@ -21,10 +21,6 @@
     {
         var httpClient= HttpClientFactory.CreateClient(Settings.BlogUrl);
         BlogModels=await httpClient.GetFromJsonAsync<List<BlogModel>>("Blog.json")??new List<BlogModel>();
-        foreach(var item in BlogModels)
-        {
-            Console.WriteLine(item.Name);
-        }
     }
     protected override Task OnAfterRenderAsync(bool firstRender)
     {
