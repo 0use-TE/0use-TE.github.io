@@ -1,20 +1,33 @@
 ﻿@page "/ouseblog"
+@inject IHttpClientFactory HttpClientFactory
 <Width xs="10" sm="8">
     <MudTextField Variant="Variant.Outlined" @bind-text=searchContent
     Placeholder="请输入您感兴趣的内容" Class="py-4"
     AdornmentIcon="@Icons.Material.Rounded.Search"
     Adornment="Adornment.Start" T="string"></MudTextField>
     <div class="d-flex flex-column gap-4">
-        <BlogOverflow></BlogOverflow>
+        @foreach(var item in BlogModels)
+        {
+            <BlogOverflow  BlogModel="item"></BlogOverflow>
+        }
     </div>
     <MudText Align="Align.Center" Typo="Typo.h6">持续完善中....</MudText>
 </Width>
 @code
 {
     private string? searchContent;
+    private List<BlogModel> BlogModels { get; set; } = new List<BlogModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient= HttpClientFactory.CreateClient(Settings.BlogUrl);
+        BlogModels=await httpClient.GetFromJsonAsync<List<BlogModel>>("Blog.json")??new List<BlogModel>();
+        foreach(var item in BlogModels)
+        {
+            Console.WriteLine(item.Name);
+        }
+    }
     protected override Task OnAfterRenderAsync(bool firstRender)
     {
-
         return base.OnAfterRenderAsync(firstRender);
     }
 }

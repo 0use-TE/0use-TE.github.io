@@ -1,8 +1,12 @@
-﻿<MudPaper Class="rounded-lg pa-4 cursor-pointer"   Height="100px" Width="100%" >
-	<MudText Typo="Typo.h6" Style="font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"  >如何在Asp.Net Core中使用Identity</MudText>
-	<MudText Style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis"  >有关Identity框架的知识</MudText>
+﻿
+<MudPaper Class="rounded-lg pa-4 cursor-pointer"   Height="100px" Width="100%" >
+	<MudText Typo="Typo.h6" Style="font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"  >@BlogModel.Name</MudText>
+	<MudText Style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis"  >@BlogModel.Description</MudText>
+	<div class="d-flex">
+		<MudButton Class="ml-auto" Href=@($"/blogContent?url={BlogModel.Url}")>前往</MudButton>
+	</div>
 </MudPaper>
 @code{
 	[Parameter]
-	public string ? url{ get; set; }
+	public BlogModel BlogModel { get; set; } = new BlogModel();
 }
