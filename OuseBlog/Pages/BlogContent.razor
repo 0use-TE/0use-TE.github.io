@@ -56,7 +56,7 @@ else
         {
             var httpClient = HttpClientFactory.CreateClient(Settings.BlogUrl);
             string result = await httpClient.GetStringAsync(BlogUrl);
-            string blogName = BlogUrl.Contains('/') ? BlogUrl.Substring(0, BlogUrl.IndexOf('/')) : "default";
+            string blogName = BlogUrl.Contains('/') ? BlogUrl.Substring(0, BlogUrl.LastIndexOf('/')) : "default";
             string pattern = @"assets[\\/]([^\s""')]+\.(png|jpg|jpeg|gif))";
             string replacement = $"{config.Value.Picture}/{blogName}/assets/$1";
             var matches = Regex.Matches(result, pattern);
