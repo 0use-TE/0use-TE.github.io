@@ -63,8 +63,10 @@
         
         <MudToggleIconButton   ToggledChanged="ToggleTheme"  Icon="@Icons.Material.Rounded.LightMode" ToggledIcon="@Icons.Material.Rounded.DarkMode"></MudToggleIconButton>
     </MudAppBar>
-    <MudMainContent  Class="pa-l" Style="overflow:scroll;">
+    <MudMainContent  Class="pa-l" Style="">
+        <div style="overflow:scroll;min-height:100vh">
         @Body
+            </div>
         <MudScrollToTop></MudScrollToTop>
     </MudMainContent>
 </MudLayout>
