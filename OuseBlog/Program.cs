@@ -6,7 +6,6 @@ using MudBlazor.Services;
 using OuseBlog;
 using OuseBlog.Misc;
 using OuseBlog.Models;
-using System.Net.Http.Json;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 

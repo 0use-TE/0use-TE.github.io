@@ -1,6 +1,7 @@
 ﻿@page "/blogContent"
 @using Microsoft.Extensions.Options
 @using System.Text.RegularExpressions
+@using MudBlazor.Markdown.Toc
 @inject NavigationManager Navigation
 @inject IHttpClientFactory HttpClientFactory
 @inject IJSRuntime JSRuntime
@@ -16,16 +17,7 @@ else
 {
     <div class="d-flex  gap-4">
         <MudDrawer @bind-Open=isOpen Class="" Style="color: var(--mud-palette-text-primary)" ClipMode="DrawerClipMode.Always" >
-            <MudText Typo="Typo.h6" Align="Align.Center" Style="font-weight:900;" >目录</MudText>
-            <MudTreeView Items="@TreeItems" >
-                <ItemTemplate>
-                    @{
-                        var node = context as TocNode ?? new TocNode();
-                    }
-                    <MudTreeViewItem  Style="" TextClass="font_weight"  Items="node?.Children" Text="@node?.Text" OnClick="@(async () => await LoadToTarget(node?.Id))">
-                    </MudTreeViewItem>
-                </ItemTemplate>
-            </MudTreeView>
+             <MudMarkdownToc></MudMarkdownToc>
         </MudDrawer>
 
         <div class="mud-drawer-pos-left d-flex flex-column justify-center" style="height:100vh" @onclick="ToggleDrawer">
@@ -44,8 +36,6 @@ else
     [SupplyParameterFromQuery(Name ="url")]
     public string BlogUrl { get; set; } = string.Empty;
     private string? Value { get; set; } 
-    private List<TreeItemData<string>> TreeItems = new();
-    private bool isInit;
     private string? url;
     private bool isOpen=true;
     private void ToggleDrawer() => isOpen = !isOpen;
@@ -54,7 +44,7 @@ else
         url = Navigation.Uri;
         try
         {
-            var httpClient = HttpClientFactory.CreateClient(Settings.BlogUrl);
+            var httpClient = HttpClientFactory.CreateClient(OuseBlog.Misc.Settings.BlogUrl);
             string result = await httpClient.GetStringAsync(BlogUrl);
             string blogName = BlogUrl.Contains('/') ? BlogUrl.Substring(0, BlogUrl.LastIndexOf('/')) : "default";
             string pattern = @"assets[\\/]([^\s""')]+\.(png|jpg|jpeg|gif))";
@@ -70,22 +60,7 @@ else
             Navigation.NavigateTo("/ouseBlog");
         }
     }
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (!isInit)
-        {
-            var result = await JSRuntime.InvokeAsync<string>("getHeadingTagsString", ".mud-markdown-body");
-            if (!string.IsNullOrEmpty(result))
-            {
-                isInit = true;
-                TreeItems = Untilies.GetTreeTocItem(result);
-                await InvokeAsync(StateHasChanged);
-            }
-        }
-    }
-    public async Task LoadToTarget(string? id)
-    {
-        await JSRuntime.InvokeVoidAsync("scrollToSection", id);
-    }
+
+
 }
 

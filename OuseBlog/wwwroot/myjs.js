@@ -71,33 +71,3 @@ window.initappbar = function () {
         }
     };
 };
-function getHeadingTagsString(elementSelector, separator = '') {
-    // 获取目标元素
-    const element = document.querySelector(elementSelector);
-    if (!element) {
-        return null; // 如果元素不存在，返回 null
-    }
-    else {
-    }
-    // 获取所有 h 标签（h1 到 h6）
-    const headings = element.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    if (headings.length === 0)
-    {
-    return ''; // 如果没有 h 标签，返回空字符串
-    }
-    // 提取每个 h 标签的完整 HTML 并拼接
-    const headingHtmls = Array.from(headings)
-        .map(h => h.outerHTML) // 获取完整标签，包括标签本身
-        .filter(html => html.trim().length > 0); // 过滤空字符串
-    // 用分隔符连接
-    return headingHtmls.join(separator);
-}
-// 滚动到指定 id
-window.scrollToSection = function (id) {
-    const target = document.getElementById(id);
-    if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-    } else {
-        console.log('目标元素不存在: ' + id);
-    }
-};
