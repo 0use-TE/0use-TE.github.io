@@ -4,7 +4,21 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+  <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <Compile Remove="Services\**" />
+    <Content Remove="bin\**" />
+    <Content Remove="Services\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="bin\**" />
+    <None Remove="Services\**" />
+    <TypeScriptCompile Remove="bin\**" />
+    <TypeScriptCompile Remove="Services\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Properties\launchSettings.json" />
@@ -12,13 +26,13 @@
 
   <ItemGroup>
     <PackageReference Include="BlazorAnimate" Version="3.0.0" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.12.0" />
+    <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.3" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.3" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.8.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+     <PrivateAssets>all</PrivateAssets>
+     <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MudBlazor" Version="8.3.0" />
     <PackageReference Include="MudBlazor.Markdown" Version="8.0.0" />
@@ -28,14 +42,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml.user" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml.user" />
-    <None Include="Properties\PublishProfiles\FolderProfile2.pubxml.user" />
-    <None Include="Properties\PublishProfiles\FolderProfile3.pubxml.user" />
-    <None Include="Properties\PublishProfiles\FolderProfile4.pubxml.user" />
-    <None Include="Properties\PublishProfiles\FolderProfile5.pubxml.user" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

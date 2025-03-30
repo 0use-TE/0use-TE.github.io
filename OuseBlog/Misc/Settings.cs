@@ -24,5 +24,7 @@ namespace OuseBlog.Misc
         };
         public static string ProjectUrl { get; set; }=nameof(ProjectUrl);
         public static string BlogUrl { get; set; } = nameof(BlogUrl);
+        public static string DrakMode { get; set; } = nameof(DrakMode);
+        public static string CodeBlockTheme { get; set; } = nameof(CodeBlockTheme);
     }
 }

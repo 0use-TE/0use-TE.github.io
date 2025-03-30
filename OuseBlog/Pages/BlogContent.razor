@@ -6,6 +6,7 @@
 @inject IHttpClientFactory HttpClientFactory
 @inject IJSRuntime JSRuntime
 @inject ISnackbar Snackbar
+@inject ILocalStorageService localStorage
 @inject IOptions<AppSettingsModel> config
 @if(string.IsNullOrEmpty(Value))
 {
@@ -17,21 +18,27 @@ else
 {
     <div class="d-flex  gap-4">
         <MudContainer MaxWidth="MaxWidth.Medium">
-            <MudMarkdown Value="@Value" CodeBlockTheme="CodeBlockTheme.A11yDark" />
+
+            <MudMarkdown Value="@Value" CodeBlockTheme="CodeBlock" />
         </MudContainer>
-
-        <MudDrawer @bind-Open=isOpen Class="" Style="color: var(--mud-palette-text-primary)" ClipMode="DrawerClipMode.Always" Anchor="MudBlazor.Anchor.Left" >
-            <MudToolBar>
-                <MudIconButton Icon="@Icons.Material.Outlined.Colorize"></MudIconButton>
-            </MudToolBar>
-            <MudMarkdownToc  ScrollBehavior="Scroll.Smooth"></MudMarkdownToc>
-        </MudDrawer>
-
-        <div class="mud-drawer-pos-left d-flex flex-column justify-center" style="height:100vh" @onclick="ToggleDrawer">
-            <MudFab StartIcon="@Icons.Material.Outlined.MenuOpen" Style="position:fixed"   Size="Size.Large" OnClick="ToggleDrawer">
+        <div class="mud-drawer-pos-right d-flex justify-center align-center flex-column  " style="height:100vh" @onclick="ToggleDrawer">
+            <MudFab StartIcon="@Icons.Material.Outlined.MenuOpen" Style="position:fixed" Size="Size.Large" OnClick="ToggleDrawer">
             </MudFab>
         </div>
-
+        <MudDrawer @bind-Open=isOpen Class="" Style="color: var(--mud-palette-text-primary)" ClipMode="DrawerClipMode.Always" Anchor="MudBlazor.Anchor.Right" >
+            <div class="pa-2">
+                <MudText Align="Align.Center" Typo="Typo.h6" Style="font-weight:600">代码块主题</MudText>
+            <MudSelect Variant="Variant.Outlined" @bind-Value="CodeBlock" OnClose="SelectCodeTheme">
+                    @foreach (CodeBlockTheme item in Enum.GetValues(typeof(CodeBlockTheme)))
+                    {
+                        <MudSelectItem Value="@item">@item</MudSelectItem>
+                    }
+                </MudSelect>
+            </div>   
+            <MudMarkdownToc   ScrollBehavior="Scroll.Smooth"></MudMarkdownToc>
+   
+        </MudDrawer>
+  
 
     </div>
 }
@@ -44,9 +51,15 @@ else
     private string? url;
     private bool isOpen=true;
     private void ToggleDrawer() => isOpen = !isOpen;
+    private CodeBlockTheme CodeBlock { get; set; } = CodeBlockTheme.A11yDark;
+    private async Task SelectCodeTheme()
+    {
+        await localStorage.SetItemAsync<CodeBlockTheme>(OuseBlog.Misc.Settings.CodeBlockTheme, CodeBlock);
+    }
     protected override async Task OnInitializedAsync()
     {
         url = Navigation.Uri;
+        CodeBlock =await localStorage.GetItemAsync<CodeBlockTheme>(OuseBlog.Misc.Settings.CodeBlockTheme);
         try
         {
             var httpClient = HttpClientFactory.CreateClient(OuseBlog.Misc.Settings.BlogUrl);

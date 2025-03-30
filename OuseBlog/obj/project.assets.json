@@ -22,17 +22,16 @@
           "buildMultiTargeting/BlazorAnimate.props": {}
         }
       },
-      "HtmlAgilityPack/1.12.0": {
+      "Blazored.LocalStorage/4.5.0": {
         "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "8.0.0"
+        },
         "compile": {
-          "lib/net8.0/HtmlAgilityPack.dll": {
-            "related": ".deps.json;.pdb;.xml"
-          }
+          "lib/net8.0/Blazored.LocalStorage.dll": {}
         },
         "runtime": {
-          "lib/net8.0/HtmlAgilityPack.dll": {
-            "related": ".deps.json;.pdb;.xml"
-          }
+          "lib/net8.0/Blazored.LocalStorage.dll": {}
         }
       },
       "Markdig/0.40.0": {
@@ -700,17 +699,16 @@
           "buildMultiTargeting/BlazorAnimate.props": {}
         }
       },
-      "HtmlAgilityPack/1.12.0": {
+      "Blazored.LocalStorage/4.5.0": {
         "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "8.0.0"
+        },
         "compile": {
-          "lib/net8.0/HtmlAgilityPack.dll": {
-            "related": ".deps.json;.pdb;.xml"
-          }
+          "lib/net8.0/Blazored.LocalStorage.dll": {}
         },
         "runtime": {
-          "lib/net8.0/HtmlAgilityPack.dll": {
-            "related": ".deps.json;.pdb;.xml"
-          }
+          "lib/net8.0/Blazored.LocalStorage.dll": {}
         }
       },
       "Markdig/0.40.0": {
@@ -1377,49 +1375,20 @@
         "staticwebassets/blazorAnimateInterop.js"
       ]
     },
-    "HtmlAgilityPack/1.12.0": {
-      "sha512": "VHtVZmfoYhQyA/POvZRLuTpCz1zhzIDrdYRJIRV73e9wKAzjW71biYNOHOWx8MxEX3TE4TWVfx1QDRoZcj2AWw==",
+    "Blazored.LocalStorage/4.5.0": {
+      "sha512": "6nZuJwA7zNIKx83IsObiHXZb09ponJOpCClU3en+hI8ZFvrOKXeOw+H7TegQZQrvdR1n9fkrVkEBQZg8vx6ZTw==",
       "type": "package",
-      "path": "htmlagilitypack/1.12.0",
+      "path": "blazored.localstorage/4.5.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "htmlagilitypack.1.12.0.nupkg.sha512",
-        "htmlagilitypack.nuspec",
-        "lib/Net35/HtmlAgilityPack.dll",
-        "lib/Net35/HtmlAgilityPack.pdb",
-        "lib/Net35/HtmlAgilityPack.xml",
-        "lib/Net40-client/HtmlAgilityPack.dll",
-        "lib/Net40-client/HtmlAgilityPack.pdb",
-        "lib/Net40-client/HtmlAgilityPack.xml",
-        "lib/Net40/HtmlAgilityPack.XML",
-        "lib/Net40/HtmlAgilityPack.dll",
-        "lib/Net40/HtmlAgilityPack.pdb",
-        "lib/Net45/HtmlAgilityPack.XML",
-        "lib/Net45/HtmlAgilityPack.dll",
-        "lib/Net45/HtmlAgilityPack.pdb",
-        "lib/NetCore45/HtmlAgilityPack.XML",
-        "lib/NetCore45/HtmlAgilityPack.dll",
-        "lib/NetCore45/HtmlAgilityPack.pdb",
-        "lib/net8.0/HtmlAgilityPack.deps.json",
-        "lib/net8.0/HtmlAgilityPack.dll",
-        "lib/net8.0/HtmlAgilityPack.pdb",
-        "lib/net8.0/HtmlAgilityPack.xml",
-        "lib/netstandard2.0/HtmlAgilityPack.deps.json",
-        "lib/netstandard2.0/HtmlAgilityPack.dll",
-        "lib/netstandard2.0/HtmlAgilityPack.pdb",
-        "lib/netstandard2.0/HtmlAgilityPack.xml",
-        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
-        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
-        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
-        "lib/uap10.0/HtmlAgilityPack.XML",
-        "lib/uap10.0/HtmlAgilityPack.dll",
-        "lib/uap10.0/HtmlAgilityPack.pdb",
-        "lib/uap10.0/HtmlAgilityPack.pri",
-        "readme.md"
+        "README.md",
+        "blazored.localstorage.4.5.0.nupkg.sha512",
+        "blazored.localstorage.nuspec",
+        "icon.png",
+        "lib/net6.0/Blazored.LocalStorage.dll",
+        "lib/net7.0/Blazored.LocalStorage.dll",
+        "lib/net8.0/Blazored.LocalStorage.dll"
       ]
     },
     "Markdig/0.40.0": {
@@ -2989,7 +2958,7 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "BlazorAnimate >= 3.0.0",
-      "HtmlAgilityPack >= 1.12.0",
+      "Blazored.LocalStorage >= 4.5.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 9.0.3",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 9.0.3",
       "Microsoft.Extensions.Http >= 9.0.3",
@@ -3002,23 +2971,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\22165\\.nuget\\packages\\": {},
-    "D:\\SoftWare\\Visual Studio\\VS SDK\\NuGetPackages": {}
+    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "D:\\StudySoftware\\VisualStudioTools\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
+      "projectUniqueName": "D:\\常用\\桌面\\王硕\\0use-TE.github.io\\OuseBlog\\OuseBlog.csproj",
       "projectName": "OuseBlog",
-      "projectPath": "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\OuseBlog.csproj",
-      "packagesPath": "C:\\Users\\22165\\.nuget\\packages\\",
-      "outputPath": "D:\\常用\\桌面\\MyProject\\OuseBlog\\OuseBlog\\obj\\",
+      "projectPath": "D:\\常用\\桌面\\王硕\\0use-TE.github.io\\OuseBlog\\OuseBlog.csproj",
+      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "outputPath": "D:\\常用\\桌面\\王硕\\0use-TE.github.io\\OuseBlog\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\SoftWare\\Visual Studio\\VS SDK\\NuGetPackages"
+        "D:\\StudySoftware\\VisualStudioTools\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\22165\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3026,8 +2995,8 @@
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\成品发布\\Nuget包": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3056,9 +3025,9 @@
             "target": "Package",
             "version": "[3.0.0, )"
           },
-          "HtmlAgilityPack": {
+          "Blazored.LocalStorage": {
             "target": "Package",
-            "version": "[1.12.0, )"
+            "version": "[4.5.0, )"
           },
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",

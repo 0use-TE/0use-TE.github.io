@@ -1,6 +1,7 @@
 ﻿using BlazorApp1.Layout;
 using Microsoft.JSInterop;
 using MudBlazor;
+using OuseBlog.Misc;
 
 namespace OuseBlog.Layout
 {
@@ -9,18 +10,19 @@ namespace OuseBlog.Layout
         private MudTheme theme = ThemeTools.Lumentheme;
         private bool isDarkMode = false;
         private bool isAnimating = false;
-        private bool isHidden = false;
-
+        protected override async Task OnInitializedAsync()
+        {
+            isDarkMode =await localStorage.GetItemAsync<bool>(Settings.DrakMode);
+            await base.OnInitializedAsync();
+        }
         // 根据当前状态返回主题
         private async Task ToggleTheme()
         {
             isAnimating = true;
             StateHasChanged();
-            // 动画时长，比如 600 毫秒，根据实际需要调整
             await Task.Delay(600);
-            // 切换主题
             isDarkMode = !isDarkMode;
-            // 结束动画：隐藏 overlay
+            await localStorage.SetItemAsync(Settings.DrakMode, isDarkMode);
             isAnimating = false;
             StateHasChanged();
         }
