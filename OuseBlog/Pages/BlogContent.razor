@@ -16,8 +16,15 @@
 else
 {
     <div class="d-flex  gap-4">
-        <MudDrawer @bind-Open=isOpen Class="" Style="color: var(--mud-palette-text-primary)" ClipMode="DrawerClipMode.Always" >
-             <MudMarkdownToc></MudMarkdownToc>
+        <MudContainer MaxWidth="MaxWidth.Medium">
+            <MudMarkdown Value="@Value" CodeBlockTheme="CodeBlockTheme.A11yDark" />
+        </MudContainer>
+
+        <MudDrawer @bind-Open=isOpen Class="" Style="color: var(--mud-palette-text-primary)" ClipMode="DrawerClipMode.Always" Anchor="MudBlazor.Anchor.Left" >
+            <MudToolBar>
+                <MudIconButton Icon="@Icons.Material.Outlined.Colorize"></MudIconButton>
+            </MudToolBar>
+            <MudMarkdownToc  ScrollBehavior="Scroll.Smooth"></MudMarkdownToc>
         </MudDrawer>
 
         <div class="mud-drawer-pos-left d-flex flex-column justify-center" style="height:100vh" @onclick="ToggleDrawer">
@@ -25,9 +32,7 @@ else
             </MudFab>
         </div>
 
-        <MudContainer MaxWidth="MaxWidth.Medium">
-            <MudMarkdown Value="@Value" CodeBlockTheme="CodeBlockTheme.A11yDark" />
-        </MudContainer>
+
     </div>
 }
 
@@ -60,7 +65,5 @@ else
             Navigation.NavigateTo("/ouseBlog");
         }
     }
-
-
 }
 

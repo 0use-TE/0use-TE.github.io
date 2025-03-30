@@ -24,8 +24,6 @@ namespace OuseBlog.Layout
             isAnimating = false;
             StateHasChanged();
         }
-
-
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
