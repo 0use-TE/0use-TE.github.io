@@ -64,10 +64,3 @@ customWindow.initappbar = function (): void {
         }
     };
 };
-export let save = (key: string | undefined, value: string | undefined) => {
-    window.localStorage.setItem(key, value);
-}
-export let load = (key: string | undefined): string => {
-    let value: string = window.localStorage.getItem(key);
-    return value;
-}

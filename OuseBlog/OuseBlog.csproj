@@ -34,4 +34,8 @@
     <None Include="Properties\PublishProfiles\FolderProfile5.pubxml.user" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
