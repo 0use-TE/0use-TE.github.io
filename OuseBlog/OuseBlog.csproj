@@ -1,38 +1,33 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-  <RunAotCompilation>false</RunAotCompilation>
-    <InvariantTimezone>true</InvariantTimezone>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\js\**" />
-    <Content Remove="wwwroot\js\**" />
-    <EmbeddedResource Remove="wwwroot\js\**" />
-    <None Remove="wwwroot\js\**" />
+    <Content Include="Properties\launchSettings.json" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BlazorAnimate" Version="3.0.0" />
     <PackageReference Include="HtmlAgilityPack" Version="1.12.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.13" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.13" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.3" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.3" />
     <PackageReference Include="MudBlazor" Version="8.3.0" />
     <PackageReference Include="MudBlazor.Markdown" Version="8.0.0" />
+    <PackageReference Include="MudMarkdown.Toc" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="wwwroot\appsettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml.user" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml.user" />
+    <None Include="Properties\PublishProfiles\FolderProfile2.pubxml.user" />
+    <None Include="Properties\PublishProfiles\FolderProfile3.pubxml.user" />
+    <None Include="Properties\PublishProfiles\FolderProfile4.pubxml.user" />
+    <None Include="Properties\PublishProfiles\FolderProfile5.pubxml.user" />
   </ItemGroup>
 
 </Project>
