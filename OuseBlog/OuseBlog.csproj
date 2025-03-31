@@ -36,7 +36,7 @@
     </PackageReference>
     <PackageReference Include="MudBlazor" Version="8.3.0" />
     <PackageReference Include="MudBlazor.Markdown" Version="8.0.0" />
-    <PackageReference Include="MudMarkdown.Toc" Version="1.0.1" />
+    <PackageReference Include="MudMarkdown.Toc" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>

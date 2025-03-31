@@ -658,7 +658,7 @@
           "buildMultiTargeting/MudBlazor.Markdown.props": {}
         }
       },
-      "MudMarkdown.Toc/1.0.1": {
+      "MudMarkdown.Toc/1.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "9.0.3",
@@ -669,6 +669,13 @@
         },
         "runtime": {
           "lib/net9.0/MudBlazor.Markdown.Toc.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/net9.0/Properties/launchSettings.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
         },
         "build": {
           "buildTransitive/MudMarkdown.Toc.props": {}
@@ -1335,7 +1342,7 @@
           "buildMultiTargeting/MudBlazor.Markdown.props": {}
         }
       },
-      "MudMarkdown.Toc/1.0.1": {
+      "MudMarkdown.Toc/1.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "9.0.3",
@@ -1346,6 +1353,13 @@
         },
         "runtime": {
           "lib/net9.0/MudBlazor.Markdown.Toc.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/net9.0/Properties/launchSettings.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
         },
         "build": {
           "buildTransitive/MudMarkdown.Toc.props": {}
@@ -2933,20 +2947,21 @@
         "staticwebassets/output/chtml/fonts/woff-v2/MathJax_Zero.woff"
       ]
     },
-    "MudMarkdown.Toc/1.0.1": {
-      "sha512": "ABGEUKc6mLhKZFLDdj3xk4diOlOBTh+iV519PPowTdmJ6MEUvpDmGtVJqbEwNui6zMMmj3KsQAW6OOlLJakByA==",
+    "MudMarkdown.Toc/1.0.2": {
+      "sha512": "ruFLEonAOpNc+X90phlUiPaYe5mMPqLUZzg5lRNMBmLMvGX0XsSJlWeJvtyBybG6jChMNKvYjtb3EObHc2SkEg==",
       "type": "package",
-      "path": "mudmarkdown.toc/1.0.1",
+      "path": "mudmarkdown.toc/1.0.2",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "build/Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
         "build/Microsoft.AspNetCore.StaticWebAssets.props",
         "build/MudMarkdown.Toc.props",
         "buildMultiTargeting/MudMarkdown.Toc.props",
         "buildTransitive/MudMarkdown.Toc.props",
+        "content/Properties/launchSettings.json",
+        "contentFiles/any/net9.0/Properties/launchSettings.json",
         "lib/net9.0/MudBlazor.Markdown.Toc.dll",
-        "mudmarkdown.toc.1.0.1.nupkg.sha512",
+        "mudmarkdown.toc.1.0.2.nupkg.sha512",
         "mudmarkdown.toc.nuspec",
         "staticwebassets/Markdown.Toc.js",
         "staticwebassets/Markdown.Toc.js.map",
@@ -2967,24 +2982,24 @@
       "Microsoft.TypeScript.MSBuild >= 5.8.1",
       "MudBlazor >= 8.3.0",
       "MudBlazor.Markdown >= 8.0.0",
-      "MudMarkdown.Toc >= 1.0.1"
+      "MudMarkdown.Toc >= 1.0.2"
     ]
   },
   "packageFolders": {
     "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "D:\\StudySoftware\\VisualStudioTools\\NuGetPackages": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\常用\\桌面\\王硕\\0use-TE.github.io\\OuseBlog\\OuseBlog.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\Project\\0use-TE.github.io\\OuseBlog\\OuseBlog.csproj",
       "projectName": "OuseBlog",
-      "projectPath": "D:\\常用\\桌面\\王硕\\0use-TE.github.io\\OuseBlog\\OuseBlog.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Desktop\\Project\\0use-TE.github.io\\OuseBlog\\OuseBlog.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\常用\\桌面\\王硕\\0use-TE.github.io\\OuseBlog\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Desktop\\Project\\0use-TE.github.io\\OuseBlog\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\StudySoftware\\VisualStudioTools\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2997,6 +3012,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
+        "D:\\成品发布\\NugetPackage": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3070,7 +3086,7 @@
           },
           "MudMarkdown.Toc": {
             "target": "Package",
-            "version": "[1.0.1, )"
+            "version": "[1.0.2, )"
           }
         },
         "imports": [
@@ -3084,12 +3100,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[9.0.3, 9.0.3]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

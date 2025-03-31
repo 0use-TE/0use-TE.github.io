@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xKrLY/kXZkk=",
+  "dgSpecHash": "Kw3GKX3xLE0=",
   "success": true,
-  "projectFilePath": "D:\\常用\\桌面\\王硕\\0use-TE.github.io\\OuseBlog\\OuseBlog.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\Project\\0use-TE.github.io\\OuseBlog\\OuseBlog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\blazoranimate\\3.0.0\\blazoranimate.3.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\blazored.localstorage\\4.5.0\\blazored.localstorage.4.5.0.nupkg.sha512",
@@ -43,8 +43,7 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\minver\\2.0.0\\minver.2.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\mudblazor\\8.3.0\\mudblazor.8.3.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\mudblazor.markdown\\8.0.0\\mudblazor.markdown.8.0.0.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\mudmarkdown.toc\\1.0.1\\mudmarkdown.toc.1.0.1.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\9.0.3\\microsoft.netcore.app.runtime.mono.browser-wasm.9.0.3.nupkg.sha512"
+    "C:\\Users\\Administrator\\.nuget\\packages\\mudmarkdown.toc\\1.0.2\\mudmarkdown.toc.1.0.2.nupkg.sha512"
   ],
   "logs": []
 }

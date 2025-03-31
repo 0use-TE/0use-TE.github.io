@@ -5,7 +5,7 @@
 }
 const customWindow = window as unknown as CustomWindow;
 
-customWindow.initappbar = function (): void {
+export function initappbar(): void {
     const appbar: HTMLElement | null = document.getElementById("appbar");
     if (appbar) {
         appbar.classList.add("visible");
@@ -13,7 +13,7 @@ customWindow.initappbar = function (): void {
         console.log('找不到appbar');
     }
     let isHidden: boolean = false;
-    let touchStartY: number = 0; // 记录触摸开始的 Y 坐标
+    let touchStartY: number = 0;
     window.addEventListener("wheel", function (event: WheelEvent): void {
         if (event.deltaY > 0 && !isHidden) {
             appbar?.classList.remove("visible");
@@ -28,25 +28,21 @@ customWindow.initappbar = function (): void {
     window.addEventListener("touchstart", function (event: TouchEvent): void {
         touchStartY = event.touches[0].clientY;
     });
-
     window.addEventListener("touchmove", function (event: TouchEvent): void {
         const touchCurrentY: number = event.touches[0].clientY;
-        const deltaY: number = touchStartY - touchCurrentY; // 计算滑动方向和距离
-
+        const deltaY: number = touchStartY - touchCurrentY;
         if (deltaY > 10 && !isHidden) {
-            // 向下划（deltaY > 0），隐藏 appbar
             appbar?.classList.remove("visible");
             appbar?.classList.add("hidden");
             isHidden = true;
         } else if (deltaY < -10 && isHidden) {
-            // 向上划（deltaY < 0），显示 appbar
             appbar?.classList.remove("hidden");
             appbar?.classList.add("visible");
             isHidden = false;
         }
     });
     window.addEventListener("touchend", function (event: TouchEvent): void {
-        touchStartY = 0; // 重置触摸起始点
+        touchStartY = 0;
     });
 
     customWindow.showAppbar = function (): void {
@@ -63,4 +59,6 @@ customWindow.initappbar = function (): void {
             isHidden = true;
         }
     };
-};
+}
+
+customWindow.initappbar = initappbar;
