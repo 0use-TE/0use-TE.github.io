@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iGk5Lg9+6G8=",
+  "dgSpecHash": "++XpIR495S8=",
   "success": true,
   "projectFilePath": "D:\\常用\\桌面\\Project\\0use-TE.github.io\\OuseBlog\\OuseBlog.csproj",
   "expectedPackageFiles": [
@@ -38,12 +38,13 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.jsinterop\\9.0.3\\microsoft.jsinterop.9.0.3.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.jsinterop.webassembly\\9.0.3\\microsoft.jsinterop.webassembly.9.0.3.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.3\\microsoft.net.illink.tasks.9.0.3.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.4\\microsoft.net.sdk.webassembly.pack.9.0.4.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.6\\microsoft.net.sdk.webassembly.pack.9.0.6.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.typescript.msbuild\\5.8.1\\microsoft.typescript.msbuild.5.8.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\minver\\2.0.0\\minver.2.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\mudblazor\\8.3.0\\mudblazor.8.3.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\mudblazor.markdown\\8.0.0\\mudblazor.markdown.8.0.0.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\mudmarkdown.toc\\1.0.2\\mudmarkdown.toc.1.0.2.nupkg.sha512"
+    "C:\\Users\\Administrator\\.nuget\\packages\\mudmarkdown.toc\\1.0.2\\mudmarkdown.toc.1.0.2.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\9.0.6\\microsoft.netcore.app.runtime.mono.browser-wasm.9.0.6.nupkg.sha512"
   ],
   "logs": []
 }
