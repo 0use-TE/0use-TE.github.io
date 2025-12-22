@@ -20,8 +20,8 @@ builder.Services.AddMudServices(config => config.SnackbarConfiguration = new Sna
 {
     PositionClass = Defaults.Classes.Position.BottomLeft
 });
-
 builder.Services.AddMudMarkdownServices();
+
 
 builder.Services.AddScoped(sp => new HttpClient {  BaseAddress=new(builder.HostEnvironment.BaseAddress)});
 

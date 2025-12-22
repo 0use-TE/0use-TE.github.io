@@ -1,27 +1,75 @@
 ﻿@page "/ouseblog"
 @inject IHttpClientFactory HttpClientFactory
+@inject NavigationManager Navigation
 @inject ISnackbar Snackbar
-<Width xs="10" sm="8">
-    <MudTextField Variant="Variant.Outlined" @bind-Value=searchContent 
-    Placeholder="请输入您感兴趣的内容" Class="py-4"
-    AdornmentIcon="@Icons.Material.Rounded.Search"  InputType=InputType.Search  OnBlur=Filter
-    Adornment="Adornment.Start" T="string"></MudTextField>
-    <div class="d-flex flex-column gap-4">
 
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-6">
+    <MudTextField Variant="Variant.Outlined" @bind-Value="searchContent" 
+                  Placeholder="搜索博客标题或分类..." Class="py-4"
+                  AdornmentIcon="@Icons.Material.Rounded.Search" 
+                  InputType="InputType.Search" 
+                  OnKeyUp="Filter"
+                  Adornment="Adornment.Start" T="string" Immediate="true"></MudTextField>
+
+    <div class="d-flex flex-column gap-4">
+        @if (filteredPosts == null)
+        {
+            <MudProgressLinear Color="Color.Primary" Indeterminate="true" />
+        }
+        else
+        {
+            @foreach (var post in filteredPosts)
+            {
+                <MudButton OnClick="@(() => OpenPost(post.path))" Class="hvr-underline-reveal" FullWidth>
+                    <MudPaper Class="rounded-lg pa-4" Outlined="true" Width="100%" >
+                        <div class="d-flex justify-space-between align-center">
+                            <MudText Typo="Typo.h6">@post.title</MudText>
+                            <MudChip Color="Color.Warning" Size="Size.Small" T="string" Variant="Variant.Text">@post.category</MudChip>
+                        </div>
+                    </MudPaper>
+                </MudButton>
+            }
+        }
     </div>
-</Width>
-@code
-{
-    private string searchContent=string.Empty;
+</MudContainer>
+
+@code {
+    private string searchContent = string.Empty;
+    private List<BlogPost>? allPosts;
+    private List<BlogPost>? filteredPosts;
+
     protected override async Task OnInitializedAsync()
     {
+        try
+        {
+            var client = HttpClientFactory.CreateClient();
+            allPosts = await client.GetFromJsonAsync<List<BlogPost>>(Settings.BlogIndexUrl);
+            filteredPosts = allPosts;
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add("获取索引失败: " + ex.Message, Severity.Error);
+        }
     }
-    protected override Task OnAfterRenderAsync(bool firstRender)
+
+    private void Filter()
     {
-        return base.OnAfterRenderAsync(firstRender);
+        if (string.IsNullOrWhiteSpace(searchContent))
+            filteredPosts = allPosts;
+        else
+            filteredPosts = allPosts?.Where(x => x.title.Contains(searchContent, StringComparison.OrdinalIgnoreCase)).ToList();
     }
-    public void Filter(FocusEventArgs args)
+
+    private void OpenPost(string path)
     {
-     
+        // 传递 path 给详情页，注意 URL 编码
+        Navigation.NavigateTo($"/blogContent?url={Uri.EscapeDataString(path)}");
+    }
+
+    public class BlogPost {
+        public string title { get; set; } = "";
+        public string path { get; set; } = "";
+        public string category { get; set; } = "";
+        public string date { get; set; } = "";
     }
 }
