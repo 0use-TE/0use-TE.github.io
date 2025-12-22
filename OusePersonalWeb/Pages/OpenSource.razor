@@ -1,0 +1,23 @@
+﻿@page "/opensource"
+@using OusePersonalWeb.Componments
+@using OusePersonalWeb.Models
+@inject IHttpClientFactory HttpClientFactory
+<Width>
+    <Animate DurationMs="500" Animation="Animations.SlideDown" DelayMs="200" class="mt-10">
+        <MudText  Typo="Typo.h4" Align="Align.Center">欣赏Ouse的小玩意</MudText>
+    </Animate>
+    <Width xs="10" md="6">
+        <MudDivider></MudDivider>
+    </Width>
+
+    <MudGrid>
+
+    </MudGrid>
+</Width>
+
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        
+    }
+}

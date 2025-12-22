@@ -1,0 +1,155 @@
+﻿@page "/"
+@page "/home"
+@using OusePersonalWeb.Componments
+@inject NavigationManager Navigation
+<PageTitle>主页</PageTitle>
+<MudContainer MaxWidth="MaxWidth.False" Class="d-flex flex-column align-center  " >
+    <div class="d-flex justify-center mt-2">
+        <MudText Class="slogan" Align="Align.Center"><MudText Inline Class="slogan" Color="Color.Primary">0</MudText>use</MudText>
+        <MudText Class="slogan slogan-sec slogan-ext" Align="Align.Center" Color="Color.Primary">Blog</MudText>
+    </div>
+    <MudText Class="slogan2 mt-n4" Align="Align.Center" >从0到use</MudText>
+
+    <div class="d-flex flex-column align-center ">
+        <div class="pa-4 d-flex gap-4 ">
+            <Animate Animation="Animations.FadeRight" DurationMs="500">
+                <MudTooltip Text="QQ账号">
+                        <SvgButton Type="SvgType.QQ" Href="tencent://message/?uin=2216528769Site=MyWebsite&Menu=yes"></SvgButton>
+                </MudTooltip>
+            </Animate>
+
+            <Animate Animation="Animations.FadeDown" DurationMs="500">
+                <MudTooltip Text="GitHub账号">
+                    <SvgButton Type="SvgType.Github" Href="https://github.com/0use-TE"></SvgButton>
+                </MudTooltip>
+
+            </Animate>
+
+            <Animate Animation="Animations.FadeLeft" DurationMs="500">
+                <MudTooltip Text="微软账号">
+                    <SvgButton Type="SvgType.Microsoft" Href=""></SvgButton>
+                </MudTooltip>
+            </Animate>
+        </div >
+        <MudText Typo="Typo.subtitle2">联系方式</MudText>
+    </div>
+    <MudDivider Style="width: 24vw" />
+    <br />
+    <br />
+
+    <Width xs="10" sm="8">
+        <MudTextField Variant="Variant.Outlined" @bind-text=searchContent 
+        Placeholder="查找您想找的..."
+        AdornmentIcon="@Icons.Material.Rounded.Search"
+        Adornment="Adornment.Start"   T="string"></MudTextField>
+    </Width>
+
+    <Width xs="10" sm="8" Class="pt-4">
+        <MudGrid  >
+            <!-- 博客卡片 -->
+            <MudItem xs="12" sm="4" Class="d-flex" >
+                <Animate Animation="Animations.FadeIn" DurationMs="2000">
+                    <MudCard Elevation="4" Class="card" @onclick="@(() => LoadToPage("ouseblog"))" Style="height:100%">
+                        <MudCardHeader>
+                            <MudText Typo="Typo.h6">博客</MudText>
+                            <MudIcon Class="ml-auto" Icon="@Icons.Material.Rounded.Article"></MudIcon> <!-- 博客图标 -->
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudText>
+                                <strong>博客</strong>：在我的博客中，我会分享关于编程的各类文章以及生活中的点点滴滴，包括技术技巧、开发心得等。
+                                通过这些文章，希望能为您带来帮助,带来快乐!
+                            </MudText>
+                        </MudCardContent>
+                    </MudCard>
+                </Animate>
+            </MudItem>
+
+            <!-- 开源卡片 -->
+            <MudItem xs="12" sm="4" Class="d-flex">
+                <Animate Animation="Animations.FadeIn" DurationMs="2000">
+                    <MudCard Elevation="4" Class="card" @onclick="@(() => LoadToPage("opensource"))" Style="height:100%">
+                        <MudCardHeader>
+                            <MudText Typo="Typo.h6">开源</MudText>
+                            <MudIcon Class="ml-auto" Icon="@Icons.Material.Rounded.Public"></MudIcon> <!-- 开源图标 -->
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudText>
+                                <strong>开源</strong>：我热衷于开源社区的建设.大学一年多来，我做了好多有趣的"小玩意"，包括游戏，软件...
+                                如果对您有用，不妨Star一下，您的支持是我最大的动力！
+                            </MudText>
+                        </MudCardContent>
+                    </MudCard>
+                </Animate>
+            </MudItem>
+
+            <!-- 简历卡片 -->
+            <MudItem xs="12" sm="4" Class="d-flex">
+                <Animate Animation="Animations.FadeIn" DurationMs="2000">
+                    <MudCard Elevation="4" Class="card" @onclick="@(()=>LoadToPage("resume"))" Style="height:100%">
+                        <MudCardHeader>
+                            <MudText Typo="Typo.h6">简历</MudText>
+                            <MudIcon Class="ml-auto" Icon="@Icons.Material.Rounded.PersonPin"></MudIcon> <!-- 简历图标 -->
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudText>
+                                <strong>简历</strong>：随着不断学习，这里我也会不断更新我的简历。您在这里可以看到我的学习路线，如果你对我的技术栈感兴趣，欢迎查看详细的简历内容。
+                            </MudText>
+                        </MudCardContent>
+                    </MudCard>
+                </Animate>
+            </MudItem>
+        </MudGrid>
+    </Width>
+</MudContainer>
+
+
+@code
+{
+    private string? searchContent;
+    private void LoadToPage(string url)=>Navigation.NavigateTo($"/loading/{url}");
+    
+}
+<style>
+    .card:hover
+    {
+        box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.8), /* 青色荧光 */
+        0 0 25px 10px rgba(0, 255, 255, 0.4); /* 更淡的外围光晕 */
+        filter: brightness(1.1); /* 增加亮度，增强荧光感 */
+        cursor:pointer;
+    }
+
+    .slogan {
+        color:  rebeccapurple;
+        font-size: calc(20px + 4vw);
+        font-weight: 900;
+        font-family: "Roboto";
+        letter-spacing: 0;
+        transition: all 1s;
+        user-select: none;
+    }
+
+        .slogan:hover {
+            letter-spacing: calc(4px + 2vw);
+        }
+
+            .slogan:hover.slogan-ext:after {
+                content: "land";
+                color: var(--mud-palette-text-primary);
+                letter-spacing: 0;
+            }
+
+    .slogan2 {
+        color:deeppink;
+        font-size: calc(12px + 1vw);
+        font-weight: 900;
+        font-family: "Roboto";
+        letter-spacing: -0.1vw;
+        transition: all 1s;
+        user-select: none;
+    }
+
+        .slogan2:hover {
+            letter-spacing: calc(2px + 1vw);
+        }
+
+</style>

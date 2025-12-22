@@ -1,0 +1,142 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JS
+@inject ILocalStorageService localStorage
+<MudThemeProvider  Theme="theme" @bind-IsDarkMode=isDarkMode/>
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<!-- 过渡动画层 -->
+<div class="theme-transition-overlay @(isAnimating ? "animate" : "")"></div>
+
+<MudLayout>
+    <MudAppBar id="appbar" Fixed  Gutters Class="px-sm-10"> 
+
+        <MudMenu ActivationEvent="MudBlazor.MouseEvent.MouseOver" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter">
+            <ActivatorContent>
+        <MudAvatar  >
+            <MudImage Src="images/大二的样子.jpg" ></MudImage>
+        </MudAvatar>
+            </ActivatorContent>
+            <ChildContent>
+                <MudStack  AlignItems="AlignItems.Center" Style="height:auto;width:auto"  Class="pa-2">
+                    <MudText >俺叫Ouse</MudText>
+                    <MudText Typo="Typo.subtitle2">一名喜欢学习先进技术的程序员</MudText>
+                </MudStack>
+            </ChildContent>
+        </MudMenu>
+        
+        @*电脑*@
+        <MudHidden Hidden Breakpoint="Breakpoint.SmAndDown">
+        <MudButton Href="/"><MudText Typo="Typo.h6" Class="px-2 nav">Ouse</MudText></MudButton>
+        <MudStack Row Spacing="4">
+            <MudTooltip Arrow Text="CD Home" Color="Color.Error">
+                    <MudButton Href="/loading/home" Size="Size.Large" Class="nav hvr-sweep-to-top">主页</MudButton>
+</MudTooltip>
+                <MudTooltip Arrow Text="0use的Blog😍" Color="Color.Warning">
+                    <MudButton Href="/loading/ouseblog" Size="Size.Large" Class="nav hvr-sweep-to-top">博客</MudButton>
+</MudTooltip>
+                <MudTooltip Arrow Text="试试0use的小玩意?" Color="Color.Info">
+                    <MudButton Href="/loading/opensource" Size="Size.Large" Class="nav hvr-sweep-to-top">开源</MudButton>
+</MudTooltip>
+<MudTooltip Arrow Text="与0use一起回顾学习之旅ヾ(≧▽≦*)o!">
+                    <MudButton Href="/loading/resume" Size="Size.Large" Class="nav hvr-sweep-to-top">简历</MudButton>
+</MudTooltip>
+        </MudStack>
+        </MudHidden>
+
+        <MudSpacer></MudSpacer>
+
+        @*手机*@
+        <MudHidden Hidden Breakpoint="Breakpoint.MdAndUp">
+            <MudMenu  AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+                <ActivatorContent>
+                <MudIconButton Icon="@Icons.Material.Rounded.Settings"></MudIconButton>
+                </ActivatorContent>
+                <ChildContent>
+                    <MudButton Href="/loading/home" Size="Size.Large" Class="nav">主页</MudButton>
+                    <MudButton Href="/loading/ouseblog" Size="Size.Large" Class="nav">博客</MudButton>
+                    <MudButton Href="/loading/opensource" Size="Size.Large" Class="nav">开源</MudButton>
+                    <MudButton Href="/loading/resume" Size="Size.Large" Class="nav">简历</MudButton>
+                </ChildContent>
+            </MudMenu>
+        </MudHidden>
+        
+        <MudToggleIconButton   ToggledChanged="ToggleTheme"  Icon="@Icons.Material.Rounded.LightMode" ToggledIcon="@Icons.Material.Rounded.DarkMode"></MudToggleIconButton>
+    </MudAppBar>
+    <MudMainContent  Class="pa-l" Style="">
+        <div style="overflow:scroll;min-height:100vh">
+        @Body
+            </div>
+        <MudScrollToTop></MudScrollToTop>
+    </MudMainContent>
+</MudLayout>
+
+    <style >
+        .nav
+        {
+        font-weight: bold;
+        font-size: x-large
+        }
+    #appbar {
+        top: 0;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .hidden {
+        transform: translateY(-100%); /* 向上滑动隐藏 */
+    }
+
+    .visible {
+        transform: translateY(0); /* 向下拉回显示 */
+    }
+    /* 过渡动画层 */
+    .theme-transition-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        /* 使用新主题背景色或者你期望的颜色，建议通过 CSS 变量来管理 */
+        background-color: var(--mud-palette-background, #fff);
+        z-index: 3000; /* 确保在最上层 */
+        pointer-events: none;
+        clip-path: circle(0% at 100% 0);
+        transition: clip-path 0.6s ease-in-out;
+    }
+        /* 当添加 animate 类时，clip-path 扩大到足够覆盖整个屏幕 */
+        .theme-transition-overlay.animate {
+            clip-path: circle(150% at 100% 0);
+        }
+</style>
+
+@code{
+    private MudTheme theme = ThemeTools.Lumentheme;
+    private bool isDarkMode = false;
+    private bool isAnimating = false;
+    protected override async Task OnInitializedAsync()
+    {
+        isDarkMode = await localStorage.GetItemAsync<bool>(Settings.DrakMode);
+        await base.OnInitializedAsync();
+    }
+    // 根据当前状态返回主题
+    private async Task ToggleTheme()
+    {
+        isAnimating = true;
+        StateHasChanged();
+        await Task.Delay(600);
+        isDarkMode = !isDarkMode;
+        await localStorage.SetItemAsync(Settings.DrakMode, isDarkMode);
+        isAnimating = false;
+        StateHasChanged();
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // 调用 JavaScript 函数
+            await JS.InvokeVoidAsync("initappbar");
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}

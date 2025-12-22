@@ -1,0 +1,27 @@
+﻿@page "/ouseblog"
+@inject IHttpClientFactory HttpClientFactory
+@inject ISnackbar Snackbar
+<Width xs="10" sm="8">
+    <MudTextField Variant="Variant.Outlined" @bind-Value=searchContent 
+    Placeholder="请输入您感兴趣的内容" Class="py-4"
+    AdornmentIcon="@Icons.Material.Rounded.Search"  InputType=InputType.Search  OnBlur=Filter
+    Adornment="Adornment.Start" T="string"></MudTextField>
+    <div class="d-flex flex-column gap-4">
+
+    </div>
+</Width>
+@code
+{
+    private string searchContent=string.Empty;
+    protected override async Task OnInitializedAsync()
+    {
+    }
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        return base.OnAfterRenderAsync(firstRender);
+    }
+    public void Filter(FocusEventArgs args)
+    {
+     
+    }
+}
