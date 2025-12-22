@@ -23,7 +23,7 @@ jobs:
       
       # Publishes Blazor project to the release-folder
     - name: Publish Blazor WASM Project
-      run: dotnet publish ./OuseBlog/OuseBlog.csproj -c:Release -p:GHPages=true -o dist/Web --nologo
+      run: dotnet publish ./OusePersonalWeb/OusePersonalWeb.csproj -c:Release -p:GHPages=true -o dist/Web --nologo
 
 
     - name: Commit wwwroot to GitHub Pages
