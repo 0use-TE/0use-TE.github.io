@@ -29,6 +29,10 @@ else
         position:fixed;
         right:0;
     }
+    .mud-markdown-toc-nav-menu{
+        height: 90vh;
+        overflow: auto;
+    }
 </style>
 
 @code {
@@ -55,7 +59,7 @@ else
             Typo.h3 => Typo.h6, // ### 映射为 h6
             _ => typo           // 其他保持不变
         };
-            
+
         // 配置图片路径重写
         mudMarkdownProps.Link.OverrideUrl= (link) =>
         {
@@ -76,6 +80,7 @@ else
                 // 拼接成完整的 GitHub Raw 路径
                 // Settings.BlogRawRoot 结尾已有 /，folderPath 结尾已有 /
                 // 最终结果如: https://raw.githubusercontent.com/.../main/Dotnet/assets/1.png
+                Console.WriteLine(originalUrl);
                 return $"{Settings.BlogRawRoot}{folderPath}{originalUrl}";
             }
 

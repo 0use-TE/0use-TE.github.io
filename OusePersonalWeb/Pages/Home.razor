@@ -3,20 +3,21 @@
 @using OusePersonalWeb.Componments
 @using static OusePersonalWeb.Pages.Blog
 @inject NavigationManager Navigation
-@inject HttpClient Http
+@inject ISnackbar Snackbar
+@inject IHttpClientFactory HttpClientFactory
 <PageTitle>主页</PageTitle>
-<MudContainer MaxWidth="MaxWidth.False" Class="d-flex flex-column align-center  " >
+<MudContainer MaxWidth="MaxWidth.False" Class="d-flex flex-column align-center  ">
     <div class="d-flex justify-center mt-2">
         <MudText Class="slogan" Align="Align.Center"><MudText Inline Class="slogan" Color="Color.Primary">0</MudText>use</MudText>
         <MudText Class="slogan slogan-sec slogan-ext" Align="Align.Center" Color="Color.Primary">Blog</MudText>
     </div>
-    <MudText Class="slogan2 mt-n4" Align="Align.Center" >从0到use</MudText>
+    <MudText Class="slogan2 mt-n4" Align="Align.Center">从0到use</MudText>
 
     <div class="d-flex flex-column align-center ">
         <div class="pa-4 d-flex gap-4 ">
             <Animate Animation="Animations.FadeRight" DurationMs="500">
                 <MudTooltip Text="QQ账号">
-                        <SvgButton Type="SvgType.QQ" Href="tencent://message/?uin=2216528769Site=MyWebsite&Menu=yes"></SvgButton>
+                    <SvgButton Type="SvgType.QQ" Href="tencent://message/?uin=2216528769Site=MyWebsite&Menu=yes"></SvgButton>
                 </MudTooltip>
             </Animate>
 
@@ -32,33 +33,38 @@
                     <SvgButton Type="SvgType.Microsoft" Href=""></SvgButton>
                 </MudTooltip>
             </Animate>
-        </div >
+        </div>
         <MudText Typo="Typo.subtitle2">联系方式</MudText>
     </div>
     <MudDivider Style="width: 24vw" />
     <br />
-    <br />
+    <br /> 
 
     <Width xs="10" sm="8">
-        <MudAutocomplete T="BlogPost"
-                         Label="查找您想找的..."
-                         @bind-Value="selectedPost"
-                         SearchFunc="@SearchBlog"
-                         ToStringFunc="@(p => p?.title)"
-                         Immediate
-                         Variant="Variant.Outlined"
-                         AdornmentIcon="@Icons.Material.Rounded.Search"
-                         Adornment="Adornment.Start"
-                         Placeholder="输入文章标题或分类..."
-                         ResetValueOnEmptyText="true"
-                         CoerceText="true" />
+        <MudStack Row>
+            <MudAutocomplete T="BlogPost"
+                             Label="查找您想找的..."
+                             @bind-Value="selectedPost"
+                             ToStringFunc="@(p => p?.title)"
+                             SearchFunc="SearchPosts"
+                             Clearable="true"
+                             OnKeyDown="OpenPost"
+                             Variant="Variant.Outlined"
+                             AdornmentIcon="@Icons.Material.Rounded.Search"
+                             Adornment="Adornment.Start"
+                             Placeholder="输入文章标题或分类..."
+                             CoerceText="true" />
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="OpenPost">前往</MudButton>
+        </MudStack>
+
     </Width>
-                        
+
+
 
     <Width xs="10" sm="8" Class="pt-4">
-        <MudGrid  >
+        <MudGrid>
             <!-- 博客卡片 -->
-            <MudItem xs="12" sm="4" Class="d-flex" >
+            <MudItem xs="12" sm="4" Class="d-flex">
                 <Animate Animation="Animations.FadeIn" DurationMs="2000">
                     <MudCard Elevation="4" Class="card" @onclick="@(() => LoadToPage("ouseblog"))" Style="height:100%">
                         <MudCardHeader>
@@ -96,7 +102,7 @@
             <!-- 简历卡片 -->
             <MudItem xs="12" sm="4" Class="d-flex">
                 <Animate Animation="Animations.FadeIn" DurationMs="2000">
-                    <MudCard Elevation="4" Class="card" @onclick="@(()=>LoadToPage("resume"))" Style="height:100%">
+                    <MudCard Elevation="4" Class="card" @onclick="@(() => LoadToPage("resume"))" Style="height:100%">
                         <MudCardHeader>
                             <MudText Typo="Typo.h6">简历</MudText>
                             <MudIcon Class="ml-auto" Icon="@Icons.Material.Rounded.PersonPin"></MudIcon> <!-- 简历图标 -->
@@ -115,53 +121,56 @@
 @code {
     private List<BlogPost> allPosts = new();
     private BlogPost? selectedPost;
+    private List<BlogPost>? filteredPosts;
+    private BlogPost? popupPost;
+
+    private Task<IEnumerable<BlogPost>> SearchPosts(string value, CancellationToken cancellationToken)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return Task.FromResult<IEnumerable<BlogPost>>(allPosts);
+
+        var filtered = allPosts
+            .Where(p => p.title.Contains(value, StringComparison.OrdinalIgnoreCase)
+                     || (p.category != null && p.category.Contains(value, StringComparison.OrdinalIgnoreCase)))
+            .ToList();
+
+        return Task.FromResult<IEnumerable<BlogPost>>(filtered);
+    }
+    private void OpenPost()
+    {
+        if (string.IsNullOrWhiteSpace(selectedPost?.path))
+            return;
+        Navigation.NavigateTo($"/blogContent?url={Uri.EscapeDataString(selectedPost.path)}");
+    }
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            // 确保 index.json 放在 wwwroot 目录下
-            allPosts = await Http.GetFromJsonAsync<List<BlogPost>>("index.json") ?? new();
+            var client = HttpClientFactory.CreateClient();
+            allPosts = await client.GetFromJsonAsync<List<BlogPost>>(Settings.BlogIndexUrl) ?? new List<BlogPost>();
+            filteredPosts = allPosts;
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"加载索引失败: {ex.Message}");
+            Snackbar.Add("获取索引失败: " + ex.Message, Severity.Error);
         }
     }
 
-    private async Task<IEnumerable<BlogPost>> SearchBlog(string value, CancellationToken token)
-    {
-        if (string.IsNullOrEmpty(value)) return new List<BlogPost>();
-
-        return await Task.Run(() => allPosts.Where(x =>
-            x.title.Contains(value, StringComparison.InvariantCultureIgnoreCase) ||
-            x.category.Contains(value, StringComparison.InvariantCultureIgnoreCase)
-        ).Take(10));
-    }
-
-    // 关键修复：使用 ValueChanged 事件处理跳转
-    private void OnPostSelected(BlogPost post)
-    {
-        if (post != null)
-        {
-            Navigation.NavigateTo($"/blogContent?url={Uri.EscapeDataString(post.path)}");
-        }
-    }
 
     private void LoadToPage(string url) => Navigation.NavigateTo($"/loading/{url}");
 }
 
 <style>
-    .card:hover
-    {
+    .card:hover {
         box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.8), /* 青色荧光 */
         0 0 25px 10px rgba(0, 255, 255, 0.4); /* 更淡的外围光晕 */
         filter: brightness(1.1); /* 增加亮度，增强荧光感 */
-        cursor:pointer;
+        cursor: pointer;
     }
 
     .slogan {
-        color:  rebeccapurple;
+        color: rebeccapurple;
         font-size: calc(20px + 4vw);
         font-weight: 900;
         font-family: "Roboto";
@@ -181,7 +190,7 @@
             }
 
     .slogan2 {
-        color:deeppink;
+        color: deeppink;
         font-size: calc(12px + 1vw);
         font-weight: 900;
         font-family: "Roboto";
