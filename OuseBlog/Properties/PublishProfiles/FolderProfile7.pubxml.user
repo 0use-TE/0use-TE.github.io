@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
-<Project>
-  <PropertyGroup>
-    <History>True|2025-03-31T05:15:11.5579763Z||;False|2025-03-31T13:05:51.6026416+08:00||;True|2025-03-31T12:45:20.6670813+08:00||;False|2025-03-31T12:43:36.3804792+08:00||;True|2025-03-31T12:39:33.9590846+08:00||;False|2025-03-31T12:37:22.9546550+08:00||;True|2025-03-31T12:33:32.6432323+08:00||;False|2025-03-31T12:29:26.9682061+08:00||;False|2025-03-31T12:28:50.8590679+08:00||;</History>
-    <LastFailureDetails />
-    <_PublishTargetUrl>C:\Users\Administrator\Desktop\Project\0use-TE.github.io\OuseBlog\bin\Release\net9.0\browser-wasm\publish\</_PublishTargetUrl>
-  </PropertyGroup>
-</Project>

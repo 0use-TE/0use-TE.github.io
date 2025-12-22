@@ -1,7 +1,9 @@
 ﻿@page "/"
 @page "/home"
 @using OusePersonalWeb.Componments
+@using static OusePersonalWeb.Pages.Blog
 @inject NavigationManager Navigation
+@inject HttpClient Http
 <PageTitle>主页</PageTitle>
 <MudContainer MaxWidth="MaxWidth.False" Class="d-flex flex-column align-center  " >
     <div class="d-flex justify-center mt-2">
@@ -38,11 +40,20 @@
     <br />
 
     <Width xs="10" sm="8">
-        <MudTextField Variant="Variant.Outlined" @bind-text=searchContent 
-        Placeholder="查找您想找的..."
-        AdornmentIcon="@Icons.Material.Rounded.Search"
-        Adornment="Adornment.Start"   T="string"></MudTextField>
+        <MudAutocomplete T="BlogPost"
+                         Label="查找您想找的..."
+                         @bind-Value="selectedPost"
+                         SearchFunc="@SearchBlog"
+                         ToStringFunc="@(p => p?.title)"
+                         Immediate
+                         Variant="Variant.Outlined"
+                         AdornmentIcon="@Icons.Material.Rounded.Search"
+                         Adornment="Adornment.Start"
+                         Placeholder="输入文章标题或分类..."
+                         ResetValueOnEmptyText="true"
+                         CoerceText="true" />
     </Width>
+                        
 
     <Width xs="10" sm="8" Class="pt-4">
         <MudGrid  >
@@ -101,14 +112,45 @@
         </MudGrid>
     </Width>
 </MudContainer>
+@code {
+    private List<BlogPost> allPosts = new();
+    private BlogPost? selectedPost;
 
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // 确保 index.json 放在 wwwroot 目录下
+            allPosts = await Http.GetFromJsonAsync<List<BlogPost>>("index.json") ?? new();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"加载索引失败: {ex.Message}");
+        }
+    }
 
-@code
-{
-    private string? searchContent;
-    private void LoadToPage(string url)=>Navigation.NavigateTo($"/loading/{url}");
-    
+    private async Task<IEnumerable<BlogPost>> SearchBlog(string value, CancellationToken token)
+    {
+        if (string.IsNullOrEmpty(value)) return new List<BlogPost>();
+
+        return await Task.Run(() => allPosts.Where(x =>
+            x.title.Contains(value, StringComparison.InvariantCultureIgnoreCase) ||
+            x.category.Contains(value, StringComparison.InvariantCultureIgnoreCase)
+        ).Take(10));
+    }
+
+    // 关键修复：使用 ValueChanged 事件处理跳转
+    private void OnPostSelected(BlogPost post)
+    {
+        if (post != null)
+        {
+            Navigation.NavigateTo($"/blogContent?url={Uri.EscapeDataString(post.path)}");
+        }
+    }
+
+    private void LoadToPage(string url) => Navigation.NavigateTo($"/loading/{url}");
 }
+
 <style>
     .card:hover
     {

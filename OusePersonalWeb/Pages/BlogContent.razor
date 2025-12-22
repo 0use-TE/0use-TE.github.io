@@ -13,8 +13,9 @@
 else
 {
     <div class="d-flex gap-4">
-        <MudContainer MaxWidth="MaxWidth.Medium" Class="py-8">
+        <MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
             <MudMarkdown Value="@fullUrl"
+                HasTableOfContents TableOfContentsHeader="目录"
                          Props="mudMarkdownProps"
                          SourceType="MarkdownSourceType.Url"
                          Styling="@mudMarkdownStyling" />
@@ -22,6 +23,13 @@ else
 
     </div>
 }
+<style>
+    .mud-markdown-toc-drawer
+    {
+        position:fixed;
+        right:0;
+    }
+</style>
 
 @code {
     [SupplyParameterFromQuery(Name = "url")]
@@ -29,18 +37,7 @@ else
 
     private string? fullUrl;
     private MudMarkdownStyling mudMarkdownStyling = new();
-    private MudMarkdownProps mudMarkdownProps = new MudMarkdownProps()
-    {
-        Heading ={
-            OverrideTypo = typo => typo switch
-{ 
-    Typo.h1 => Typo.h4, // # 映射为 h4
-    Typo.h2 => Typo.h5, // ## 映射为 h5
-    Typo.h3 => Typo.h6, // ### 映射为 h6
-    _ => typo           // 其他保持不变
-}
-                }
-    };
+    private MudMarkdownProps mudMarkdownProps = new();
     private CodeBlockTheme CodeBlock { get; set; } = CodeBlockTheme.A11yDark;
 
     protected override async Task OnInitializedAsync()
@@ -51,7 +48,39 @@ else
         mudMarkdownStyling.CodeBlock.CopyButton = CodeBlockCopyButton.Sticky;
         mudMarkdownStyling.CodeBlock.CopyButtonText= "复制";
 
-      
+        mudMarkdownProps.Heading.OverrideTypo = typo => typo switch
+        {
+            Typo.h1 => Typo.h4, // # 映射为 h4
+            Typo.h2 => Typo.h5, // ## 映射为 h5
+            Typo.h3 => Typo.h6, // ### 映射为 h6
+            _ => typo           // 其他保持不变
+        };
+            
+        // 配置图片路径重写
+        mudMarkdownProps.Link.OverrideUrl= (link) =>
+        {
+            // 检查这是否是一个图片链接
+            if (link.IsImage)
+            {
+                var originalUrl = link.Url;
+
+                // 如果已经是绝对路径（http开头的），直接返回
+                if (string.IsNullOrEmpty(originalUrl) || originalUrl.StartsWith("http"))
+                    return originalUrl;
+
+                // 核心逻辑：获取当前 md 文件所在的文件夹路径
+                // 例如 BlogUrl 是 "Dotnet/dotnet.md"，那么目录就是 "Dotnet/"
+                var lastSlashIndex = BlogUrl.LastIndexOf('/');
+                var folderPath = lastSlashIndex > -1 ? BlogUrl.Substring(0, lastSlashIndex + 1) : "";
+
+                // 拼接成完整的 GitHub Raw 路径
+                // Settings.BlogRawRoot 结尾已有 /，folderPath 结尾已有 /
+                // 最终结果如: https://raw.githubusercontent.com/.../main/Dotnet/assets/1.png
+                return $"{Settings.BlogRawRoot}{folderPath}{originalUrl}";
+            }
+
+            return link.Url; // 普通超链接保持不变
+        };
 
         if (string.IsNullOrEmpty(BlogUrl))
         {
