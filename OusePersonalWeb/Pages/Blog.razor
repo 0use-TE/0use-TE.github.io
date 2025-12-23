@@ -57,7 +57,8 @@
         if (string.IsNullOrWhiteSpace(searchContent))
             filteredPosts = allPosts;
         else
-            filteredPosts = allPosts?.Where(x => x.title.Contains(searchContent, StringComparison.OrdinalIgnoreCase)).ToList();
+            filteredPosts = allPosts?.Where(x => x.title.Contains(searchContent, StringComparison.OrdinalIgnoreCase)
+            ||x.category.Contains(searchContent,StringComparison.OrdinalIgnoreCase)).ToList();
     }
 
     private void OpenPost(string path)
