@@ -15,7 +15,8 @@ else
     <div class="d-flex gap-4">
         <MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
             <MudMarkdown Value="@fullUrl"
-                TableOfContentsHeader="目录"
+                         TableOfContentsHeader="目录"
+                         HasTableOfContents
                          Props="mudMarkdownProps"
                          SourceType="MarkdownSourceType.Url"
                          Styling="@mudMarkdownStyling" />
@@ -24,12 +25,12 @@ else
     </div>
 }
 <style>
-    .mud-markdown-toc-drawer
-    {
-        position:fixed;
-        right:0;
+    .mud-markdown-toc-drawer {
+        position: fixed;
+        right: 0;
     }
-    .mud-markdown-toc-nav-menu{
+
+    .mud-markdown-toc-nav-menu {
         height: 90vh;
         overflow: auto;
     }
@@ -50,7 +51,7 @@ else
         CodeBlock = await localStorage.GetItemAsync<CodeBlockTheme>(Settings.CodeBlockTheme);
         mudMarkdownStyling.CodeBlock.Theme = CodeBlock;
         mudMarkdownStyling.CodeBlock.CopyButton = CodeBlockCopyButton.Sticky;
-        mudMarkdownStyling.CodeBlock.CopyButtonText= "复制";
+        mudMarkdownStyling.CodeBlock.CopyButtonText = "复制";
 
         mudMarkdownProps.Heading.OverrideTypo = typo => typo switch
         {
@@ -61,7 +62,7 @@ else
         };
 
         // 配置图片路径重写
-        mudMarkdownProps.Link.OverrideUrl= (link) =>
+        mudMarkdownProps.Link.OverrideUrl = (link) =>
         {
             // 检查这是否是一个图片链接
             if (link.IsImage)
