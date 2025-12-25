@@ -63,6 +63,7 @@ else
         mudMarkdownStyling.CodeBlock.Theme = CodeBlock;
         mudMarkdownStyling.CodeBlock.CopyButton = CodeBlockCopyButton.Sticky;
         mudMarkdownStyling.CodeBlock.CopyButtonText = "复制";
+        mudMarkdownStyling.Table.IsBordered = true;
         mudMarkdownProps.Heading.OverrideTypo = typo => typo switch
         {
             Typo.h1 => Typo.h4, // # 映射为 h4
@@ -71,32 +72,36 @@ else
             _ => typo           // 其他保持不变
         };
 
-        // 配置图片路径重写
         mudMarkdownProps.Link.OverrideUrl = (link) =>
         {
+            if (string.IsNullOrEmpty(link.Url)) return link.Url;
 
-            // 检查这是否是一个图片链接
             if (link.IsImage)
             {
                 var originalUrl = link.Url;
 
-                // 如果已经是绝对路径（http开头的），直接返回
-                if (string.IsNullOrEmpty(originalUrl) || originalUrl.StartsWith("http"))
-                    return originalUrl;
+                // 如果是绝对路径，直接返回
+                if (originalUrl.StartsWith("http")) return originalUrl;
 
-                // 核心逻辑：获取当前 md 文件所在的文件夹路径
-                // 例如 BlogUrl 是 "Dotnet/dotnet.md"，那么目录就是 "Dotnet/"
+                // --- 核心修复逻辑 ---
+                // 1. 统一去掉开头的 "./" 或 "/"，让路径变成相对纯净的状态
+                // 例如 "./assets/1.jpg" -> "assets/1.jpg"
+                // 例如 "assets/1.jpg"   -> "assets/1.jpg"
+                var cleanUrl = originalUrl.TrimStart('.', '/');
+
+                // 2. 获取当前文件所在的目录
                 var lastSlashIndex = BlogUrl.LastIndexOf('/');
                 var folderPath = lastSlashIndex > -1 ? BlogUrl.Substring(0, lastSlashIndex + 1) : "";
 
-                // 拼接成完整的 GitHub Raw 路径
-                // Settings.BlogRawRoot 结尾已有 /，folderPath 结尾已有 /
-                // 最终结果如: https://raw.githubusercontent.com/.../main/Dotnet/assets/1.png
-                //Console.WriteLine(originalUrl);
-                return $"{Settings.BlogRawRoot}{folderPath}{originalUrl}";
+                // 3. 拼接：确保 Settings.BlogRawRoot 结尾有 /，folderPath 结尾也有 /
+                // 最终格式：[Root]/[Folder/][assets/1.jpg]
+                var root = Settings.BlogRawRoot.EndsWith("/") ? Settings.BlogRawRoot : Settings.BlogRawRoot + "/";
+                var finalUrl = $"{root}{folderPath}{cleanUrl}";
+
+                return finalUrl;
             }
 
-            return link.Url; // 普通超链接保持不变
+            return link.Url;
         };
 
         if (string.IsNullOrEmpty(BlogUrl))
