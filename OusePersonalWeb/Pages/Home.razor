@@ -121,7 +121,6 @@
     private List<BlogPost> allPosts = new();
     private BlogPost? selectedPost;
     private List<BlogPost>? filteredPosts;
-    private BlogPost? popupPost;
 
     private Task<IEnumerable<BlogPost>> SearchPosts(string value, CancellationToken cancellationToken)
     {
