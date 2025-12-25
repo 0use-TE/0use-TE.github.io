@@ -64,7 +64,7 @@
     private void OpenPost(string path)
     {
         // 传递 path 给详情页，注意 URL 编码
-        Navigation.NavigateTo($"/blogContent?url={Uri.EscapeDataString(path)}");
+        Navigation.NavigateTo($"/blogContent/{path}");
     }
 
     public class BlogPost {

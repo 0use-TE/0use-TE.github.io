@@ -140,7 +140,7 @@
     {
         if (string.IsNullOrWhiteSpace(selectedPost?.path))
             return;
-        Navigation.NavigateTo($"/blogContent?url={Uri.EscapeDataString(selectedPost.path)}");
+        Navigation.NavigateTo($"/blogContent/{selectedPost.path}");
     }
 
     protected override async Task OnInitializedAsync()

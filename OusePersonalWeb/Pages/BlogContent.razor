@@ -1,11 +1,9 @@
-﻿@page "/blogContent"
+﻿@page "/blogContent/{*BlogUrl}"
 @using Blazored.LocalStorage
 @using MudBlazor.Services
 @inject NavigationManager Navigation
 @inject ISnackbar Snackbar
 @inject ILocalStorageService localStorage
-@inject IBrowserViewportService BrowserViewportService
-@implements IAsyncDisposable
 @if (string.IsNullOrEmpty(fullUrl))
 {
     <div style="width:100%;height:100vh" class="d-flex flex-column justify-center align-center">
@@ -16,12 +14,22 @@ else
 {
     <div class="d-flex gap-4">
         <MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
-            <MudMarkdown Value="@fullUrl"
-                         TableOfContentsHeader="目录"
-                         HasTableOfContents="@(_currentBrowserWindowSize.Width>600?true:false)"
-                         Props="mudMarkdownProps"
-                         SourceType="MarkdownSourceType.Url"
-                         Styling="@mudMarkdownStyling" />
+            <MudHidden Hidden Breakpoint="Breakpoint.SmAndDown">
+                <MudMarkdown Value="@fullUrl"
+                             TableOfContentsHeader="目录"
+                             HasTableOfContents
+                             Props="mudMarkdownProps"
+                             SourceType="MarkdownSourceType.Url"
+                             Styling="@mudMarkdownStyling" />
+            </MudHidden>
+            <MudHidden Hidden Breakpoint="Breakpoint.MdAndUp">
+                <MudMarkdown Value="@fullUrl"
+                             TableOfContentsHeader="目录"
+                             HasTableOfContents="false"
+                             Props="mudMarkdownProps"
+                             SourceType="MarkdownSourceType.Url"
+                             Styling="@mudMarkdownStyling" />
+            </MudHidden>
         </MudContainer>
 
     </div>
@@ -39,7 +47,7 @@ else
 </style>
 
 @code {
-    [SupplyParameterFromQuery(Name = "url")]
+    [Parameter]
     public string BlogUrl { get; set; } = string.Empty;
     private readonly Guid _observerId = Guid.NewGuid();
     private BrowserWindowSize _currentBrowserWindowSize = new();
@@ -55,7 +63,6 @@ else
         mudMarkdownStyling.CodeBlock.Theme = CodeBlock;
         mudMarkdownStyling.CodeBlock.CopyButton = CodeBlockCopyButton.Sticky;
         mudMarkdownStyling.CodeBlock.CopyButtonText = "复制";
-
         mudMarkdownProps.Heading.OverrideTypo = typo => typo switch
         {
             Typo.h1 => Typo.h4, // # 映射为 h4
@@ -67,6 +74,7 @@ else
         // 配置图片路径重写
         mudMarkdownProps.Link.OverrideUrl = (link) =>
         {
+
             // 检查这是否是一个图片链接
             if (link.IsImage)
             {
@@ -84,7 +92,7 @@ else
                 // 拼接成完整的 GitHub Raw 路径
                 // Settings.BlogRawRoot 结尾已有 /，folderPath 结尾已有 /
                 // 最终结果如: https://raw.githubusercontent.com/.../main/Dotnet/assets/1.png
-                Console.WriteLine(originalUrl);
+                //Console.WriteLine(originalUrl);
                 return $"{Settings.BlogRawRoot}{folderPath}{originalUrl}";
             }
 
@@ -100,23 +108,7 @@ else
         // 拼接 main 分支的原始文件地址
         fullUrl = $"{Settings.BlogRawRoot}{BlogUrl}";
     }
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await BrowserViewportService.SubscribeAsync(_observerId, async args =>
-            {
-                _currentBrowserWindowSize = args.BrowserWindowSize;
-                await InvokeAsync(StateHasChanged);
-            });
-        }
-    }
 
-    public async ValueTask DisposeAsync()
-    {
-        await BrowserViewportService.DisposeAsync();
-        await BrowserViewportService.DisposeAsync();
-    }
 
     private async Task SaveTheme()
     {
