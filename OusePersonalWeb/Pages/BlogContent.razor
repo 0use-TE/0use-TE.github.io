@@ -1,9 +1,11 @@
 ﻿@page "/blogContent"
 @using Blazored.LocalStorage
+@using MudBlazor.Services
 @inject NavigationManager Navigation
 @inject ISnackbar Snackbar
 @inject ILocalStorageService localStorage
-
+@inject IBrowserViewportService BrowserViewportService
+@implements IAsyncDisposable
 @if (string.IsNullOrEmpty(fullUrl))
 {
     <div style="width:100%;height:100vh" class="d-flex flex-column justify-center align-center">
@@ -16,7 +18,7 @@ else
         <MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
             <MudMarkdown Value="@fullUrl"
                          TableOfContentsHeader="目录"
-                         HasTableOfContents
+                         HasTableOfContents="@(_currentBrowserWindowSize.Width>600?true:false)"
                          Props="mudMarkdownProps"
                          SourceType="MarkdownSourceType.Url"
                          Styling="@mudMarkdownStyling" />
@@ -39,7 +41,8 @@ else
 @code {
     [SupplyParameterFromQuery(Name = "url")]
     public string BlogUrl { get; set; } = string.Empty;
-
+    private readonly Guid _observerId = Guid.NewGuid();
+    private BrowserWindowSize _currentBrowserWindowSize = new();
     private string? fullUrl;
     private MudMarkdownStyling mudMarkdownStyling = new();
     private MudMarkdownProps mudMarkdownProps = new();
@@ -96,6 +99,23 @@ else
 
         // 拼接 main 分支的原始文件地址
         fullUrl = $"{Settings.BlogRawRoot}{BlogUrl}";
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await BrowserViewportService.SubscribeAsync(_observerId, async args =>
+            {
+                _currentBrowserWindowSize = args.BrowserWindowSize;
+                await InvokeAsync(StateHasChanged);
+            });
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await BrowserViewportService.DisposeAsync();
+        await BrowserViewportService.DisposeAsync();
     }
 
     private async Task SaveTheme()
