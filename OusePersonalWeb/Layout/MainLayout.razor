@@ -1,4 +1,5 @@
-﻿@inherits LayoutComponentBase
+﻿@using OusePersonalWeb.Components
+@inherits LayoutComponentBase
 @inject IJSRuntime JS
 @inject ILocalStorageService localStorage
 <MudThemeProvider Theme="theme" @bind-IsDarkMode=isDarkMode />
@@ -64,10 +65,11 @@
 
         <MudToggleIconButton ToggledChanged="ToggleTheme" Icon="@Icons.Material.Rounded.LightMode" ToggledIcon="@Icons.Material.Rounded.DarkMode"></MudToggleIconButton>
     </MudAppBar>
-    <MudMainContent Class="pa-l" Style="">
+    <MudMainContent  Style="">
         <div style="overflow:scroll;min-height:100vh">
             @Body
         </div>
+        <MusicComponent></MusicComponent>
     </MudMainContent>
 </MudLayout>
 

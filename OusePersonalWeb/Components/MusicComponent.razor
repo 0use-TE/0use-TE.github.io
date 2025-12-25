@@ -1,0 +1,47 @@
+﻿<div id="music-player-bar">
+    <div id="m-progress-container">
+        <div id="m-progress-bar"></div>
+    </div>
+
+    <div class="m-controls">
+        <div class="m-left">
+            <button id="m-play-btn">▶</button>
+            <span id="m-title-display">未在播放</span>
+        </div>
+
+        <div class="m-right">
+            <MudButton id="m-next-btn" Style="font-weight:bold;" EndIcon="@Icons.Material.Filled.QueueMusic" Color="Color.Primary">下一首</MudButton>
+        </div>
+    </div>
+</div>
+<audio id="m-audio-core"></audio>
+
+@code {
+    [Inject] IJSRuntime JS { get; set; } = default!;
+    private IJSObjectReference? _module;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/MusicComponent.razor.js");
+            // 初始化并传入当前组件引用
+            await _module.InvokeVoidAsync("initMusicPlayer", DotNetObjectReference.Create(this));
+
+            // 初始加载第一首
+            await OnNextTrack();
+        }
+    }
+
+    [JSInvokable]
+    public async Task OnNextTrack()
+    {
+        string nextUrl = "music/新年快乐.mp3";
+        string nextTitle = "新年快乐!";
+
+        if (_module != null)
+        {
+            await _module.InvokeVoidAsync("loadTrack", nextUrl, nextTitle);
+        }
+    }
+}
