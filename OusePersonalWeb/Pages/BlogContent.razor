@@ -3,6 +3,7 @@
 @using MudBlazor.Services
 @inject NavigationManager Navigation
 @inject ISnackbar Snackbar
+@inject IJSRuntime JSRuntime
 @inject ILocalStorageService localStorage
 @if (string.IsNullOrEmpty(fullUrl))
 {
@@ -13,6 +14,7 @@
 else
 {
     <div class="d-flex gap-4">
+
         <MudContainer MaxWidth="MaxWidth.Large" Class="py-8">
             <MudHidden Hidden Breakpoint="Breakpoint.SmAndDown">
                 <MudMarkdown Value="@fullUrl"
@@ -30,8 +32,10 @@ else
                              SourceType="MarkdownSourceType.Url"
                              Styling="@mudMarkdownStyling" />
             </MudHidden>
+            <MudScrollToTop  id="scrollToTop" Style="z-index:1000">
+                    <MudButton   Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.ArrowUpward" Color="Color.Primary">顶部</MudButton>
+            </MudScrollToTop>
         </MudContainer>
-
     </div>
 }
 <style>
@@ -112,6 +116,9 @@ else
 
         // 拼接 main 分支的原始文件地址
         fullUrl = $"{Settings.BlogRawRoot}{BlogUrl}";
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
     }
 
 
