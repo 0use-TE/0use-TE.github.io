@@ -1,9 +1,5 @@
 ﻿<MudTimelineItem>
-    <ItemDot>
-
-    </ItemDot>
     <ItemContent>
-        <Animate DurationMs="500" Animation="Animations.ZoomOut">
             <MudCard>
                 <MudCardHeader>
                     <MudText Typo="Typo.h6" Style="font-weight:500" Color="@first">
@@ -14,14 +10,11 @@
                     @Content
                 </MudCardContent>
             </MudCard>
-        </Animate>
     </ItemContent>
     <ItemOpposite>
-        <Animate DurationMs="500" Animation="Animations.ZoomIn">
             <MudText Typo="Typo.h5" Color="@second" Style="font-weight:700">
                 @Time
             </MudText>
-        </Animate>
     </ItemOpposite>
 </MudTimelineItem>
 @code

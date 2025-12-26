@@ -1,6 +1,6 @@
 ﻿@using OusePersonalWeb.Components
 <div style="min-height:400px">
-    <MudTimeline   TimelineOrientation="TimelineOrientation.Vertical">
+    <MudTimeline   TimelineOrientation="TimelineOrientation.Vertical" >
         @foreach(var item in lineItems)
         {
             <TimeLineTemplate Content="@item.Content" Time="@item.Time" Title="@item.Title" ></TimeLineTemplate>
