@@ -5,4 +5,4 @@ Hi£¬I am Ouse.Welcom here! This is a repository that host my website,you can vis
 1. Github Pages
 1. MudBlazorUI
 ### End
-Thanks for your reading,if you have any preblems,just let me konw!
+Thanks for your reading,if you have any pleblems,just let me konw!
