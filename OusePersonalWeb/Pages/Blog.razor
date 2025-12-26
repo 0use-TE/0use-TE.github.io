@@ -3,15 +3,15 @@
 @inject NavigationManager Navigation
 @inject ISnackbar Snackbar
 
-<MudContainer MaxWidth="MaxWidth.Large" Class="mt-6">
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-6 d-flex flex-column"  Style="height:100%">
     <MudTextField Variant="Variant.Outlined" @bind-Value="searchContent" 
-                  Placeholder="搜索博客标题或分类..." Class="py-4"
+                  Placeholder="搜索博客标题或分类..." Class="py-4 flex-grow-0"
                   AdornmentIcon="@Icons.Material.Rounded.Search" 
                   InputType="InputType.Search" 
                   OnKeyUp="Filter"
                   Adornment="Adornment.Start" T="string" Immediate="true"></MudTextField>
 
-    <div class="d-flex flex-column gap-4">
+    <div class="gap-4 overflow-y-scroll flex-grow-1">
         @if (filteredPosts == null)
         {
             <MudProgressLinear Color="Color.Primary" Indeterminate="true" />

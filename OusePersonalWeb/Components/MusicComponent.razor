@@ -1,4 +1,4 @@
-﻿<div id="music-player-bar">
+﻿<div id="music-player-bar" class="@Class" style="@Style">
     <div id="m-progress-container">
         <div id="m-progress-bar"></div>
     </div>
@@ -18,8 +18,23 @@
 
 @code {
     [Inject] IJSRuntime JS { get; set; } = default!;
-    private IJSObjectReference? _module;
+    [Parameter]
+    public string? Class { get; set; }
 
+    [Parameter]
+    public string? Style { get; set; }
+    private IJSObjectReference? _module;
+    private record Music(string Name, string Path);
+    private List<Music> musics = new List<Music>();
+    private int currentMusicIndex;
+    protected override Task OnInitializedAsync()
+    {
+        musics.Add(new Music("因为喜欢你", "music/因为喜欢你.mp3"));
+        musics.Add(new Music("出山", "music/出山.mp3"));
+        musics.Add(new Music("若水三千", "music/若水三千.mp3"));
+        currentMusicIndex = Random.Shared.Next(0, 3);
+        return base.OnInitializedAsync();
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -32,16 +47,13 @@
             await OnNextTrack();
         }
     }
-
     [JSInvokable]
     public async Task OnNextTrack()
     {
-        string nextUrl = "music/新年快乐.mp3";
-        string nextTitle = "新年快乐!";
-
+        if (musics == null || musics.Count == 0) return;
+        currentMusicIndex = (currentMusicIndex + 1) % musics.Count;
+        var nextMusic = musics[currentMusicIndex];
         if (_module != null)
-        {
-            await _module.InvokeVoidAsync("loadTrack", nextUrl, nextTitle);
-        }
+            await _module.InvokeVoidAsync("loadTrack", nextMusic.Path, nextMusic.Name);
     }
 }

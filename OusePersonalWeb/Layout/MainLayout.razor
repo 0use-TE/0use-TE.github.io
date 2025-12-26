@@ -11,7 +11,7 @@
 <div class="theme-transition-overlay @(isAnimating ? "animate" : "")"></div>
 
 <MudLayout>
-    <MudAppBar id="appbar" Fixed Gutters Class="px-sm-10">
+    <MudAppBar Fixed Gutters Class="px-sm-10">
 
         <MudMenu ActivationEvent="MudBlazor.MouseEvent.MouseOver" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter">
             <ActivatorContent>
@@ -65,11 +65,13 @@
 
         <MudToggleIconButton ToggledChanged="ToggleTheme" Icon="@Icons.Material.Rounded.LightMode" ToggledIcon="@Icons.Material.Rounded.DarkMode"></MudToggleIconButton>
     </MudAppBar>
-    <MudMainContent  Style="">
-        <div style="overflow:scroll;min-height:100vh">
-            @Body
+    <MudMainContent Style="">
+        <div class="d-flex flex-column"  style="height: calc(100vh - 64px);">
+            <div class="flex-grow-1 " style="overflow-y:scroll;"  >
+                @Body
+            </div>
+            <MusicComponent Class="flex-grow-0"></MusicComponent>
         </div>
-        <MusicComponent></MusicComponent>
     </MudMainContent>
 </MudLayout>
 
