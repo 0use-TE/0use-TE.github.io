@@ -67,9 +67,9 @@ else
         mudMarkdownStyling.Table.IsBordered = true;
         mudMarkdownProps.Heading.OverrideTypo = typo => typo switch
         {
-            Typo.h1 => Typo.h4, // # 映射为 h4
-            Typo.h2 => Typo.h5, // ## 映射为 h5
-            Typo.h3 => Typo.h6, // ### 映射为 h6
+            Typo.h1 => Typo.h3, // # 映射为 h4
+            Typo.h2 => Typo.h3, // ## 映射为 h5
+            Typo.h3 => Typo.h3, // ### 映射为 h6
             _ => typo           // 其他保持不变
         };
 
