@@ -1,5 +1,5 @@
 ### Introduction
-Hi£¬I am Ouse.Welcom here! This is a repository that host my website,you can visit https://0use.net for more infomations.
+Hiï¼ŒI am Ouse.Welcom here! This is a repository that host my website,you can visit https://0use.net for more infomations.
 ### Technology
 1. Blazor WebAssembly
 1. Github Pages
