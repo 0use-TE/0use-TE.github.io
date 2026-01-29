@@ -56,7 +56,6 @@
                              CoerceText="true" />
             <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="OpenPost">前往</MudButton>
         </MudStack>
-
     </Width>
 
 
@@ -156,7 +155,7 @@
     }
 
 
-    private void LoadToPage(string url) => Navigation.NavigateTo($"/loading/{url}");
+    private void LoadToPage(string url) => Navigation.NavigateTo($"/{url}");
 }
 
 <style>
