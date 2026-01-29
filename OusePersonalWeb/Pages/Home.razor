@@ -2,6 +2,7 @@
 @page "/home"
 @using OusePersonalWeb.Components
 @using static OusePersonalWeb.Pages.Blog
+@using Microsoft.AspNetCore.Components.Web
 @inject NavigationManager Navigation
 @inject ISnackbar Snackbar
 @inject IHttpClientFactory HttpClientFactory
@@ -38,24 +39,43 @@
     </div>
     <MudDivider Style="width: 24vw" />
     <br />
-    <br /> 
+    <br />
 
     <Width xs="10" sm="8">
-        <MudStack Row>
-            <MudAutocomplete T="BlogPost"
-                             Label="查找您想找的..."
-                             @bind-Value="selectedPost"
-                             ToStringFunc="@(p => p?.title)"
-                             SearchFunc="SearchPosts"
-                             Clearable="true"
-                             OnKeyDown="OpenPost"
-                             Variant="Variant.Outlined"
-                             AdornmentIcon="@Icons.Material.Rounded.Search"
-                             Adornment="Adornment.Start"
-                             Placeholder="输入文章标题或分类..."
-                             CoerceText="true" />
-            <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="OpenPost">前往</MudButton>
-        </MudStack>
+        <div class="d-flex" style="width: 100%;">
+            <div style="position: relative; flex: 1;">
+                <MudTextField @bind-Value="searchText"
+                              Label="查找您想找的..."
+                              Variant="Variant.Outlined"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Rounded.Search"
+                              Placeholder="输入文章标题或分类..."
+                              DebounceInterval="100"
+                              OnDebounceIntervalElapsed="PerformSearch"
+                              OnKeyDown="OnSearchKeyDown" />
+                @if (showResults && filteredPosts?.Count > 0)
+                {
+                    <MudPaper Class="search-results" Elevation="4">
+                        <MudList T="BlogPost">
+                            @foreach (var post in filteredPosts)
+                            {
+                                <MudListItem OnClick="@(() => SelectPost(post))"
+                                             Style="@(post == selectedPost ? "background-color: var(--mud-palette-primary-hover);" : "")">
+                                    <MudText>@post.title</MudText>
+                                </MudListItem>
+                            }
+                        </MudList>
+                    </MudPaper>
+                }
+                @if (showResults && filteredPosts?.Count == 0 && !string.IsNullOrWhiteSpace(searchText))
+                {
+                    <MudPaper Class="search-results" Elevation="4">
+                        <MudText Class="pa-2" Color="Color.Error">未找到匹配结果</MudText>
+                    </MudPaper>
+                }
+            </div>
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="OpenPost" Class="ml-2">前往</MudButton>
+        </div>
     </Width>
 
 
@@ -120,6 +140,63 @@
     private List<BlogPost> allPosts = new();
     private BlogPost? selectedPost;
     private List<BlogPost>? filteredPosts;
+    private string searchText = "";
+    private bool showResults = false;
+
+    private void PerformSearch()
+    {
+        if (string.IsNullOrWhiteSpace(searchText))
+        {
+            filteredPosts = allPosts.Take(5).ToList();
+            showResults = false;
+            return;
+        }
+
+        filteredPosts = allPosts
+            .Where(p => p.title.Contains(searchText, StringComparison.OrdinalIgnoreCase)
+                     || (p.category != null && p.category.Contains(searchText, StringComparison.OrdinalIgnoreCase)))
+            .Take(5)
+            .ToList();
+        selectedPost = filteredPosts.FirstOrDefault();
+        showResults = true;
+    }
+
+    private void SelectPost(BlogPost post)
+    {
+        selectedPost = post;
+        searchText = post.title;
+        showResults = false;
+        OpenPost();
+    }
+
+    private async Task OnSearchKeyDown(KeyboardEventArgs args)
+    {
+        if (filteredPosts == null || filteredPosts.Count == 0)
+            return;
+
+        if (args.Key == "ArrowDown")
+        {
+            var currentIndex = selectedPost != null ? filteredPosts.IndexOf(selectedPost) : -1;
+            if (currentIndex < filteredPosts.Count - 1)
+            {
+                selectedPost = filteredPosts[currentIndex + 1];
+            }
+        }
+        else if (args.Key == "ArrowUp")
+        {
+            var currentIndex = selectedPost != null ? filteredPosts.IndexOf(selectedPost) : 0;
+            if (currentIndex > 0)
+            {
+                selectedPost = filteredPosts[currentIndex - 1];
+            }
+        }
+        else if (args.Key == "Enter" && selectedPost != null)
+        {
+            searchText = selectedPost.title;
+            showResults = false;
+            OpenPost();
+        }
+    }
 
     private Task<IEnumerable<BlogPost>> SearchPosts(string value, CancellationToken cancellationToken)
     {
@@ -199,5 +276,15 @@
         .slogan2:hover {
             letter-spacing: calc(2px + 1vw);
         }
+
+    .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        max-height: 200px;
+        overflow-y: auto;
+    }
 
 </style>

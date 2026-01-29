@@ -1,13 +1,15 @@
 ﻿@page "/ouseblog"
+@using System.Web
 @inject IHttpClientFactory HttpClientFactory
 @inject NavigationManager Navigation
 @inject ISnackbar Snackbar
+@inject IJSRuntime JSRuntime
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="mt-6 d-flex flex-column"  Style="height:100%">
-    <MudTextField Variant="Variant.Outlined" @bind-Value="searchContent" 
+    <MudTextField Variant="Variant.Outlined" @bind-Value="searchContent"
                   Placeholder="搜索博客标题或分类..." Class="py-4 flex-grow-0"
-                  AdornmentIcon="@Icons.Material.Rounded.Search" 
-                  InputType="InputType.Search" 
+                  AdornmentIcon="@Icons.Material.Rounded.Search"
+                  InputType="InputType.Search"
                   OnKeyUp="Filter"
                   Adornment="Adornment.Start" T="string" Immediate="true"></MudTextField>
 
@@ -44,7 +46,20 @@
         {
             var client = HttpClientFactory.CreateClient();
             allPosts = await client.GetFromJsonAsync<List<BlogPost>>(Settings.BlogIndexUrl);
-            filteredPosts = allPosts;
+
+            // 从 URL 读取搜索参数（支持返回时恢复）
+            var uri = new Uri(Navigation.Uri);
+            var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+            var q = query["q"];
+            if (!string.IsNullOrEmpty(q))
+            {
+                searchContent = q;
+                Filter();
+            }
+            else
+            {
+                filteredPosts = allPosts;
+            }
         }
         catch (Exception ex)
         {
@@ -61,9 +76,11 @@
             ||x.category.Contains(searchContent,StringComparison.OrdinalIgnoreCase)).ToList();
     }
 
-    private void OpenPost(string path)
+    private async Task OpenPost(string path)
     {
-        // 传递 path 给详情页，注意 URL 编码
+        // 先修改 URL 保存搜索状态，再跳转
+        var url = $"/ouseblog?q={Uri.EscapeDataString(searchContent)}";
+        await JSRuntime.InvokeVoidAsync("window.history.pushState", null, "", url);
         Navigation.NavigateTo($"/blogContent/{path}");
     }
 
