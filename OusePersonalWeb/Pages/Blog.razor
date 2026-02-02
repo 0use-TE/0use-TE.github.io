@@ -1,4 +1,4 @@
-﻿@page "/ouseblog"
+﻿@page "/blog"
 @using System.Web
 @inject IHttpClientFactory HttpClientFactory
 @inject NavigationManager Navigation
@@ -79,7 +79,7 @@
     private async Task OpenPost(string path)
     {
         // 先修改 URL 保存搜索状态，再跳转
-        var url = $"/ouseblog?q={Uri.EscapeDataString(searchContent)}";
+        var url = $"/blog?q={Uri.EscapeDataString(searchContent)}";
         await JSRuntime.InvokeVoidAsync("window.history.pushState", null, "", url);
         Navigation.NavigateTo($"/blogContent/{path}");
     }
