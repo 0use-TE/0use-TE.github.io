@@ -7,3 +7,6 @@ OuseBlog/obj/
 /OusePersonalWeb/obj
 /OusePersonalWeb/Properties/PublishProfiles
 /OusePersonalWeb/bin/Release/net10.0
+/OusePersonalWebBackend/bin/Release/net10.0
+/OusePersonalWebBackend/obj
+/OusePersonalWebBackend/Properties/PublishProfiles
