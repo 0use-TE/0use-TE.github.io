@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决�
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OusePersonalWebBackend", "OusePersonalWebBackend\OusePersonalWebBackend.csproj", "{5E66ABAF-9FC4-4EE1-AF03-167898D30EBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{6B27B2CC-6E1D-0E41-3752-D340CCE95C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B27B2CC-6E1D-0E41-3752-D340CCE95C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B27B2CC-6E1D-0E41-3752-D340CCE95C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E66ABAF-9FC4-4EE1-AF03-167898D30EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E66ABAF-9FC4-4EE1-AF03-167898D30EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E66ABAF-9FC4-4EE1-AF03-167898D30EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E66ABAF-9FC4-4EE1-AF03-167898D30EBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
