@@ -11,3 +11,6 @@ OuseBlog/obj/
 /OusePersonalWebBackend/obj
 /OusePersonalWebBackend/Properties/PublishProfiles
 /OusePersonalWebBackend/bin/Debug/net10.0
+/OusePersonalWebBackend/app.db
+/OusePersonalWebBackend/app.db-shm
+/OusePersonalWebBackend/app.db-wal
