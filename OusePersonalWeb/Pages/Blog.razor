@@ -1,11 +1,12 @@
 ﻿@page "/blog"
+@page "/{Content}"
 @using System.Web
 @inject IHttpClientFactory HttpClientFactory
 @inject NavigationManager Navigation
 @inject ISnackbar Snackbar
 @inject IJSRuntime JSRuntime
 
-<MudContainer MaxWidth="MaxWidth.Large" Class="mt-6 d-flex flex-column"  Style="height:100%">
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-6 d-flex flex-column" Style="height:100%">
     <MudTextField Variant="Variant.Outlined" @bind-Value="searchContent"
                   Placeholder="搜索博客标题或分类..." Class="py-4 flex-grow-0"
                   AdornmentIcon="@Icons.Material.Rounded.Search"
@@ -23,7 +24,7 @@
             @foreach (var post in filteredPosts)
             {
                 <MudButton OnClick="@(() => OpenPost(post.path))" Class="hvr-underline-reveal" FullWidth>
-                    <MudPaper Class="rounded-lg pa-4" Outlined="true" Width="100%" >
+                    <MudPaper Class="rounded-lg pa-4" Outlined="true" Width="100%">
                         <div class="d-flex justify-space-between align-center">
                             <MudText Typo="Typo.h6">@post.title</MudText>
                             <MudChip Color="Color.Warning" Size="Size.Small" T="string" Variant="Variant.Text">@post.category</MudChip>
@@ -39,6 +40,8 @@
     private string searchContent = string.Empty;
     private List<BlogPost>? allPosts;
     private List<BlogPost>? filteredPosts;
+    [Parameter]
+    public string? Content { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -47,10 +50,17 @@
             var client = HttpClientFactory.CreateClient();
             allPosts = await client.GetFromJsonAsync<List<BlogPost>>(Settings.BlogIndexUrl);
 
-            // 从 URL 读取搜索参数（支持返回时恢复）
-            var uri = new Uri(Navigation.Uri);
-            var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
-            var q = query["q"];
+            string? q;
+            if (!string.IsNullOrWhiteSpace(Content))
+                q = Content;
+            else
+            {
+                // 从 URL 读取搜索参数（支持返回时恢复）
+                var uri = new Uri(Navigation.Uri);
+                var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+                q = query["q"];
+            }
+
             if (!string.IsNullOrEmpty(q))
             {
                 searchContent = q;
@@ -73,7 +83,7 @@
             filteredPosts = allPosts;
         else
             filteredPosts = allPosts?.Where(x => x.title.Contains(searchContent, StringComparison.OrdinalIgnoreCase)
-            ||x.category.Contains(searchContent,StringComparison.OrdinalIgnoreCase)).ToList();
+            || x.category.Contains(searchContent, StringComparison.OrdinalIgnoreCase)).ToList();
     }
 
     private async Task OpenPost(string path)
@@ -84,7 +94,8 @@
         Navigation.NavigateTo($"/blogContent/{path}");
     }
 
-    public class BlogPost {
+    public class BlogPost
+    {
         public string title { get; set; } = "";
         public string path { get; set; } = "";
         public string category { get; set; } = "";
