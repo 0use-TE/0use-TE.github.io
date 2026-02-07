@@ -39,7 +39,7 @@ builder.Services.AddAuthentication(options =>
         options.ClientSecret = builder.Configuration["OpenAuthentication:ClientSecret"] ?? "";
         options.Events.OnTicketReceived += async delegate (TicketReceivedContext context)
         {
-            context.ReturnUri = "/api/account/GithubCallBack";
+            context.ReturnUri= "/api/account/GithubCallBack";
         };
     });
 

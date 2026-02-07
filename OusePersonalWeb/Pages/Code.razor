@@ -1,0 +1,58 @@
+﻿@page "/Code"
+
+<div class="code-page">
+    <!-- 顶部装饰 -->
+    <div class="stars">
+        <span>✦</span><span>✦</span><span>✦</span><span>✦</span>
+    </div>
+
+    <!-- 主视觉：扣嘚头像 -->
+    <section class="hero">
+        <div class="avatar-container">
+            <!-- 在这里放扣嘚的头像图片 -->
+            <img src="images/code-avatar.png" alt="扣嘚" class="avatar" />
+        </div>
+
+        <h1 class="title">
+            <span class="name">扣嘚</span>
+            <p class="subtitle">我最好的朋友 🦔</p>
+        </h1>
+    </section>
+
+    <!-- 性格卡片 -->
+    <section class="cards">
+        <div class="card" onclick="this.classList.toggle('active')">
+            <span class="card-icon">💗</span>
+            <span class="card-text">可爱</span>
+        </div>
+        <div class="card" onclick="this.classList.toggle('active')">
+            <span class="card-icon">🍕</span>
+            <span class="card-text">贪吃</span>
+        </div>
+        <div class="card" onclick="this.classList.toggle('active')">
+            <span class="card-icon">🐷</span>
+            <span class="card-text">肥肥</span>
+        </div>
+        <div class="card" onclick="this.classList.toggle('active')">
+            <span class="card-icon">😰</span>
+            <span class="card-text">胆小</span>
+        </div>
+        <div class="card special" onclick="this.classList.toggle('active')">
+            <span class="card-icon">❤️</span>
+            <span class="card-text">我爱你</span>
+        </div>
+    </section>
+
+    <!-- 照片区（可选） -->
+    <section class="photos">
+        <img src="images/code1.jpg" alt="扣嘚" class="photo" />
+        <img src="images/code2.jpg" alt="扣嘚" class="photo" />
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <span class="heart">♥</span>
+        <span>扣嘚是我的小太阳</span>
+        <span class="heart">♥</span>
+    </footer>
+</div>
