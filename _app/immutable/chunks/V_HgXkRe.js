@@ -1,1 +1,0 @@
-import{w as e}from"./TaIMcOIs.js";const o="light",a=window.localStorage.getItem("theme")??o,m=e(a);m.subscribe(t=>{window.localStorage.setItem("theme",t),document.documentElement.setAttribute("data-theme",t)});export{m as t};
