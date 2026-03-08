@@ -2,8 +2,10 @@
   import { page } from '$app/stores';
   import { marked } from 'marked';
   import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
 
-  const GITHUB_RAW = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads/main';
+  const GITHUB_RAW = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads';
+  const INDEX_URL = `${GITHUB_RAW}/generated/index.json`;
 
   let path = $derived(decodeURIComponent($page.params.path));
   let content = $state('');
@@ -11,6 +13,10 @@
   let error = $state('');
   let toc = $state<{ id: string; text: string; level: number }[]>([]);
   let showToc = $state(false);
+
+  // 所有博客列表
+  let allPosts = $state<{ title: string; path: string; category?: string }[]>([]);
+  let postsLoading = $state(true);
 
   // 处理 markdown 中的图片路径
   function processImageUrls(md: string): string {
@@ -94,14 +100,56 @@
     }
   }
 
+  // 加载所有博客列表
+  async function loadAllPosts() {
+    postsLoading = true;
+    try {
+      const res = await fetch(INDEX_URL);
+      if (res.ok) {
+        allPosts = await res.json();
+      }
+    } catch (e) {
+      console.error('Failed to load posts:', e);
+    }
+    postsLoading = false;
+  }
+
+  // 跳转到其他博客
+  function goToPost(postPath: string) {
+    goto(`/blog/${postPath}`);
+  }
+
   $effect(() => {
     if (path) {
       loadContent();
     }
+    loadAllPosts();
   });
 </script>
 
-<div class="blog-container" class:has-toc={toc.length > 0}>
+<div class="blog-container" class:has-toc={toc.length > 0} class:has-left-list={allPosts.length > 0}>
+  <!-- 左侧博客列表 -->
+  {#if allPosts.length > 0}
+    <aside class="post-list-sidebar">
+      <div class="post-list-title">博客列表</div>
+      <div class="post-list">
+        {#each allPosts as post}
+          <button
+            class="post-list-item"
+            class:active={post.path === path}
+            onclick={() => goToPost(post.path)}
+          >
+            <span class="post-title">{post.title}</span>
+            {#if post.category}
+              <span class="post-category">{post.category}</span>
+            {/if}
+          </button>
+        {/each}
+      </div>
+    </aside>
+  {/if}
+
+  <!-- 右侧文章目录 -->
   {#if toc.length > 0}
     <button class="toc-toggle" onclick={() => showToc = !showToc}>
       📑 目录
@@ -141,19 +189,136 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem 1rem;
+    display: flex;
+    position: relative;
   }
 
   .blog-content {
     max-width: 100%;
+    flex: 1;
+  }
+
+  .blog-container.has-left-list {
+    margin-left: 260px;
+    max-width: calc(100% - 260px);
   }
 
   .blog-container.has-toc {
     margin-right: 240px;
   }
 
+  @media (max-width: 1024px) {
+    .blog-container.has-left-list {
+      margin-left: 0;
+      max-width: 800px;
+    }
+  }
+
   @media (max-width: 768px) {
     .blog-container.has-toc {
       margin-right: 0;
+    }
+  }
+
+  /* 左侧博客列表 */
+  .post-list-sidebar {
+    position: fixed;
+    left: 1rem;
+    top: 80px;
+    width: 240px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  :global([data-theme="dark"]) .post-list-sidebar {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+
+  .post-list-title {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #6c45a8;
+    font-size: 0.95rem;
+  }
+
+  :global([data-theme="dark"]) .post-list-title {
+    color: #9d85ca;
+  }
+
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .post-list-item {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .post-list-item:hover {
+    background: rgba(108, 69, 168, 0.1);
+  }
+
+  .post-list-item.active {
+    background: rgba(108, 69, 168, 0.15);
+  }
+
+  .post-list-item.active .post-title {
+    color: #6c45a8;
+    font-weight: 600;
+  }
+
+  :global([data-theme="dark"]) .post-list-item:hover {
+    background: rgba(157, 133, 202, 0.1);
+  }
+
+  :global([data-theme="dark"]) .post-list-item.active .post-title {
+    color: #9d85ca;
+  }
+
+  .post-title {
+    font-size: 0.85rem;
+    color: #333;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  :global([data-theme="dark"]) .post-title {
+    color: #fff;
+  }
+
+  .post-category {
+    font-size: 0.7rem;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.15);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    width: fit-content;
+  }
+
+  @media (max-width: 1024px) {
+    .post-list-sidebar {
+      display: none;
     }
   }
 
@@ -260,11 +425,6 @@
   }
 
   /* 目录样式 */
-  .blog-container {
-    display: flex;
-    position: relative;
-  }
-
   .toc-toggle {
     position: fixed;
     right: 1rem;
