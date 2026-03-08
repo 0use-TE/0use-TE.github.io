@@ -32,6 +32,10 @@ jobs:
           cd svelte-web
           npm run build
 
+      - name: Create .nojekyll
+        run: |
+          touch svelte-web/build/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
