@@ -66,13 +66,13 @@
         <MudToggleIconButton ToggledChanged="ToggleTheme" Icon="@Icons.Material.Rounded.LightMode" ToggledIcon="@Icons.Material.Rounded.DarkMode"></MudToggleIconButton>
     </MudAppBar>
     <MudMainContent Style="">
-        <div class="d-flex flex-column"  style="height: calc(100vh - 64px);">
-            <div class="flex-grow-1 " style="overflow-y:scroll;"  >
+        <div class="d-flex flex-column" style="height: calc(100vh - 64px);">
+            <div class="flex-grow-1" style="overflow-y:scroll;padding-bottom: 70px;">
                 @Body
             </div>
-            <MusicComponent Class="flex-grow-0"></MusicComponent>
         </div>
     </MudMainContent>
+    <MusicComponent></MusicComponent>
 </MudLayout>
 
 <style>

@@ -43,17 +43,24 @@
             // 初始化并传入当前组件引用
             await _module.InvokeVoidAsync("initMusicPlayer", DotNetObjectReference.Create(this));
 
-            // 初始加载第一首
-            await OnNextTrack();
+            // 加载第一首歌但不自动播放
+            await LoadCurrentTrack();
         }
     }
+
+    private async Task LoadCurrentTrack()
+    {
+        if (musics == null || musics.Count == 0) return;
+        var currentMusic = musics[currentMusicIndex];
+        if (_module != null)
+            await _module.InvokeVoidAsync("loadTrack", currentMusic.Path, currentMusic.Name);
+    }
+
     [JSInvokable]
     public async Task OnNextTrack()
     {
         if (musics == null || musics.Count == 0) return;
         currentMusicIndex = (currentMusicIndex + 1) % musics.Count;
-        var nextMusic = musics[currentMusicIndex];
-        if (_module != null)
-            await _module.InvokeVoidAsync("loadTrack", nextMusic.Path, nextMusic.Name);
+        await LoadCurrentTrack();
     }
 }

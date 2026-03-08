@@ -8,6 +8,9 @@
     z-index: 9999;
     display: flex;
     flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 /* 第一版风格：进度条在容器最顶部 */
