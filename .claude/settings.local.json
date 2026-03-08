@@ -1,7 +1,23 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com)"
+      "WebFetch(domain:minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com)",
+      "Bash(npm create svelte@latest svelte-web -- --template skeleton --types ts --no-eslint --no-prettier --no-playwright --no-vitest)",
+      "Bash(npx sv create svelte-web --template minimal --types ts --no-add-ons)",
+      "Bash(npm install -D tailwindcss postcss autoprefixer @tailwindcss/typography)",
+      "Bash(npm install -D @skeletonlabs/skeleton@next @skeletonlabs/tw-plugin)",
+      "Bash(npx tailwindcss init -p)",
+      "Bash(npm install marked)",
+      "Bash(cp -r \"c:\\\\Users\\\\22165\\\\Desktop\\\\Project\\\\0use-TE.github.io\\\\OusePersonalWeb\\\\wwwroot\\\\music\" \"c:\\\\Users\\\\22165\\\\Desktop\\\\Project\\\\0use-TE.github.io\\\\svelte-web\\\\static/\")",
+      "Bash(cp -r \"c:\\\\Users\\\\22165\\\\Desktop\\\\Project\\\\0use-TE.github.io\\\\OusePersonalWeb\\\\wwwroot\\\\images\" \"c:\\\\Users\\\\22165\\\\Desktop\\\\Project\\\\0use-TE.github.io\\\\svelte-web\\\\static/\")",
+      "Bash(npm run build)",
+      "Bash(npm install -D @tailwindcss/postcss)",
+      "Bash(curl -s http://localhost:5173)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://raw.githubusercontent.com/0use-TE/blog/refs/heads/main/index.json\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads/generated/index.json\")",
+      "Bash(npm run dev)",
+      "Bash(npm install -D vite-plugin-compression)"
     ]
   }
 }
