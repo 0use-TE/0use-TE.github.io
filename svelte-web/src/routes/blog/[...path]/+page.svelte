@@ -4,8 +4,8 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
 
-  const GITHUB_RAW = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads';
-  const INDEX_URL = `${GITHUB_RAW}/generated/index.json`;
+  const GITHUB_RAW = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads/main';
+  const INDEX_URL = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads/generated/index.json';
 
   let path = $derived(decodeURIComponent($page.params.path));
   let content = $state('');
@@ -16,7 +16,27 @@
 
   // 所有博客列表
   let allPosts = $state<{ title: string; path: string; category?: string }[]>([]);
+  let filteredPosts = $state<{ title: string; path: string; category?: string }[]>([]);
   let postsLoading = $state(true);
+  let searchQuery = $state('');
+
+  // 搜索过滤
+  function filterPosts() {
+    if (!searchQuery.trim()) {
+      filteredPosts = allPosts;
+    } else {
+      filteredPosts = allPosts.filter(p =>
+        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (p.category && p.category.toLowerCase().includes(searchQuery.toLowerCase()))
+      );
+    }
+  }
+
+  function handleSearch(e: Event) {
+    const target = e.target as HTMLInputElement;
+    searchQuery = target.value;
+    filterPosts();
+  }
 
   // 处理 markdown 中的图片路径
   function processImageUrls(md: string): string {
@@ -107,6 +127,7 @@
       const res = await fetch(INDEX_URL);
       if (res.ok) {
         allPosts = await res.json();
+        filteredPosts = allPosts;
       }
     } catch (e) {
       console.error('Failed to load posts:', e);
@@ -131,9 +152,16 @@
   <!-- 左侧博客列表 -->
   {#if allPosts.length > 0}
     <aside class="post-list-sidebar">
+      <input
+        type="search"
+        class="post-search-input"
+        placeholder="搜索博客..."
+        value={searchQuery}
+        oninput={handleSearch}
+      />
       <div class="post-list-title">博客列表</div>
       <div class="post-list">
-        {#each allPosts as post}
+        {#each filteredPosts as post}
           <button
             class="post-list-item"
             class:active={post.path === path}
@@ -239,6 +267,29 @@
   :global([data-theme="dark"]) .post-list-sidebar {
     background: #2d2d2d;
     border-color: #444;
+  }
+
+  .post-search-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    margin-bottom: 0.75rem;
+    box-sizing: border-box;
+  }
+
+  :global([data-theme="dark"]) .post-search-input {
+    background: #333;
+    border-color: #444;
+    color: #fff;
+  }
+
+  .post-search-input:focus {
+    outline: none;
+    border-color: #6c45a8;
   }
 
   .post-list-title {
