@@ -151,7 +151,8 @@
 <div class="blog-container" class:has-toc={toc.length > 0} class:has-left-list={allPosts.length > 0}>
   <!-- 左侧博客列表 -->
   {#if allPosts.length > 0}
-    <aside class="post-list-sidebar">
+    <!-- 固定搜索框 -->
+    <div class="post-search-fixed">
       <input
         type="search"
         class="post-search-input"
@@ -159,6 +160,9 @@
         value={searchQuery}
         oninput={handleSearch}
       />
+    </div>
+
+    <aside class="post-list-sidebar">
       <div class="post-list-title">博客列表</div>
       <div class="post-list">
         {#each filteredPosts as post}
@@ -249,12 +253,22 @@
   }
 
   /* 左侧博客列表 */
-  .post-list-sidebar {
+  .post-search-fixed {
     position: fixed;
     left: 1rem;
     top: 80px;
     width: 240px;
-    max-height: calc(100vh - 100px);
+    z-index: 101;
+    background: transparent;
+    padding: 0.5rem;
+  }
+
+  .post-list-sidebar {
+    position: fixed;
+    left: 1rem;
+    top: 135px;
+    width: 240px;
+    max-height: calc(100vh - 155px);
     overflow-y: auto;
     background: #fff;
     border: 1px solid #ddd;
@@ -277,7 +291,6 @@
     border-radius: 6px;
     background: #fff;
     color: #333;
-    margin-bottom: 0.75rem;
     box-sizing: border-box;
   }
 
@@ -369,6 +382,9 @@
 
   @media (max-width: 1024px) {
     .post-list-sidebar {
+      display: none;
+    }
+    .post-search-fixed {
       display: none;
     }
   }
