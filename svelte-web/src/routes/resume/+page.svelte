@@ -73,6 +73,8 @@
                   <span class="tag">Docker</span>
                   <span class="tag">VS Code</span>
                   <span class="tag">Unity</span>
+                  <span class="tag">Avalonia</span>
+                  <span class="tag">Godot</span>
                 </div>
               </div>
             </div>
