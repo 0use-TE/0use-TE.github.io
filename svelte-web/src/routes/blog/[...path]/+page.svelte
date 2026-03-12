@@ -80,7 +80,9 @@
   // 添加ID到标题
   function addIdsToHeadings(html: string): string {
     toc.forEach(heading => {
-      const regex = new RegExp(`<h${heading.level}>([^<]+)</h${heading.level}>`, 'g');
+      // 直接替换标题文本，添加id
+      const escapedText = heading.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`<h${heading.level}>(${escapedText})</h${heading.level}>`, 'gi');
       html = html.replace(regex, `<h${heading.level} id="${heading.id}">$1</h${heading.level}>`);
     });
     return html;
@@ -114,10 +116,14 @@
   }
 
   function scrollToHeading(id: string) {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.location.hash = id;
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        window.scrollTo({ top: rect.top + window.scrollY - 20, behavior: 'smooth' });
+      }
+    }, 50);
   }
 
   // 加载所有博客列表
