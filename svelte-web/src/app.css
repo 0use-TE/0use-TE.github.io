@@ -219,3 +219,25 @@ body {
 	--on-error: 255, 255, 255;
 	--on-surface: 250, 250, 250;
 }
+
+/* 行内代码样式 - 覆盖 Skeleton 全局样式 */
+code {
+  background: #f0f0f0 !important;
+  padding: 0.2rem 0.4rem !important;
+  border-radius: 4px !important;
+  font-size: 0.9em;
+  color: #6c45a8 !important;
+  font-family: var(--font-mono, ui-monospace, monospace) !important;
+}
+
+:root[data-theme='dark'] code {
+  background: #333 !important;
+  color: #9d85ca !important;
+}
+
+/* 代码块内的 code 不要有背景色 */
+pre code {
+  background: none !important;
+  padding: 0 !important;
+  color: inherit !important;
+}

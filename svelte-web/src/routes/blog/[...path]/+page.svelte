@@ -534,19 +534,7 @@
     background: #5a3a8f;
   }
 
-  /* 行内代码 */
-  .prose :global(code):not(pre code) {
-    background: #f0f0f0 !important;
-    padding: 0.2rem 0.4rem !important;
-    border-radius: 4px;
-    font-size: 0.9em;
-    color: #6c45a8 !important;
-  }
-
-  :global([data-theme="dark"]) .prose :global(code):not(pre code) {
-    background: #333 !important;
-    color: #9d85ca !important;
-  }
+  /* 行内代码 - 已在 app.css 中全局设置 */
 
   /* highlight.js 主题支持 */
   .prose :global(.hljs-keyword) { color: #d73a49; }
