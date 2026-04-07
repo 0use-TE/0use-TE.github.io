@@ -3,6 +3,7 @@
   import { marked } from 'marked';
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
+  import hljs from 'highlight.js';
 
   const GITHUB_RAW = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads/main';
   const INDEX_URL = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads/generated/index.json';
@@ -103,6 +104,25 @@
 
       // 处理图片路径
       md = processImageUrls(md);
+
+      // 配置 marked 使用自定义渲染器添加复制按钮和语法高亮
+      const renderer = new marked.Renderer();
+      renderer.code = function({ text, lang }: { text: string; lang?: string }) {
+        const langClass = lang ? ` language-${lang}` : '';
+        let highlighted: string;
+        try {
+          if (lang && hljs.getLanguage(lang)) {
+            highlighted = hljs.highlight(text, { language: lang }).value;
+          } else {
+            highlighted = hljs.highlightAuto(text).value;
+          }
+        } catch {
+          highlighted = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+        return `<pre class="code-block-wrapper"><button class="copy-btn" data-code="${encodeURIComponent(text)}">复制</button><code class="${langClass}">${highlighted}</code></pre>`;
+      };
+      marked.setOptions({ renderer });
+
       content = await marked.parse(md);
 
       // 添加ID到标题
@@ -113,6 +133,19 @@
       error = e instanceof Error ? e.message : '加载失败';
     }
     loading = false;
+  }
+
+  // 复制代码
+  function copyCode(btn: HTMLButtonElement) {
+    const code = decodeURIComponent(btn.dataset.code || '');
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = '已复制!';
+      setTimeout(() => {
+        btn.textContent = '复制';
+      }, 2000);
+    }).catch(err => {
+      console.error('复制失败:', err);
+    });
   }
 
   function scrollToHeading(id: string) {
@@ -145,6 +178,16 @@
   function goToPost(postPath: string) {
     goto(`/blog/${postPath}`);
   }
+
+  // 页面加载后绑定复制按钮事件
+  onMount(() => {
+    document.addEventListener('click', (e) => {
+      const btn = (e.target as Element).closest('.copy-btn');
+      if (btn) {
+        copyCode(btn as HTMLButtonElement);
+      }
+    });
+  });
 
   $effect(() => {
     if (path) {
@@ -444,30 +487,128 @@
     margin-bottom: 1rem;
   }
 
-  .prose :global(code) {
-    background: #f0f0f0;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.9em;
-  }
-
-  :global([data-theme="dark"]) .prose :global(code) {
-    background: #444;
-  }
-
   .prose :global(pre) {
-    background: #1e1e1e;
-    color: #d4d4d4;
+    background: #f6f8fa;
+    color: #24292e;
     padding: 1rem;
     border-radius: 8px;
     overflow-x: auto;
     margin: 1rem 0;
+    position: relative;
+    border: 1px solid #e1e4e8;
+  }
+
+  :global([data-theme="dark"]) .prose :global(pre) {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border-color: #333;
   }
 
   .prose :global(pre code) {
-    background: none;
-    padding: 0;
-    color: inherit;
+    background: none !important;
+    padding: 0 !important;
+    color: inherit !important;
+  }
+
+  /* 代码块复制按钮 */
+  .prose :global(.code-block-wrapper) {
+    position: relative;
+  }
+
+  .prose :global(.copy-btn) {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 12px;
+    background: #6c45a8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    z-index: 10;
+    transition: background 0.2s;
+  }
+
+  .prose :global(.copy-btn:hover) {
+    background: #5a3a8f;
+  }
+
+  /* 行内代码 */
+  .prose :global(code):not(pre code) {
+    background: #f0f0f0 !important;
+    padding: 0.2rem 0.4rem !important;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #6c45a8 !important;
+  }
+
+  :global([data-theme="dark"]) .prose :global(code):not(pre code) {
+    background: #333 !important;
+    color: #9d85ca !important;
+  }
+
+  /* highlight.js 主题支持 */
+  .prose :global(.hljs-keyword) { color: #d73a49; }
+  .prose :global(.hljs-string) { color: #032f62; }
+  .prose :global(.hljs-number) { color: #005cc5; }
+  .prose :global(.hljs-comment) { color: #6a737d; }
+  .prose :global(.hljs-function) { color: #6f42c1; }
+  .prose :global(.hljs-class) { color: #22863a; }
+  .prose :global(.hljs-variable) { color: #e36209; }
+  .prose :global(.hljs-attr) { color: #005cc5; }
+  .prose :global(.hljs-tag) { color: #22863a; }
+  .prose :global(.hljs-name) { color: #22863a; }
+  .prose :global(.hljs-attribute) { color: #6f42c1; }
+  .prose :global(.hljs-template-tag) { color: #e36209; }
+  .prose :global(.hljs-template-variable) { color: #e36209; }
+  .prose :global(.hljs-type) { color: #6f42c1; }
+  .prose :global(.hljs-built_in) { color: #005cc5; }
+  .prose :global(.hljs-meta) { color: #6a737d; }
+  .prose :global(.hljs-symbol) { color: #005cc5; }
+  .prose :global(.hljs-params) { color: #24292e; }
+  .prose :global(.hljs-literal) { color: #005cc5; }
+  .prose :global(.hljs-title) { color: #6f42c1; }
+  .prose :global(.hljs-section) { color: #005cc5; }
+  .prose :global(.hljs-selector-class) { color: #22863a; }
+  .prose :global(.hljs-selector-id) { color: #005cc5; }
+  .prose :global(.hljs-selector-tag) { color: #22863a; }
+  .prose :global(.hljs-property) { color: #005cc5; }
+  .prose :global(.hljs-regexp) { color: #032f62; }
+  .prose :global(.hljs-deletion) { color: #b31d28; background: #ffeef0; }
+  .prose :global(.hljs-addition) { color: #22863a; background: #f0fff4; }
+
+  :global([data-theme="dark"]) .prose :global(.hljs-keyword) { color: #f97583; }
+  :global([data-theme="dark"]) .prose :global(.hljs-string) { color: #9ecbff; }
+  :global([data-theme="dark"]) .prose :global(.hljs-number) { color: #79b8ff; }
+  :global([data-theme="dark"]) .prose :global(.hljs-comment) { color: #8b949e; }
+  :global([data-theme="dark"]) .prose :global(.hljs-function) { color: #b392f0; }
+  :global([data-theme="dark"]) .prose :global(.hljs-class) { color: #85e89d; }
+  :global([data-theme="dark"]) .prose :global(.hljs-variable) { color: #ffab70; }
+  :global([data-theme="dark"]) .prose :global(.hljs-attr) { color: #79b8ff; }
+  :global([data-theme="dark"]) .prose :global(.hljs-tag) { color: #85e89d; }
+  :global([data-theme="dark"]) .prose :global(.hljs-name) { color: #85e89d; }
+  :global([data-theme="dark"]) .prose :global(.hljs-attribute) { color: #b392f0; }
+  :global([data-theme="dark"]) .prose :global(.hljs-template-tag) { color: #ffab70; }
+  :global([data-theme="dark"]) .prose :global(.hljs-template-variable) { color: #ffab70; }
+  :global([data-theme="dark"]) .prose :global(.hljs-type) { color: #b392f0; }
+  :global([data-theme="dark"]) .prose :global(.hljs-built_in) { color: #79b8ff; }
+  :global([data-theme="dark"]) .prose :global(.hljs-meta) { color: #8b949e; }
+  :global([data-theme="dark"]) .prose :global(.hljs-symbol) { color: #79b8ff; }
+  :global([data-theme="dark"]) .prose :global(.hljs-params) { color: #e1e4e8; }
+  :global([data-theme="dark"]) .prose :global(.hljs-literal) { color: #79b8ff; }
+  :global([data-theme="dark"]) .prose :global(.hljs-title) { color: #b392f0; }
+  :global([data-theme="dark"]) .prose :global(.hljs-section) { color: #79b8ff; }
+  :global([data-theme="dark"]) .prose :global(.hljs-selector-class) { color: #85e89d; }
+  :global([data-theme="dark"]) .prose :global(.hljs-selector-id) { color: #79b8ff; }
+  :global([data-theme="dark"]) .prose :global(.hljs-selector-tag) { color: #85e89d; }
+  :global([data-theme="dark"]) .prose :global(.hljs-property) { color: #79b8ff; }
+  :global([data-theme="dark"]) .prose :global(.hljs-regexp) { color: #9ecbff; }
+  :global([data-theme="dark"]) .prose :global(.hljs-deletion) { color: #f97583; background: rgba(248,81,73,0.2); }
+  :global([data-theme="dark"]) .prose :global(.hljs-addition) { color: #85e89d; background: rgba(56,245,139,0.2); }
+
+  .prose :global(.copy-btn:active) {
+    background: #4a2a7f;
   }
 
   .prose :global(a) {

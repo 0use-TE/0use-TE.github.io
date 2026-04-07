@@ -20,7 +20,7 @@
       const res = await fetch(`${GITHUB_RAW}/generated/index.json`);
       allPosts = await res.json();
       if (b) {
-        searchContent = b;
+        searchContent = decodeURIComponent(b);
         filterPosts();
       } else {
         filteredPosts = allPosts;
@@ -89,17 +89,8 @@
   $effect(() => {
     const currentB = b;
 
-    // 首次加载时从URL恢复搜索状态
-    if (!initialized && currentB) {
-      searchContent = currentB;
-      initialized = true;
-      if (allPosts.length > 0) {
-        filterPosts();
-      }
-    }
-
     // 页面首次加载后记录初始b值
-    if (!initialized && !currentB) {
+    if (!initialized) {
       initialized = true;
     }
 
@@ -107,6 +98,17 @@
     if (initialized && previousB && !currentB && searchContent) {
       searchContent = '';
       filteredPosts = allPosts;
+    }
+
+    // 如果URL的b参数有值，且与当前搜索内容不同，同步搜索状态并过滤
+    if (initialized && currentB) {
+      const decodedB = decodeURIComponent(currentB);
+      if (decodedB !== searchContent) {
+        searchContent = decodedB;
+        if (allPosts.length > 0) {
+          filterPosts();
+        }
+      }
     }
 
     // 更新previousB
