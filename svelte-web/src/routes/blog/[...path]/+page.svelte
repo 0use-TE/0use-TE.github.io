@@ -325,6 +325,8 @@
     padding: 1rem;
     z-index: 100;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
   }
 
   :global([data-theme="dark"]) .post-list-sidebar {
@@ -369,6 +371,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
   }
 
   .post-list-item {
