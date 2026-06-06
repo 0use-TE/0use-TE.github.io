@@ -4,6 +4,7 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import hljs from 'highlight.js';
+  import Giscus from '$lib/components/Giscus.svelte';
 
   const GITHUB_RAW = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads/main';
   const INDEX_URL = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads/generated/index.json';
@@ -261,6 +262,7 @@
       <article class="prose">
         {@html content}
       </article>
+      <Giscus />
     {/if}
   </div>
 </div>

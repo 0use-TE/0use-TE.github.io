@@ -79,39 +79,27 @@
     });
   }
 
-  // 监听URL参数变化（支持浏览器后退前进）
-  // 只在页面首次加载时从URL恢复搜索状态
-  let initialized = $state(false);
-
-  // 用于追踪是否需要重置搜索
-  let previousB = $state('');
+  // 仅在 URL 的 b 参数变化时同步（后退/前进、分享链接首次打开由 loadPosts 处理）
+  let previousB = $state<string | null>(null);
 
   $effect(() => {
     const currentB = b;
 
-    // 页面首次加载后记录初始b值
-    if (!initialized) {
-      initialized = true;
+    if (previousB === null) {
+      previousB = currentB;
+      return;
     }
 
-    // 如果URL的b参数被清除（比如从详情页返回但没有b参数），重置搜索
-    if (initialized && previousB && !currentB && searchContent) {
+    if (currentB === previousB) return;
+
+    if (currentB) {
+      searchContent = decodeURIComponent(currentB);
+      if (allPosts.length > 0) filterPosts();
+    } else {
       searchContent = '';
-      filteredPosts = allPosts;
+      if (allPosts.length > 0) filteredPosts = allPosts;
     }
 
-    // 如果URL的b参数有值，且与当前搜索内容不同，同步搜索状态并过滤
-    if (initialized && currentB) {
-      const decodedB = decodeURIComponent(currentB);
-      if (decodedB !== searchContent) {
-        searchContent = decodedB;
-        if (allPosts.length > 0) {
-          filterPosts();
-        }
-      }
-    }
-
-    // 更新previousB
     previousB = currentB;
   });
 
