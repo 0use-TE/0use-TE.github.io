@@ -54,6 +54,7 @@
         'Windows 便携工具：在禁止粘贴的网页或软件中，通过模拟键盘输入将剪贴板内容逐字打入目标窗口，支持自定义全局快捷键。',
       url: 'https://github.com/0use-TE/OpenCopy',
       githubRepo: '0use-TE/OpenCopy',
+      image: '/images/opensource/open-copy.png',
       tags: ['Windows', '.NET', '工具', 'MIT'],
       platform: 'github'
     },
