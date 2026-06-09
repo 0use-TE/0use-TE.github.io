@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import githubStars from '$lib/data/github-stars.json';
 
   interface OpenSourceProject {
     name: string;
@@ -67,36 +67,11 @@
     }
   ];
 
-  let starCounts = $state<Record<string, number>>({});
-
-  async function fetchGithubStars(repo: string): Promise<number | null> {
-    try {
-      const res = await fetch(`https://api.github.com/repos/${repo}`, {
-        headers: { Accept: 'application/vnd.github+json' }
-      });
-      if (!res.ok) return null;
-      const data = await res.json();
-      return typeof data.stargazers_count === 'number' ? data.stargazers_count : null;
-    } catch {
-      return null;
-    }
+  function getStars(repo?: string): number | null {
+    if (!repo) return null;
+    const count = githubStars[repo as keyof typeof githubStars];
+    return typeof count === 'number' ? count : null;
   }
-
-  onMount(async () => {
-    const githubProjects = projects.filter((p) => p.githubRepo);
-    const results = await Promise.all(
-      githubProjects.map(async (p) => ({
-        repo: p.githubRepo!,
-        stars: await fetchGithubStars(p.githubRepo!)
-      }))
-    );
-
-    const next: Record<string, number> = {};
-    for (const { repo, stars } of results) {
-      if (stars !== null) next[repo] = stars;
-    }
-    starCounts = next;
-  });
 </script>
 
 <div class="opensource-page">
@@ -130,9 +105,9 @@
           {#each project.tags as tag}
             <span class="tag">{tag}</span>
           {/each}
-          {#if project.githubRepo}
+          {#if project.githubRepo && getStars(project.githubRepo) !== null}
             <span class="tag stars">
-              ⭐ {starCounts[project.githubRepo] ?? '…'}
+              ⭐ {getStars(project.githubRepo)}
             </span>
           {/if}
         </div>
