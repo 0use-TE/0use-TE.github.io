@@ -39,10 +39,10 @@
         {#if activeTab === 0}
           <!-- 我是？ -->
           <div class="tab-panel">
-            <p>👋 你好，我是Ouse，一名热爱 .NET 的开发者，代码如诗，架构如画。我热爱微软技术栈，后端用 Web API，前端玩 MudBlazor，偶尔还会折腾 Unity。</p>
-            <p>说起我啊，从小就喜欢玩游戏，喜欢摆弄电脑。13 岁那年，我便开始折腾装机，学习各种电脑组装知识，给别人配电脑💻、装系统 ，完全不在话下。</p>
+            <p>👋 你好，我是 Ouse。.NET 这条线我已经摸得很全——Web API、桌面 Avalonia、AOT、Blazor 历史包袱也好，该上手的基本都能打；现在也在往嵌入式方向猛冲，PCB、单片机这一套正在飞速补齐。</p>
+            <p>说起我啊，从小就喜欢玩游戏，喜欢摆弄电脑。13 岁那年，我便开始折腾装机，学习各种电脑组装知识，给别人配电脑💻、装系统，完全不在话下。</p>
             <p>到了高中，我开始接触编程，但奈何学业繁忙，没能坚持太久……直到上了大学，我终于彻底沉迷在了编程的世界。</p>
-            <p>除了写代码，我还养了一只名叫 Code（扣嘚）的非洲迷你刺猬🦔，它是我调试 bug 时最忠实的听众。我喜欢生椰拿铁☕，喜欢音乐，喜欢一切能让世界变得更有秩序的东西。</p>
+            <p>除了写代码，我还养着扣嘚（Code）🦔和基米🐱——一个是非洲迷你刺猬，一个是长毛银渐层。调试 bug 时它们常在旁边陪着。我喜欢生椰拿铁☕，喜欢音乐，喜欢一切能让世界变得更有秩序的东西。</p>
           </div>
         {:else if activeTab === 1}
           <!-- 技术栈 -->
@@ -58,12 +58,21 @@
                 </div>
               </div>
               <div class="tech-category">
-                <h3>前端</h3>
+                <h3>前端 / 桌面</h3>
                 <div class="tech-tags">
+                  <span class="tag">Avalonia</span>
                   <span class="tag">Blazor</span>
                   <span class="tag">Svelte</span>
                   <span class="tag">TypeScript</span>
-                  <span class="tag">HTML/CSS</span>
+                </div>
+              </div>
+              <div class="tech-category">
+                <h3>嵌入式 / 硬件</h3>
+                <div class="tech-tags">
+                  <span class="tag">STM32</span>
+                  <span class="tag">PCB</span>
+                  <span class="tag">PlatformIO</span>
+                  <span class="tag">nanoFramework</span>
                 </div>
               </div>
               <div class="tech-category">
@@ -71,9 +80,7 @@
                 <div class="tech-tags">
                   <span class="tag">Git</span>
                   <span class="tag">Docker</span>
-                  <span class="tag">VS Code</span>
-                  <span class="tag">Unity</span>
-                  <span class="tag">Avalonia</span>
+                  <span class="tag">Native AOT</span>
                   <span class="tag">Godot</span>
                 </div>
               </div>
