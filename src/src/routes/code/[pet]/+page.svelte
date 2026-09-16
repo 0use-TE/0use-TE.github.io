@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import petPhotos from '$lib/data/pet-photos.json';
 
   type PetId = 'code' | 'jimi';
 
@@ -19,13 +20,7 @@
         { icon: '😰', text: '胆小' },
         { icon: '❤️', text: '我爱你', special: true }
       ],
-      photos: [
-        { src: '/images/code1.jpg', caption: '睡觉觉' },
-        { src: '/images/code2.jpg', caption: '吃饭饭' },
-        { src: '/images/code3.jpg', caption: '玩耍' },
-        { src: '/images/code4.jpg', caption: '发呆' },
-        { src: '/images/code5.jpg', caption: '臭美' }
-      ]
+      photos: petPhotos.code.map(src => ({ src, caption: src.split('/').pop()?.replace(/\.[^.]+$/, '') ?? '' }))
     },
     jimi: {
       id: 'jimi' as const,
@@ -42,13 +37,7 @@
         { icon: '🫂', text: '亲人' },
         { icon: '❤️', text: '我爱你', special: true }
       ],
-      photos: [
-        { src: '/images/jimi/仰天大睡.jpg', caption: '仰天大睡' },
-        { src: '/images/jimi/基米坐在电脑上看着我.jpg', caption: '盯着我' },
-        { src: '/images/jimi/朝我哈气(不是真生气).jpg', caption: '哈气（假的）' },
-        { src: '/images/jimi/看我电脑.jpg', caption: '看电脑' },
-        { src: '/images/jimi/看着扣嘚喝水.jpg', caption: '看扣嘚喝水' }
-      ]
+      photos: petPhotos.jimi.map(src => ({ src, caption: src.split('/').pop()?.replace(/\.[^.]+$/, '') ?? '' }))
     }
   };
 
@@ -58,6 +47,13 @@
 
   let active = $derived(resolvePet($page.params.pet));
   let pet = $derived(pets[active]);
+  let showAll = $state(false);
+  const PREVIEW_COUNT = 5;
+  const visiblePhotos = $derived(
+    showAll || pet.photos.length <= PREVIEW_COUNT
+      ? pet.photos
+      : pet.photos.slice(0, PREVIEW_COUNT)
+  );
 </script>
 
 <svelte:head>
@@ -71,10 +67,10 @@
     {/each}
   </div>
 
-  <div class="pet-switch">
-    <a href="/code/code" class="switch-btn" class:active={active === 'code'}>🦔 扣嘚</a>
-    <a href="/code/jimi" class="switch-btn" class:active={active === 'jimi'}>🐱 基米</a>
-  </div>
+<div class="pet-switch">
+      <a href="/code/code" class="switch-btn" class:active={active === 'code'}>🦔 扣嘚</a>
+      <a href="/code/jimi" class="switch-btn" class:active={active === 'jimi'}>🐱 基米</a>
+    </div>
 
   {#key active}
     <section class="hero">
@@ -100,7 +96,7 @@
     <section class="photos-section">
       <h2 class="section-title">📸 {pet.name}相册</h2>
       <div class="photos-grid">
-        {#each pet.photos as photo, i}
+        {#each visiblePhotos as photo, i}
           <div class="photo-card" style="--i: {i}">
             <img src={photo.src} alt="{pet.name} - {photo.caption}" loading="lazy" />
             <div class="photo-overlay">
@@ -108,6 +104,19 @@
             </div>
           </div>
         {/each}
+      </div>
+
+      {#if pet.photos.length > PREVIEW_COUNT}
+        <div class="show-more-wrap">
+          <button class="show-more-btn" onclick={() => showAll = !showAll}>
+            {showAll ? '收起 ▲' : `显示全部 (${pet.photos.length}) ▼`}
+          </button>
+        </div>
+      {/if}
+
+      <p class="gallery-hint">想看 {active === 'code' ? '扣嘚 和 基米' : '基米 和 扣嘚'} 的全部照片？</p>
+      <div class="gallery-cta">
+        <a href="/code/gallery" class="gallery-btn">📸 查看全部画廊</a>
       </div>
     </section>
 
@@ -454,5 +463,94 @@
   @media (max-width: 768px) {
     .name { font-size: 2.2rem; }
     .photos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .show-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .show-more-btn {
+    border: 1px solid rgba(108, 69, 168, 0.3);
+    background: rgba(108, 69, 168, 0.05);
+    color: #6c45a8;
+    padding: 0.6rem 1.6rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .show-more-btn:hover {
+    background: rgba(108, 69, 168, 0.12);
+    border-color: #6c45a8;
+  }
+
+  :global([data-theme='dark']) .show-more-btn {
+    color: #9d85ca;
+    border-color: rgba(157, 133, 202, 0.4);
+    background: rgba(157, 133, 202, 0.08);
+  }
+
+  :global([data-theme='dark']) .show-more-btn:hover {
+    background: rgba(157, 133, 202, 0.15);
+    border-color: #9d85ca;
+  }
+
+.gallery-hint {
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 0.75rem;
+    text-align: right;
+  }
+
+  :global([data-theme='dark']) .gallery-hint {
+    color: #aaa;
+  }
+
+  .gallery-cta {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .gallery-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background: linear-gradient(135deg, #6c45a8 0%, #9d85ca 100%);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+    z-index: 1;
+    position: relative;
+    box-shadow: 0 4px 14px rgba(108, 69, 168, 0.25);
+  }
+
+  .gallery-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(108, 69, 168, 0.35);
+    filter: brightness(1.05);
+  }
+
+  .gallery-btn:active {
+    transform: translateY(0);
+  }
+
+  :global([data-theme='dark']) .gallery-btn {
+    background: linear-gradient(135deg, #9d85ca 0%, #b392f0 100%);
+    color: #1a1a1a;
+    box-shadow: 0 4px 14px rgba(157, 133, 202, 0.3);
+  }
+
+  :global([data-theme='dark']) .gallery-btn:hover {
+    box-shadow: 0 8px 22px rgba(157, 133, 202, 0.4);
   }
 </style>

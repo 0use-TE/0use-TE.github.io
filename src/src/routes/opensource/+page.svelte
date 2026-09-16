@@ -15,18 +15,6 @@
 
   const projects: OpenSourceProject[] = [
     {
-      name: 'DotKernel',
-      description:
-        '轻量级、Native AOT 友好的 .NET AI 内核：属性注册插件 / 提示词 / 过滤器，流式调用与工具审批管线，适合 Avalonia（桌面 + WASM）等裁剪友好场景，可作为 Semantic Kernel 的更简替代。',
-      url: 'https://github.com/0use-TE/DotKernel',
-      githubRepo: '0use-TE/DotKernel',
-      image: '/images/opensource/dotkernel.png',
-      imageFit: 'contain',
-      docs: 'https://0use.net/DotKernel/',
-      tags: ['Avalonia', 'AI', 'AOT', 'NuGet', 'MIT'],
-      platform: 'github'
-    },
-    {
       name: 'Crystal.Avalonia',
       description:
         'Avalonia 应用的轻量基础设施层：模块化架构、依赖注入、View/ViewModel 注册，AOT 友好，可与任意 MVVM 框架配合使用。',
@@ -47,6 +35,18 @@
       imageFit: 'contain',
       docs: 'https://0use.net/GOZA.Dock/',
       tags: ['Avalonia', 'Dock', 'WASM', 'MIT'],
+      platform: 'github'
+    },
+    {
+      name: 'DotKernel',
+      description:
+        '轻量级、Native AOT 友好的 .NET AI 内核：属性注册插件 / 提示词 / 过滤器，流式调用与工具审批管线，适合 Avalonia（桌面 + WASM）等裁剪友好场景，可作为 Semantic Kernel 的更简替代。',
+      url: 'https://github.com/0use-TE/DotKernel',
+      githubRepo: '0use-TE/DotKernel',
+      image: '/images/opensource/dotkernel.png',
+      imageFit: 'contain',
+      docs: 'https://0use.net/DotKernel/',
+      tags: ['Avalonia', 'AI', 'AOT', 'NuGet', 'MIT'],
       platform: 'github'
     },
     {

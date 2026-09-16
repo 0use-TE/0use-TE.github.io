@@ -7,8 +7,9 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"fetch-stars": "node scripts/fetch-github-stars.mjs",
-		"prebuild": "npm run fetch-stars",
+"fetch-stars": "node scripts/fetch-github-stars.mjs",
+		"scan-pets": "node scripts/scan-pet-photos.mjs",
+		"prebuild": "npm run fetch-stars && npm run scan-pets",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
