@@ -1,0 +1,51 @@
+
+> svelte-web@0.0.1 dev
+> vite dev
+
+
+  [32m[1mVITE[22m v7.3.1[39m  [2mready in [0m[1m1126[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+22:37:26 [vite-plugin-svelte] src/lib/components/Header.svelte:51:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+https://svelte.dev/e/a11y_click_events_have_key_events
+22:37:26 [vite-plugin-svelte] src/lib/components/Header.svelte:51:2 `<div>` with a click handler must have an ARIA role
+https://svelte.dev/e/a11y_no_static_element_interactions
+22:37:26 [vite-plugin-svelte] src/lib/components/MusicPlayer.svelte:72:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+https://svelte.dev/e/a11y_click_events_have_key_events
+[2m22:38:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/code/gallery/+page.svelte, /src/routes/code/[pet]/+page.svelte, /src/app.css[22m
+22:39:14 [vite-plugin-svelte] src/routes/code/gallery/+page.svelte:142:2 Unused CSS selector ".photo-overlay"
+https://svelte.dev/e/css_unused_selector
+22:39:14 [vite-plugin-svelte] src/routes/code/gallery/+page.svelte:156:2 Unused CSS selector ".photo-card:hover .photo-overlay"
+https://svelte.dev/e/css_unused_selector
+22:39:14 [vite-plugin-svelte] src/routes/code/gallery/+page.svelte:158:2 Unused CSS selector ".photo-overlay span"
+https://svelte.dev/e/css_unused_selector
+22:39:14 [vite-plugin-svelte] src/routes/code/gallery/+page.svelte:164:2 Unused CSS selector ".photo-name"
+https://svelte.dev/e/css_unused_selector
+[2m22:39:14[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/code/gallery/+page.svelte, /src/routes/code/gallery/+page.svelte?svelte&type=style&lang.css, /src/app.css[22m
+22:39:14 [vite-plugin-svelte] src/routes/code/gallery/+page.svelte:142:2 Unused CSS selector ".photo-overlay"
+https://svelte.dev/e/css_unused_selector
+22:39:14 [vite-plugin-svelte] src/routes/code/gallery/+page.svelte:156:2 Unused CSS selector ".photo-card:hover .photo-overlay"
+https://svelte.dev/e/css_unused_selector
+22:39:14 [vite-plugin-svelte] src/routes/code/gallery/+page.svelte:158:2 Unused CSS selector ".photo-overlay span"
+https://svelte.dev/e/css_unused_selector
+22:39:14 [vite-plugin-svelte] src/routes/code/gallery/+page.svelte:164:2 Unused CSS selector ".photo-name"
+https://svelte.dev/e/css_unused_selector
+[2m22:39:19[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/code/gallery/+page.svelte?svelte&type=style&lang.css, /src/app.css[22m
+[2m22:39:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/code/gallery/+page.svelte, /src/app.css[22m
+22:40:11 [vite-plugin-svelte] src/routes/+page.svelte:255:2 Unused CSS selector ".slogan:hover .slogan-ext::after"
+https://svelte.dev/e/css_unused_selector
+[2m22:43:48[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/resume/+page.svelte, /src/routes/resume/+page.svelte?svelte&type=style&lang.css, /src/app.css[22m
+[2m22:45:44[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/resume/+page.svelte?svelte&type=style&lang.css, /src/app.css[22m
+[2m22:45:44[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app.css[22m
+[2m22:45:58[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/resume/+page.svelte, /src/app.css[22m
+[2m22:46:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/resume/+page.svelte, /src/app.css[22m
+[2m22:46:21[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/resume/+page.svelte, /src/app.css[22m
+[2m22:46:28[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/resume/+page.svelte, /src/app.css[22m
+[2m22:46:43[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/resume/+page.svelte, /src/app.css[22m
+[2m22:46:50[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/resume/+page.svelte?svelte&type=style&lang.css, /src/app.css[22m
+[2m22:48:08[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/routes/resume/+page.svelte, /src/routes/resume/+page.svelte?svelte&type=style&lang.css, /src/app.css[22m
+[2m22:49:06[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app.css[22m
