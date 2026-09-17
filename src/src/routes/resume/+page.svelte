@@ -1,9 +1,87 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
+  import { page } from '$app/stores';
+  import {
+    SITE_URL,
+    bio,
+    internships,
+    qa,
+    renderProfileMarkdown,
+    techStack,
+    timeline
+  } from '$lib/data/profile';
+
+  const tabs = [
+    { id: 'about', label: '关于我' },
+    { id: 'stack', label: '技术栈' },
+    { id: 'timeline', label: '时间线' },
+    { id: 'work', label: '实习' },
+    { id: 'ai', label: '给AI' },
+    { id: 'qa', label: '问答' }
+  ] as const;
+
+  const markdownUrl = `${SITE_URL}/api/me.md`;
+  const jsonUrl = `${SITE_URL}/api/me.json`;
+  const markdown = renderProfileMarkdown();
+  const prompt = `请先读取 ${markdownUrl} ，把它当作我的固定背景（介绍、项目、技术栈），然后根据这些信息给方案。`;
+
   let isShow = $state(false);
   let activeTab = $state(0);
+  let copied = $state('');
 
-  const tabs = ['我是？', '技术栈', '时间线', '实习', 'Q&A'];
+  const currentTab = $derived(tabs[activeTab]?.id ?? 'about');
+
+  $effect(() => {
+    const id = $page.url.searchParams.get('tab');
+    const index = tabs.findIndex((tab) => tab.id === id);
+    if (index >= 0) {
+      isShow = true;
+      activeTab = index;
+    }
+  });
+
+  function selectTab(index: number) {
+    activeTab = index;
+    goto(`/resume?tab=${tabs[index].id}`, { replaceState: true, keepFocus: true, noScroll: true });
+  }
+
+  function enter() {
+    isShow = true;
+    goto(`/resume?tab=${tabs[activeTab].id}`, { replaceState: true, keepFocus: true, noScroll: true });
+  }
+
+  async function copy(text: string, id: string) {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.left = '-9999px';
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        area.remove();
+      }
+      copied = id;
+      setTimeout(() => {
+        if (copied === id) copied = '';
+      }, 1600);
+    } catch (error) {
+      console.error('Copy failed:', error);
+      copied = 'fail';
+      setTimeout(() => {
+        if (copied === 'fail') copied = '';
+      }, 1600);
+    }
+  }
 </script>
+
+<svelte:head>
+  <title>简历 · Ouse</title>
+</svelte:head>
 
 <div class="resume-page">
   {#if !isShow}
@@ -12,7 +90,7 @@
         从 <span class="highlight">0</span> 到 Use
       </h1>
       <p class="subtitle">踏上0use的学习旅程!</p>
-      <button class="enter-btn" onclick={() => isShow = true}>
+      <button class="enter-btn" onclick={enter}>
         前往
         <span class="arrow">→</span>
       </button>
@@ -27,220 +105,93 @@
           <button
             class="tab"
             class:active={activeTab === index}
-            onclick={() => activeTab = index}
+            onclick={() => selectTab(index)}
           >
-            {tab}
+            {tab.label}
           </button>
         {/each}
       </div>
 
       <!-- 标签页内容 -->
       <div class="tab-content">
-        {#if activeTab === 0}
-          <!-- 我是？ -->
-          <div class="tab-panel">
-            <p>👋 你好，我是 Ouse，一名热爱 .NET 的开发者。</p>
-            <p>从小就喜欢玩游戏、摆弄电脑。13 岁开始折腾装机，给别人配电脑💻、装系统，完全不在话下。高中时接触过编程，但学业忙，没能坚持太久；上了大学之后，才彻底陷进去。</p>
-            <p>现在日常大多是写代码、听歌、喝生椰拿铁☕。家里有两只小动物：扣嘚（Code）🦔——非洲迷你刺猬，和基米🐱——长毛银渐层。一个从 2024 年陪到现在，一个是今年才来的新成员。调试 bug 的时候，它们经常在旁边待着，挺安心的。</p>
-            <p>喜欢音乐，喜欢把生活过得有点秩序。其余的，慢慢边学边过就好。</p>
+        {#if currentTab === 'about'}
+          <div class="tab-panel bio-panel">
+            {#each bio as paragraph}
+              <p>{paragraph}</p>
+            {/each}
           </div>
-        {:else if activeTab === 1}
-          <!-- 技术栈 -->
+        {:else if currentTab === 'stack'}
           <div class="tab-panel">
             <div class="tech-grid">
-              <div class="tech-category">
-                <h3>后端</h3>
-                <div class="tech-tags">
-                  <span class="tag">C#</span>
-                  <span class="tag">.NET</span>
-                  <span class="tag">ASP.NET Core</span>
-                  <span class="tag">Web API</span>
+              {#each techStack as group}
+                <div class="tech-category">
+                  <h3>{group.category}</h3>
+                  <div class="tech-tags">
+                    {#each group.items as item}
+                      <span class="tag">{item}</span>
+                    {/each}
+                  </div>
                 </div>
-              </div>
-              <div class="tech-category">
-                <h3>前端 / 桌面</h3>
-                <div class="tech-tags">
-                  <span class="tag">Avalonia</span>
-                  <span class="tag">Blazor</span>
-                  <span class="tag">Svelte</span>
-                  <span class="tag">TypeScript</span>
-                </div>
-              </div>
-              <div class="tech-category">
-                <h3>嵌入式 / 硬件</h3>
-                <div class="tech-tags">
-                  <span class="tag">STM32</span>
-                  <span class="tag">PCB</span>
-                  <span class="tag">PlatformIO</span>
-                  <span class="tag">nanoFramework</span>
-                </div>
-              </div>
-              <div class="tech-category">
-                <h3>工具</h3>
-                <div class="tech-tags">
-                  <span class="tag">Git</span>
-                  <span class="tag">Docker</span>
-                  <span class="tag">Native AOT</span>
-                  <span class="tag">Godot</span>
-                </div>
-              </div>
+              {/each}
             </div>
           </div>
-        {:else if activeTab === 2}
-          <!-- 时间线 -->
+        {:else if currentTab === 'timeline'}
           <div class="tab-panel">
             <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>至今-大学毕业</h4>
-                  <p class="timeline-date">至今</p>
-                  <p>学通Dotnet框架,掌握微软技术栈</p>
+              {#each timeline as item}
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <h4>{item.title}</h4>
+                    <p class="timeline-date">{item.date}</p>
+                    <p>{item.description}</p>
+                  </div>
                 </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>准备实习</h4>
-                  <p class="timeline-date">2025-12-20</p>
-                  <p>已找到实习单位，将AI与Avalonia结合，打造最前沿的上位机系统</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>上位机和Godot</h4>
-                  <p class="timeline-date">2025-9-12</p>
-                  <p>使用Godot来构建我自己的游戏，同时学习Avalonia，开发原生应用</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>完成一款日流量千人应用</h4>
-                  <p class="timeline-date">2025-8-20</p>
-                  <p>使用Blazor接入科大讯飞Authentication，为北京丰台教育云平台打造了一款AI对话平台，接入各种大模型，学生，老师已初步使用</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>Avalonia And PlatformIO</h4>
-                  <p class="timeline-date">2025-6-12</p>
-                  <p>期间全面学习Avalonia和platformIO,制作原生应用</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>学习Asp.Net</h4>
-                  <p class="timeline-date">2025-3-12</p>
-                  <p>期间疯狂学习.Net框架(主要是Asp.Net方面),啃MudBlazor源码,做网站,学会使用nanoFramework</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>通过软件设计师,做出了第一款前后端,数据库的综合Web</h4>
-                  <p class="timeline-date">2024-12-30</p>
-                  <p>期间简单学习了MySql,UML,ER</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>前端强化学习</h4>
-                  <p class="timeline-date">2024-9-1</p>
-                  <p>学习玩JS后，开始接触Blazor和微信小程序,发现了Blazor的组件库MudBlazor</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>开始学习.Net</h4>
-                  <p class="timeline-date">2024-7-1</p>
-                  <p>寒假期间,接触了Asp.Net Core,学习Entity Framework Core,打通了后端与数据库</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>通过软件考试程序员</h4>
-                  <p class="timeline-date">2024-6-20</p>
-                  <p>期间多了多款游戏(包括一款基于Photon的联网游戏),学习设计模式,数据流图等软件知识,Linux正常使用也不在话下了</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>通过计算机二级,开始学习Linux</h4>
-                  <p class="timeline-date">2024-3</p>
-                  <p>期间参加了一次游戏开发比赛,让我意识到了自己编程水平太差,也发现了我并不喜欢搞嵌入式.语言太低效,我不喜欢。</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>前端,计算机网络</h4>
-                  <p class="timeline-date">2023-12-20</p>
-                  <p>C语言高一段落了,同时C#,PLC也都懂了一些</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>算法和数据结构,PLC,嵌入式</h4>
-                  <p class="timeline-date">2023-11-20</p>
-                  <p>漫长的数算学习开始了，同时学习PLC Smart200,51,Stm32</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>加入游戏开发部</h4>
-                  <p class="timeline-date">2023-10-20</p>
-                  <p>C语言基础语法学完,加入游戏开发部，开始学习C#和Unity</p>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <h4>C语言</h4>
-                  <p class="timeline-date">2023-9-11</p>
-                  <p>大一开始学习C语言</p>
-                </div>
-              </div>
+              {/each}
             </div>
           </div>
-        {:else if activeTab === 3}
-          <!-- 实习 -->
+        {:else if currentTab === 'work'}
           <div class="tab-panel">
-            <div class="internship">
-              <div class="company">
-                <h3>浙江湖州安吉酷爱智能科技</h3>
-                <p class="position">软件工程师</p>
-                <p class="time">2025 - 现在</p>
+            {#each internships as job}
+              <div class="internship">
+                <div class="company">
+                  <h3>{job.company}</h3>
+                  <p class="position">{job.role}</p>
+                  <p class="time">{job.time}</p>
+                </div>
+                <div class="description">
+                  <p>{job.description}</p>
+                </div>
               </div>
-              <div class="description">
-                <p>担任软件工程师，负责公司智能系统软件开发</p>
-              </div>
+            {/each}
+          </div>
+        {:else if currentTab === 'ai'}
+          <div class="tab-panel ai-panel">
+            <p class="ai-lead">把这一条发给 AI，它就能读到我的介绍、项目和技术栈。</p>
+            <div class="ai-link">
+              <code>{markdownUrl}</code>
+              <button type="button" class="copy-btn primary" onclick={() => copy(markdownUrl, 'md')}>
+                {copied === 'md' ? '已复制' : copied === 'fail' ? '复制失败' : '复制链接'}
+              </button>
             </div>
+            <div class="ai-actions">
+              <button type="button" class="copy-btn" onclick={() => copy(prompt, 'prompt')}>
+                {copied === 'prompt' ? '已复制' : '复制提示词'}
+              </button>
+              <a class="copy-btn ghost" href="/api/me.md" target="_blank" rel="noopener noreferrer external" data-sveltekit-reload>打开 Markdown</a>
+              <a class="copy-btn ghost" href={jsonUrl} target="_blank" rel="noopener noreferrer external" data-sveltekit-reload>打开 JSON</a>
+            </div>
+            <p class="ai-hint">1. 复制链接　2. 发给 Cursor / ChatGPT / Claude　3. 直接说需求，不必再介绍自己</p>
+            <pre class="ai-preview">{markdown}</pre>
           </div>
         {:else}
-          <!-- Q&A -->
           <div class="tab-panel">
-            <div class="qa-item">
-              <h4>Q: 为什么叫 Ouse?</h4>
-              <p>A: Ouse 来自 "0 use"，象征从零开始学习和使用技术的旅程。</p>
-            </div>
-            <div class="qa-item">
-              <h4>Q: 你的学习目标是什么?</h4>
-              <p>A: 成为全栈开发者，专注于 .NET 生态系统，同时探索前端新技术。</p>
-            </div>
-            <div class="qa-item">
-              <h4>Q: 如何联系你?</h4>
-              <p>A: 可以在 GitHub 上给我发 issue，或者通过博客的联系方式找到我。</p>
-            </div>
+            {#each qa as item}
+              <div class="qa-item">
+                <h4>Q: {item.question}</h4>
+                <p>A: {item.answer}</p>
+              </div>
+            {/each}
           </div>
         {/if}
       </div>
@@ -415,6 +366,9 @@
 
   .tab-panel p {
     margin-bottom: 1rem;
+  }
+
+  .bio-panel p {
     text-indent: 2rem;
   }
 
@@ -585,5 +539,98 @@
 
   :global([data-theme="dark"]) .description p {
     color: #ccc;
+  }
+
+  .ai-lead {
+    text-indent: 0;
+    margin-bottom: 1rem;
+  }
+
+  .ai-link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(108, 69, 168, 0.25);
+    margin-bottom: 0.9rem;
+  }
+
+  .ai-link code {
+    flex: 1;
+    min-width: 180px;
+    word-break: break-all;
+    color: #6c45a8;
+  }
+
+  :global([data-theme='dark']) .ai-link code {
+    color: #9d85ca;
+  }
+
+  .ai-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .copy-btn {
+    border: 2px solid #6c45a8;
+    border-radius: 8px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: transparent;
+    color: #6c45a8;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .copy-btn.primary,
+  .copy-btn:hover {
+    background: #6c45a8;
+    color: #fff;
+  }
+
+  .copy-btn.ghost {
+    border-color: rgba(0, 0, 0, 0.16);
+    color: #333;
+  }
+
+  .copy-btn.ghost:hover {
+    background: rgba(108, 69, 168, 0.08);
+    color: #6c45a8;
+  }
+
+  :global([data-theme='dark']) .copy-btn.ghost {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+
+  .ai-hint {
+    text-indent: 0;
+    font-size: 0.9rem;
+    opacity: 0.75;
+    margin-bottom: 1rem;
+  }
+
+  .ai-preview {
+    margin: 0;
+    padding: 1rem;
+    border-radius: 10px;
+    background: rgba(108, 69, 168, 0.04);
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.8rem;
+    line-height: 1.65;
+    max-height: 32vh;
+    overflow: auto;
+  }
+
+  :global([data-theme='dark']) .ai-preview {
+    background: rgba(157, 133, 202, 0.08);
   }
 </style>

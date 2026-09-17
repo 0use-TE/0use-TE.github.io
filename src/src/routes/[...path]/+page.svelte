@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
 
   // 允许的路径
-  const allowedPaths = ['/', '/blog', '/opensource', '/resume', '/code', '/404'];
+  const allowedPaths = ['/', '/blog', '/opensource', '/resume', '/code', '/api', '/404'];
 
   onMount(() => {
     const path = window.location.pathname;

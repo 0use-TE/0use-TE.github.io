@@ -9,7 +9,7 @@
   const GITHUB_RAW = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads';
 
   // 允许的路径
-  const allowedPaths = ['/', '/blog', '/opensource', '/resume', '/code'];
+  const allowedPaths = ['/', '/blog', '/opensource', '/resume', '/code', '/api'];
 
   onMount(() => {
     const path = $page.url.pathname;
@@ -186,6 +186,12 @@
       icon="👤"
       description="随着不断学习，这里我也会不断更新我的简历。您在这里可以看到我的学习路线，如果你对我的技术栈感兴趣，欢迎查看详细的简历内容。"
       href="/resume"
+    />
+    <Card
+      title="给AI"
+      icon="🤖"
+      description="把一个链接发给 AI，它就能读到我的介绍、项目和技术栈。不用每次重新自我介绍。"
+      href="/resume?tab=ai"
     />
   </div>
 </div>

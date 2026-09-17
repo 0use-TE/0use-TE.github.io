@@ -11,7 +11,8 @@ const config = {
 			strict: true
 		}),
 		prerender: {
-			handleUnseenRoutes: 'ignore'
+			handleUnseenRoutes: 'ignore',
+			entries: ['*', '/api', '/api/me.json', '/api/me.md', '/llms.txt']
 		}
 	}
 };
