@@ -1,0 +1,1 @@
+import{w as a}from"./C0jFejZF.js";const o="light",i=window.localStorage.getItem("theme")??o,e=a(i);e.subscribe(t=>{window.localStorage.setItem("theme",t),document.documentElement.setAttribute("data-theme",t)});function m(){e.update(t=>t==="light"?"dark":"light")}export{m as a,e as t};

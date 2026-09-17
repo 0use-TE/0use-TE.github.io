@@ -1,0 +1,1 @@
+import{U as y,V as o,W as u,X as _,h as t,C as g,j as i,Y as l,s as d,i as p,o as m}from"./BTKAHO1C.js";function C(n,r){let s=null,E=t;var a;if(t){s=p;for(var e=m(document.head);e!==null&&(e.nodeType!==g||e.data!==n);)e=i(e);if(e===null)l(!1);else{var f=i(e);e.remove(),d(f)}}t||(a=document.head.appendChild(y()));try{o(()=>r(a),u|_)}finally{E&&(l(!0),d(s))}}export{C as h};

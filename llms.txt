@@ -11,6 +11,6 @@
 
 - [主页](https://0use.net)
 - [开源](https://0use.net/opensource)
-- [简历](https://0use.net/resume)
+- [我？](https://0use.net/resume)
 - [博客](https://0use.net/blog)
 - [档案说明](https://0use.net/resume?tab=ai)
