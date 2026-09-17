@@ -13,7 +13,7 @@ Hi，I am Ouse. Welcome here! This repository hosts my personal website: [https:
 ## Project Structure
 
 ```
-svelte-web/          # Frontend source
+src/                 # Frontend source
   src/routes/        # Pages (home, blog, resume, opensource, code)
   src/lib/           # Components, stores, config
 .github/workflows/   # CI/CD — build & deploy to gh-pages on push to master
@@ -22,7 +22,7 @@ svelte-web/          # Frontend source
 ## Local Development
 
 ```bash
-cd svelte-web
+cd src
 npm install
 npm run dev
 ```
@@ -30,7 +30,7 @@ npm run dev
 ## Build
 
 ```bash
-cd svelte-web
+cd src
 npm run build
 ```
 
