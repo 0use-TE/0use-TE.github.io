@@ -10,6 +10,7 @@
     techStack,
     timeline
   } from '$lib/data/profile';
+  import Giscus from '$lib/components/Giscus.svelte';
 
   const tabs = [
     { id: 'about', label: '关于我' },
@@ -25,7 +26,6 @@
   const markdown = renderProfileMarkdown();
   const prompt = `请先读取 ${markdownUrl} ，把它当作我的固定背景（介绍、项目、技术栈），然后根据这些信息给方案。`;
 
-  let isShow = $state(false);
   let activeTab = $state(0);
   let copied = $state('');
 
@@ -35,7 +35,6 @@
     const id = $page.url.searchParams.get('tab');
     const index = tabs.findIndex((tab) => tab.id === id);
     if (index >= 0) {
-      isShow = true;
       activeTab = index;
     }
   });
@@ -43,11 +42,6 @@
   function selectTab(index: number) {
     activeTab = index;
     goto(`/resume?tab=${tabs[index].id}`, { replaceState: true, keepFocus: true, noScroll: true });
-  }
-
-  function enter() {
-    isShow = true;
-    goto(`/resume?tab=${tabs[activeTab].id}`, { replaceState: true, keepFocus: true, noScroll: true });
   }
 
   async function copy(text: string, id: string) {
@@ -80,123 +74,114 @@
 </script>
 
 <svelte:head>
-  <title>简历 · Ouse</title>
+  <title>我？ · Ouse</title>
 </svelte:head>
 
 <div class="resume-page">
-  {#if !isShow}
-    <div class="intro">
+  <div class="content">
+    <header class="resume-hero">
       <h1 class="title">
         从 <span class="highlight">0</span> 到 Use
       </h1>
       <p class="subtitle">踏上0use的学习旅程!</p>
-      <button class="enter-btn" onclick={enter}>
-        前往
-        <span class="arrow">→</span>
-      </button>
+    </header>
+
+    <div class="tabs">
+      {#each tabs as tab, index}
+        <button
+          class="tab"
+          class:active={activeTab === index}
+          onclick={() => selectTab(index)}
+        >
+          {tab.label}
+        </button>
+      {/each}
     </div>
-  {:else}
-    <div class="content">
-      <h2 class="roadmap-title">查看我的RoadMap</h2>
 
-      <!-- 标签页 -->
-      <div class="tabs">
-        {#each tabs as tab, index}
-          <button
-            class="tab"
-            class:active={activeTab === index}
-            onclick={() => selectTab(index)}
-          >
-            {tab.label}
-          </button>
-        {/each}
-      </div>
-
-      <!-- 标签页内容 -->
-      <div class="tab-content">
-        {#if currentTab === 'about'}
-          <div class="tab-panel bio-panel">
-            {#each bio as paragraph}
-              <p>{paragraph}</p>
-            {/each}
-          </div>
-        {:else if currentTab === 'stack'}
-          <div class="tab-panel">
-            <div class="tech-grid">
-              {#each techStack as group}
-                <div class="tech-category">
-                  <h3>{group.category}</h3>
-                  <div class="tech-tags">
-                    {#each group.items as item}
-                      <span class="tag">{item}</span>
-                    {/each}
-                  </div>
-                </div>
-              {/each}
-            </div>
-          </div>
-        {:else if currentTab === 'timeline'}
-          <div class="tab-panel">
-            <div class="timeline">
-              {#each timeline as item}
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <h4>{item.title}</h4>
-                    <p class="timeline-date">{item.date}</p>
-                    <p>{item.description}</p>
-                  </div>
-                </div>
-              {/each}
-            </div>
-          </div>
-        {:else if currentTab === 'work'}
-          <div class="tab-panel">
-            {#each internships as job}
-              <div class="internship">
-                <div class="company">
-                  <h3>{job.company}</h3>
-                  <p class="position">{job.role}</p>
-                  <p class="time">{job.time}</p>
-                </div>
-                <div class="description">
-                  <p>{job.description}</p>
+    <div class="tab-content">
+      {#if currentTab === 'about'}
+        <div class="tab-panel bio-panel">
+          {#each bio as paragraph}
+            <p>{paragraph}</p>
+          {/each}
+          <Giscus term="/resume" title="留言" />
+        </div>
+      {:else if currentTab === 'stack'}
+        <div class="tab-panel">
+          <div class="tech-grid">
+            {#each techStack as group}
+              <div class="tech-category">
+                <h3>{group.category}</h3>
+                <div class="tech-tags">
+                  {#each group.items as item}
+                    <span class="tag">{item}</span>
+                  {/each}
                 </div>
               </div>
             {/each}
           </div>
-        {:else if currentTab === 'ai'}
-          <div class="tab-panel ai-panel">
-            <p class="ai-lead">把这一条发给 AI，它就能读到我的介绍、项目和技术栈。</p>
-            <div class="ai-link">
-              <code>{markdownUrl}</code>
-              <button type="button" class="copy-btn primary" onclick={() => copy(markdownUrl, 'md')}>
-                {copied === 'md' ? '已复制' : copied === 'fail' ? '复制失败' : '复制链接'}
-              </button>
-            </div>
-            <div class="ai-actions">
-              <button type="button" class="copy-btn" onclick={() => copy(prompt, 'prompt')}>
-                {copied === 'prompt' ? '已复制' : '复制提示词'}
-              </button>
-              <a class="copy-btn ghost" href="/api/me.md" target="_blank" rel="noopener noreferrer external" data-sveltekit-reload>打开 Markdown</a>
-              <a class="copy-btn ghost" href={jsonUrl} target="_blank" rel="noopener noreferrer external" data-sveltekit-reload>打开 JSON</a>
-            </div>
-            <p class="ai-hint">1. 复制链接　2. 发给 Cursor / ChatGPT / Claude　3. 直接说需求，不必再介绍自己</p>
-            <pre class="ai-preview">{markdown}</pre>
-          </div>
-        {:else}
-          <div class="tab-panel">
-            {#each qa as item}
-              <div class="qa-item">
-                <h4>Q: {item.question}</h4>
-                <p>A: {item.answer}</p>
+        </div>
+      {:else if currentTab === 'timeline'}
+        <div class="tab-panel">
+          <div class="timeline">
+            {#each timeline as item}
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <h4>{item.title}</h4>
+                  <p class="timeline-date">{item.date}</p>
+                  <p>{item.description}</p>
+                </div>
               </div>
             {/each}
           </div>
-        {/if}
-      </div>
+        </div>
+      {:else if currentTab === 'work'}
+        <div class="tab-panel">
+          {#each internships as job}
+            <div class="internship">
+              <div class="company">
+                <h3>{job.company}</h3>
+                <p class="position">{job.role}</p>
+                <p class="time">{job.time}</p>
+              </div>
+              <div class="description">
+                <p>{job.description}</p>
+              </div>
+            </div>
+          {/each}
+        </div>
+      {:else if currentTab === 'ai'}
+        <div class="tab-panel ai-panel">
+          <p class="ai-lead">把这一条发给 AI，它就能读到我的介绍、项目和技术栈。</p>
+          <div class="ai-link">
+            <code>{markdownUrl}</code>
+            <button type="button" class="copy-btn primary" onclick={() => copy(markdownUrl, 'md')}>
+              {copied === 'md' ? '已复制' : copied === 'fail' ? '复制失败' : '复制链接'}
+            </button>
+          </div>
+          <div class="ai-actions">
+            <button type="button" class="copy-btn" onclick={() => copy(prompt, 'prompt')}>
+              {copied === 'prompt' ? '已复制' : '复制提示词'}
+            </button>
+            <a class="copy-btn ghost" href="/api/me.md" target="_blank" rel="noopener noreferrer external" data-sveltekit-reload>打开 Markdown</a>
+            <a class="copy-btn ghost" href={jsonUrl} target="_blank" rel="noopener noreferrer external" data-sveltekit-reload>打开 JSON</a>
+          </div>
+          <p class="ai-hint">1. 复制链接　2. 发给 Cursor / ChatGPT / Claude　3. 直接说需求，不必再介绍自己</p>
+          <pre class="ai-preview">{markdown}</pre>
+        </div>
+      {:else}
+        <div class="tab-panel">
+          {#each qa as item}
+            <div class="qa-item">
+              <h4>Q: {item.question}</h4>
+              <p>A: {item.answer}</p>
+            </div>
+          {/each}
+        </div>
+      {/if}
     </div>
-  {/if}
+  </div>
 </div>
 
 <style>
@@ -213,20 +198,26 @@
     color: #fff;
   }
 
-  .intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 150px);
+  .content {
+    animation: fadeIn 0.55s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .resume-hero {
     text-align: center;
+    margin-bottom: 1.75rem;
   }
 
   .title {
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
     font-weight: 900;
     color: #333;
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.35rem;
+    animation: titleIn 0.7s ease both;
   }
 
   :global([data-theme="dark"]) .title {
@@ -235,7 +226,8 @@
 
   .highlight {
     color: #6c45a8;
-    font-size: 3.5rem;
+    display: inline-block;
+    animation: pulse0 1.8s ease-in-out infinite;
   }
 
   :global([data-theme="dark"]) .highlight {
@@ -243,68 +235,26 @@
   }
 
   .subtitle {
-    font-size: 1.25rem;
-    font-weight: 800;
+    font-size: 1rem;
+    font-weight: 700;
     color: #333;
-    opacity: 0.8;
-    margin-bottom: 2rem;
+    opacity: 0.75;
+    margin: 0;
+    animation: titleIn 0.7s ease 0.12s both;
   }
 
   :global([data-theme="dark"]) .subtitle {
     color: #fff;
   }
 
-  .enter-btn {
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
-    font-weight: 500;
-    border: 2px solid #6c45a8;
-    border-radius: 8px;
-    background: transparent;
-    color: #6c45a8;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .enter-btn:hover {
-    background: #6c45a8;
-    color: white;
-  }
-
-  :global([data-theme="dark"]) .enter-btn:hover {
-    background: #9d85ca;
-  }
-
-  .arrow {
-    transition: transform 0.3s;
-  }
-
-  .enter-btn:hover .arrow {
-    transform: translateX(4px);
-  }
-
-  .content {
-    animation: fadeIn 0.5s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+  @keyframes titleIn {
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .roadmap-title {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 1.5rem;
-  }
-
-  :global([data-theme="dark"]) .roadmap-title {
-    color: #fff;
+  @keyframes pulse0 {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
   }
 
   .tabs {
@@ -347,8 +297,8 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     padding: 1.5rem;
-    max-height: 60vh;
-    overflow-y: auto;
+    max-height: none;
+    overflow: visible;
   }
 
   :global([data-theme="dark"]) .tab-content {

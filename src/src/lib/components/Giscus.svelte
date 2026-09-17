@@ -6,9 +6,23 @@
 	import { theme } from '$lib/stores/theme';
 	import { GISCUS_CONFIG, isGiscusConfigured } from '$lib/config/giscus';
 
+	interface Props {
+		/** 固定讨论串；不传则跟当前 pathname */
+		term?: string;
+		title?: string;
+	}
+
+	let { term, title = '评论' }: Props = $props();
+
 	let container = $state<HTMLDivElement | undefined>();
 	let mounted = $state(false);
 	let scriptEl: HTMLScriptElement | null = null;
+
+	function discussionTerm() {
+		if (term) return term;
+		if (!browser) return '/';
+		return `${window.location.pathname}${window.location.search}`;
+	}
 
 	/** 站点有手动明暗切换，映射到 giscus 主题 */
 	function giscusTheme(value: string) {
@@ -37,7 +51,10 @@
 		script.setAttribute('data-repo-id', GISCUS_CONFIG.repoId);
 		script.setAttribute('data-category', GISCUS_CONFIG.category);
 		script.setAttribute('data-category-id', GISCUS_CONFIG.categoryId);
-		script.setAttribute('data-mapping', GISCUS_CONFIG.mapping);
+		script.setAttribute('data-mapping', term ? 'specific' : GISCUS_CONFIG.mapping);
+		if (term) {
+			script.setAttribute('data-term', term);
+		}
 		script.setAttribute('data-strict', GISCUS_CONFIG.strict);
 		script.setAttribute('data-reactions-enabled', GISCUS_CONFIG.reactionsEnabled);
 		script.setAttribute('data-emit-metadata', GISCUS_CONFIG.emitMetadata);
@@ -56,14 +73,14 @@
 	}
 
 	function syncRoute() {
-		if (!browser || !isGiscusConfigured()) return;
+		if (!browser || !isGiscusConfigured() || term) return;
 
 		const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
 		if (!iframe) return;
 
 		sendGiscusMessage({
 			setConfig: {
-				term: `${window.location.pathname}${window.location.search}`
+				term: discussionTerm()
 			}
 		});
 	}
@@ -99,8 +116,8 @@
 </script>
 
 {#if isGiscusConfigured()}
-	<section class="giscus-section" aria-label="评论">
-		<h2 class="giscus-title">评论</h2>
+	<section class="giscus-section" aria-label={title}>
+		<h2 class="giscus-title">{title}</h2>
 		<div bind:this={container} class="giscus-host"></div>
 	</section>
 {/if}

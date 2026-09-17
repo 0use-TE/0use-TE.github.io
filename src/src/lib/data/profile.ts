@@ -369,7 +369,7 @@ export function renderLlmsTxt(): string {
 
 - [主页](${SITE_URL})
 - [开源](${SITE_URL}/opensource)
-- [简历](${SITE_URL}/resume)
+- [我？](${SITE_URL}/resume)
 - [博客](${SITE_URL}/blog)
 - [档案说明](${SITE_URL}/resume?tab=ai)
 `;

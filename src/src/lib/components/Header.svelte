@@ -1,13 +1,9 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import { theme } from '$lib/stores/theme';
+  import { theme, toggleTheme } from '$lib/stores/theme';
 
   let isDark = $derived($theme === 'dark');
   let menuOpen = $state(false);
-
-  function toggleTheme() {
-    theme.update(t => t === 'light' ? 'dark' : 'light');
-  }
 
   function toggleMenu() {
     menuOpen = !menuOpen;
@@ -31,7 +27,7 @@
     <a href="/" class:active={$page.url.pathname === '/'}>主页</a>
     <a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}>博客</a>
     <a href="/opensource" class:active={$page.url.pathname === '/opensource'}>开源</a>
-    <a href="/resume" class:active={$page.url.pathname === '/resume'}>简历</a>
+    <a href="/resume" class:active={$page.url.pathname === '/resume'}>我？</a>
     <a href="/code/code" class:active={$page.url.pathname.startsWith('/code')}>伙伴</a>
   </nav>
 
@@ -53,7 +49,7 @@
     <a href="/" onclick={closeMenu} class:active={$page.url.pathname === '/'}>主页</a>
     <a href="/blog" onclick={closeMenu} class:active={$page.url.pathname.startsWith('/blog')}>博客</a>
     <a href="/opensource" onclick={closeMenu} class:active={$page.url.pathname === '/opensource'}>开源</a>
-    <a href="/resume" onclick={closeMenu} class:active={$page.url.pathname === '/resume'}>简历</a>
+    <a href="/resume" onclick={closeMenu} class:active={$page.url.pathname === '/resume'}>我？</a>
     <a href="/code/code" onclick={closeMenu} class:active={$page.url.pathname.startsWith('/code')}>伙伴</a>
   </nav>
 {/if}

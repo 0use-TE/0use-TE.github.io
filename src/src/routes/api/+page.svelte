@@ -7,7 +7,7 @@
   });
 </script>
 
-<p class="jump">跳转到简历 · 给AI...</p>
+<p class="jump">跳转到 我？ · 给AI...</p>
 
 <style>
   .jump {

@@ -182,9 +182,9 @@
       href="/opensource"
     />
     <Card
-      title="简历"
+      title="我？"
       icon="👤"
-      description="随着不断学习，这里我也会不断更新我的简历。您在这里可以看到我的学习路线，如果你对我的技术栈感兴趣，欢迎查看详细的简历内容。"
+      description="从 0 到 Use 的学习旅程：技术栈、时间线、实习，以及发给 AI 的背景链接，都在这里。"
       href="/resume"
     />
     <Card

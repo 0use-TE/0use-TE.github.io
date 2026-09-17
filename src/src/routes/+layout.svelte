@@ -8,9 +8,8 @@
 
 	let { children } = $props();
 
-	// 初始化主题
 	onMount(() => {
-		theme.subscribe((value) => {
+		return theme.subscribe((value) => {
 			document.documentElement.setAttribute('data-theme', value);
 		});
 	});
