@@ -187,12 +187,6 @@
       description="从 0 到 Use 的学习旅程：技术栈、时间线、实习，以及发给 AI 的背景链接，都在这里。"
       href="/resume"
     />
-    <Card
-      title="给AI"
-      icon="🤖"
-      description="把一个链接发给 AI，它就能读到我的介绍、项目和技术栈。不用每次重新自我介绍。"
-      href="/resume?tab=ai"
-    />
   </div>
 </div>
 
