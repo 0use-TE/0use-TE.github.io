@@ -1,0 +1,16 @@
+﻿# Ouse
+
+> 从0到use。热爱 .NET 的开发者，GitHub @0use-TE。
+
+这份 llms.txt 只做索引。完整背景（介绍、技术栈、开源项目、实习、时间线）请读取：
+
+- [https://0use.net/api/me.md](https://0use.net/api/me.md)：给 AI 的完整 Markdown 档案
+- [https://0use.net/api/me.json](https://0use.net/api/me.json)：机器可读 JSON
+
+## 站点
+
+- [主页](https://0use.net)
+- [开源](https://0use.net/opensource)
+- [简历](https://0use.net/resume)
+- [博客](https://0use.net/blog)
+- [档案说明](https://0use.net/resume?tab=ai)
