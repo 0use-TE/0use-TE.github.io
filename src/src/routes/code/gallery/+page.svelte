@@ -6,11 +6,46 @@
     ...petPhotos.jimi,
     ...petPhotos.together
   ];
+
+  let previewIndex = $state<number | null>(null);
+
+  const previewSrc = $derived(
+    previewIndex !== null ? allPhotos[previewIndex] : null
+  );
+
+  function openPreview(index: number) {
+    previewIndex = index;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePreview() {
+    previewIndex = null;
+    document.body.style.overflow = '';
+  }
+
+  function showPrev() {
+    if (previewIndex === null || allPhotos.length === 0) return;
+    previewIndex = (previewIndex - 1 + allPhotos.length) % allPhotos.length;
+  }
+
+  function showNext() {
+    if (previewIndex === null || allPhotos.length === 0) return;
+    previewIndex = (previewIndex + 1) % allPhotos.length;
+  }
+
+  function onKeydown(e: KeyboardEvent) {
+    if (previewIndex === null) return;
+    if (e.key === 'Escape') closePreview();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  }
 </script>
 
 <svelte:head>
   <title>画廊 · Ouse</title>
 </svelte:head>
+
+<svelte:window onkeydown={onKeydown} />
 
 <div class="gallery-page">
   <div class="stars">
@@ -26,9 +61,15 @@
   {:else}
     <div class="photos-grid">
       {#each allPhotos as src, i (src)}
-        <div class="photo-card" style="--i: {i}">
+        <button
+          type="button"
+          class="photo-card"
+          style="--i: {i}"
+          onclick={() => openPreview(i)}
+          aria-label="预览照片"
+        >
           <img src={src} alt="" loading="lazy" />
-        </div>
+        </button>
       {/each}
     </div>
   {/if}
@@ -42,6 +83,42 @@
     <p class="footer-text">扣嘚和基米都是我的小太阳 ☀️</p>
   </footer>
 </div>
+
+{#if previewSrc !== null && previewIndex !== null}
+  <div
+    class="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="照片预览"
+    onclick={closePreview}
+  >
+    <button type="button" class="lb-close" onclick={closePreview} aria-label="关闭">×</button>
+
+    {#if allPhotos.length > 1}
+      <button
+        type="button"
+        class="lb-nav prev"
+        onclick={(e) => { e.stopPropagation(); showPrev(); }}
+        aria-label="上一张"
+      >‹</button>
+      <button
+        type="button"
+        class="lb-nav next"
+        onclick={(e) => { e.stopPropagation(); showNext(); }}
+        aria-label="下一张"
+      >›</button>
+    {/if}
+
+    <img
+      class="lb-image"
+      src={previewSrc}
+      alt=""
+      onclick={(e) => e.stopPropagation()}
+    />
+
+    <p class="lb-counter">{previewIndex + 1} / {allPhotos.length}</p>
+  </div>
+{/if}
 
 <style>
   .gallery-page {
@@ -107,6 +184,11 @@
 
   .photo-card {
     position: relative;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    cursor: zoom-in;
     border-radius: 16px;
     overflow: hidden;
     aspect-ratio: 1;
@@ -129,7 +211,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.4s ease;
+    pointer-events: none;
   }
 
   .photo-card:hover img { transform: scale(1.05); }
@@ -172,8 +256,108 @@
     color: #9d85ca;
   }
 
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 4rem;
+    animation: fadeIn 0.2s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .lb-image {
+    max-width: min(92vw, 1100px);
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+    animation: zoomIn 0.22s ease;
+  }
+
+  @keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.94); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .lb-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .lb-close:hover {
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .lb-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.75rem;
+    height: 2.75rem;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lb-nav:hover {
+    background: rgba(108, 69, 168, 0.7);
+  }
+
+  .lb-nav.prev { left: 1rem; }
+  .lb-nav.next { right: 1rem; }
+
+  .lb-counter {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+  }
+
   @media (max-width: 768px) {
     .title { font-size: 1.8rem; }
     .photos-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .lightbox {
+      padding: 3.5rem 0.75rem 3rem;
+    }
+
+    .lb-nav {
+      width: 2.25rem;
+      height: 2.25rem;
+      font-size: 1.6rem;
+    }
+
+    .lb-nav.prev { left: 0.35rem; }
+    .lb-nav.next { right: 0.35rem; }
   }
 </style>
