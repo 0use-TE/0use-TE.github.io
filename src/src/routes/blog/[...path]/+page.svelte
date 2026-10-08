@@ -18,26 +18,23 @@
 
   // 所有博客列表
   let allPosts = $state<{ title: string; path: string; category?: string }[]>([]);
-  let filteredPosts = $state<{ title: string; path: string; category?: string }[]>([]);
   let postsLoading = $state(true);
   let searchQuery = $state('');
 
-  // 搜索过滤
-  function filterPosts() {
+  // 搜索词或博客列表变化时，始终重新计算筛选结果。
+  let filteredPosts = $derived.by(() => {
     if (!searchQuery.trim()) {
-      filteredPosts = allPosts;
-    } else {
-      filteredPosts = allPosts.filter(p =>
-        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (p.category && p.category.toLowerCase().includes(searchQuery.toLowerCase()))
-      );
+      return allPosts;
     }
-  }
+    return allPosts.filter(p =>
+      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (p.category && p.category.toLowerCase().includes(searchQuery.toLowerCase()))
+    );
+  });
 
   function handleSearch(e: Event) {
     const target = e.target as HTMLInputElement;
     searchQuery = target.value;
-    filterPosts();
   }
 
   // 处理 markdown 中的图片路径
@@ -167,7 +164,6 @@
       const res = await fetch(INDEX_URL);
       if (res.ok) {
         allPosts = await res.json();
-        filteredPosts = allPosts;
       }
     } catch (e) {
       console.error('Failed to load posts:', e);
