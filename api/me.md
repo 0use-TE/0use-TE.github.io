@@ -58,7 +58,7 @@ Avalonia 应用的轻量基础设施层：模块化架构、依赖注入、View/
 - 仓库: https://github.com/0use-TE/Crystal.Avalonia
 - 文档: https://0use.net/Crystal.Avalonia/
 - 标签: Avalonia, C#, NuGet, MIT
-- GitHub Stars: 37
+- GitHub Stars: 38
 
 ### GOZA.Dock
 Avalonia 轻量停靠布局库，通过 Grid + DockRegion + DockSplitter 组合面板，支持桌面与 WebAssembly 演示。
