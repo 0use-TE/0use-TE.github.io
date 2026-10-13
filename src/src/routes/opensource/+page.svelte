@@ -11,7 +11,7 @@
 
 <svelte:head>
   <title>作品 · Ouse</title>
-  <meta name="description" content="Ouse 的产品、开源项目和小工具。了解 KodoLauncher，探索各类开源作品。" />
+  <meta name="description" content="Ouse 的精选作品与开源项目：KodoLauncher、BrakeLord、ReSerialSync，以及各类开发库和小工具。" />
 </svelte:head>
 
 <div class="opensource-page">
@@ -48,6 +48,21 @@
       <div class="game-links">
         <a class="link primary" href="https://0use.net/BrakeLord/" target="_blank" rel="noopener noreferrer">开始游戏 ↗<span class="sr-only">（在新标签页打开）</span></a>
         <a class="link" href="https://github.com/wuxi-game-dev/BrakeLord" target="_blank" rel="noopener noreferrer">仓库 ↗<span class="sr-only">（在新标签页打开）</span></a>
+      </div>
+    </article>
+    <article class="product-feature game-feature">
+      <a class="product-preview game-preview" href="https://github.com/0use-TE/ReSerialSync" target="_blank" rel="noopener noreferrer" aria-label="查看 ReSerialSync 仓库（在新标签页打开）">
+        <img src="/images/products/reserialsync.png" alt="ReSerialSync 串口调试界面：多串口会话、收发面板与 AI 助手实机通信" width="1920" height="1032" loading="lazy" />
+      </a>
+      <div class="product-info">
+        <span class="product-label">串口调试工具 · Windows / Linux</span>
+        <h3>ReSerialSync</h3>
+        <p>基于 Avalonia 与 .NET 的串口调试工具。支持多串口独立会话、文本/HEX 收发、可停靠布局和 AI 助手，让设备调试更顺手。</p>
+        <span class="product-domain">Avalonia 12 · .NET 10 · Native AOT</span>
+      </div>
+      <div class="game-links">
+        <a class="link primary" href="https://github.com/0use-TE/ReSerialSync" target="_blank" rel="noopener noreferrer">仓库 ↗<span class="sr-only">（在新标签页打开）</span></a>
+        <a class="link" href="https://github.com/0use-TE/ReSerialSync/blob/main/docs/zh-CN/releases.md" target="_blank" rel="noopener noreferrer">下载说明 ↗<span class="sr-only">（在新标签页打开）</span></a>
       </div>
     </article>
   </section>
