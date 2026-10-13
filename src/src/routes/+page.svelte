@@ -176,9 +176,9 @@
       href="/blog"
     />
     <Card
-      title="开源"
+      title="作品"
       icon="🌐"
-      description="我热衷于开源社区的建设.大学一年多来，我做了好多有趣的小玩意，包括游戏，软件...如果对您有用，不妨Star一下，您的支持是我最大的动力！"
+      description="我做的产品、开源项目和有趣的小工具。从 KodoLauncher 到各类开源库，欢迎来看看，希望其中有你用得上的作品。"
       href="/opensource"
     />
     <Card

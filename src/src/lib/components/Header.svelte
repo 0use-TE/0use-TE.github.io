@@ -26,7 +26,7 @@
   <nav class="desktop-nav">
     <a href="/" class:active={$page.url.pathname === '/'}>主页</a>
     <a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}>博客</a>
-    <a href="/opensource" class:active={$page.url.pathname === '/opensource'}>开源</a>
+    <a href="/opensource" class:active={$page.url.pathname === '/opensource'}>作品</a>
     <a href="/resume" class:active={$page.url.pathname === '/resume'}>我？</a>
     <a href="/code/code" class:active={$page.url.pathname.startsWith('/code')}>伙伴</a>
   </nav>
@@ -48,7 +48,7 @@
   <nav class="mobile-nav" class:open={menuOpen}>
     <a href="/" onclick={closeMenu} class:active={$page.url.pathname === '/'}>主页</a>
     <a href="/blog" onclick={closeMenu} class:active={$page.url.pathname.startsWith('/blog')}>博客</a>
-    <a href="/opensource" onclick={closeMenu} class:active={$page.url.pathname === '/opensource'}>开源</a>
+    <a href="/opensource" onclick={closeMenu} class:active={$page.url.pathname === '/opensource'}>作品</a>
     <a href="/resume" onclick={closeMenu} class:active={$page.url.pathname === '/resume'}>我？</a>
     <a href="/code/code" onclick={closeMenu} class:active={$page.url.pathname.startsWith('/code')}>伙伴</a>
   </nav>
