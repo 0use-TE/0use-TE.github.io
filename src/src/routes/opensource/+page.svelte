@@ -21,20 +21,35 @@
   <div class="divider"></div>
 
   <section class="products-section" aria-labelledby="products-heading">
-    <h2 id="products-heading" class="section-title">我的产品</h2>
+    <h2 id="products-heading" class="section-title">精选作品</h2>
     <a class="product-feature" href="https://kodolauncher.com" target="_blank" rel="noopener noreferrer">
       <div class="product-preview">
         <img src="/images/products/kodo-home.jpg" alt="KodoLauncher 主屏：系统状态、天气、常用应用和终端" width="886" height="1920" />
         <img src="/images/products/kodo-apps.jpg" alt="KodoLauncher 应用列表" width="886" height="1920" loading="lazy" />
       </div>
       <div class="product-info">
-        <span class="product-label">独立产品 · Android</span>
+        <span class="product-label">Android 启动器</span>
         <h3>KodoLauncher</h3>
         <p>终端原生 Android 启动器。用指令直达应用，用 HUD 一眼查看系统状态、天气与常用应用，让手机桌面更有秩序。</p>
         <span class="product-domain">kodolauncher.com</span>
       </div>
       <span class="product-cta">了解 KodoLauncher <span aria-hidden="true">↗</span><span class="sr-only">（访问官网，在新标签页打开）</span></span>
     </a>
+    <article class="product-feature game-feature">
+      <a class="product-preview game-preview" href="https://0use.net/BrakeLord/" target="_blank" rel="noopener noreferrer" aria-label="试玩尊不住了（在新标签页打开）">
+        <img src="/images/products/brakelord.png" alt="尊不住了游戏选车界面：夕阳下的公路、尊界 V800 与开始挑战按钮" width="1860" height="984" loading="lazy" />
+      </a>
+      <div class="product-info">
+        <span class="product-label">网页游戏 · 讽刺作品</span>
+        <h3>尊不住了 · BrakeLord</h3>
+        <p>以尊界为题材的讽刺驾驶小游戏。选一辆车，在夕阳下的公路上开始挑战，或和朋友来一场同屏对战。</p>
+        <span class="product-domain">0use.net/BrakeLord</span>
+      </div>
+      <div class="game-links">
+        <a class="link primary" href="https://0use.net/BrakeLord/" target="_blank" rel="noopener noreferrer">开始游戏 ↗<span class="sr-only">（在新标签页打开）</span></a>
+        <a class="link" href="https://github.com/wuxi-game-dev/BrakeLord" target="_blank" rel="noopener noreferrer">仓库 ↗<span class="sr-only">（在新标签页打开）</span></a>
+      </div>
+    </article>
   </section>
 
   <section aria-labelledby="opensource-heading">
@@ -123,6 +138,33 @@
   .product-feature:hover {
     border-color: #6c45a8;
     box-shadow: 0 4px 16px rgba(108, 69, 168, 0.12);
+  }
+
+  .game-feature {
+    margin-top: 1.25rem;
+  }
+
+  .product-preview.game-preview {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .product-preview.game-preview img {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .game-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .game-links a:focus-visible,
+  .game-preview:focus-visible {
+    outline: 3px solid #6c45a8;
+    outline-offset: 4px;
   }
 
   .product-feature:focus-visible {
