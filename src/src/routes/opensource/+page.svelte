@@ -148,7 +148,14 @@
   }
 
   .products-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     margin-bottom: 2.5rem;
+  }
+
+  .products-section > .section-title {
+    margin-bottom: 0;
   }
 
   .product-feature {
@@ -168,10 +175,6 @@
   .product-feature:hover {
     border-color: #6c45a8;
     box-shadow: 0 4px 16px rgba(108, 69, 168, 0.12);
-  }
-
-  .game-feature {
-    margin-top: 1.25rem;
   }
 
   .product-preview.game-preview {
