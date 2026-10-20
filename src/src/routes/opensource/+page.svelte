@@ -11,7 +11,7 @@
 
 <svelte:head>
   <title>作品 · Ouse</title>
-  <meta name="description" content="Ouse 的精选作品与开源项目：KodoLauncher、BrakeLord、ReSerialSync，以及各类开发库和小工具。" />
+  <meta name="description" content="Ouse 的精选作品与开源项目：KodoLauncher、BrakeLord、ReSerialSync、OusePocket，以及各类开发库和小工具。" />
 </svelte:head>
 
 <div class="opensource-page">
@@ -22,6 +22,21 @@
 
   <section class="products-section" aria-labelledby="products-heading">
     <h2 id="products-heading" class="section-title">精选作品</h2>
+    <article class="product-feature game-feature">
+      <a class="product-preview game-preview" href="https://0use.net/OusePocket/" target="_blank" rel="noopener noreferrer" aria-label="查看 OusePocket 主页（在新标签页打开）">
+        <img src="/images/products/ousepocket.jpg" alt="OusePocket 桌面：状态栏、应用图标与分页" width="320" height="480" loading="lazy" />
+      </a>
+      <div class="product-info">
+        <span class="product-label">口袋设备系统 · ESP32-P4</span>
+        <h3>OusePocket</h3>
+        <p>运行在 ESP32-P4 上的轻量多媒体应用框架。原生 LVGL 桌面与全面屏手势，独立应用以 JSON＋JavaScript 编写并打包为 BPK，支持应用商店安装、相机、相册与音乐。</p>
+        <span class="product-domain">0use.net/OusePocket</span>
+      </div>
+      <div class="game-links">
+        <a class="link primary" href="https://0use.net/OusePocket/" target="_blank" rel="noopener noreferrer">项目主页 ↗<span class="sr-only">（在新标签页打开）</span></a>
+        <a class="link" href="https://github.com/0use-TE/OusePocket" target="_blank" rel="noopener noreferrer">仓库 ↗<span class="sr-only">（在新标签页打开）</span></a>
+      </div>
+    </article>
     <a class="product-feature" href="https://kodolauncher.com" target="_blank" rel="noopener noreferrer">
       <div class="product-preview">
         <img src="/images/products/kodo-home.jpg" alt="KodoLauncher 主屏：系统状态、天气、常用应用和终端" width="886" height="1920" />
