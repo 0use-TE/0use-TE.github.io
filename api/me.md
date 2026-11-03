@@ -53,12 +53,19 @@
 
 ## 开源项目
 
+### Reverse Ports
+在 VS Code 底部面板管理 SSH 反向端口转发，让远程设备访问本机服务。支持独立编辑远程与本机端口、一键打开代理终端、自动注入代理变量，并提供中英文界面。
+- 仓库: https://github.com/0use-TE/reverse-ports
+- 安装扩展: https://marketplace.visualstudio.com/items?itemName=0use-TE.reverse-ports
+- 标签: VS Code, SSH, 端口转发, 代理, MIT
+- GitHub Stars: 0
+
 ### Crystal.Avalonia
 Avalonia 应用的轻量基础设施层：模块化架构、依赖注入、View/ViewModel 注册，AOT 友好，可与任意 MVVM 框架配合使用。
 - 仓库: https://github.com/0use-TE/Crystal.Avalonia
 - 文档: https://0use.net/Crystal.Avalonia/
 - 标签: Avalonia, C#, NuGet, MIT
-- GitHub Stars: 39
+- GitHub Stars: 38
 
 ### GOZA.Dock
 Avalonia 轻量停靠布局库，通过 Grid + DockRegion + DockSplitter 组合面板，支持桌面与 WebAssembly 演示。
