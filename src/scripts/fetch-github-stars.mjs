@@ -3,6 +3,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const repos = [
+	'0use-TE/reverse-ports',
 	'0use-TE/DotKernel',
 	'0use-TE/Crystal.Avalonia',
 	'0use-TE/GOZA.Dock',

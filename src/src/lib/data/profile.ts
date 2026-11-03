@@ -11,6 +11,7 @@ export interface OpenSourceProject {
 	image?: string;
 	imageFit?: 'cover' | 'contain';
 	docs?: string;
+	marketplace?: string;
 	tags: string[];
 	platform: 'github' | 'gitee';
 }
@@ -155,6 +156,18 @@ export const certs = ['软件设计师', '软件考试程序员', '计算机二�
 
 export const projects: OpenSourceProject[] = [
 	{
+		name: 'Reverse Ports',
+		description:
+			'在 VS Code 底部面板管理 SSH 反向端口转发，让远程设备访问本机服务。支持独立编辑远程与本机端口、一键打开代理终端、自动注入代理变量，并提供中英文界面。',
+		url: 'https://github.com/0use-TE/reverse-ports',
+		githubRepo: '0use-TE/reverse-ports',
+		image: '/images/opensource/reverse-ports.png',
+		imageFit: 'contain',
+		marketplace: 'https://marketplace.visualstudio.com/items?itemName=0use-TE.reverse-ports',
+		tags: ['VS Code', 'SSH', '端口转发', '代理', 'MIT'],
+		platform: 'github'
+	},
+	{
 		name: 'Crystal.Avalonia',
 		description:
 			'Avalonia 应用的轻量基础设施层：模块化架构、依赖注入、View/ViewModel 注册，AOT 友好，可与任意 MVVM 框架配合使用。',
@@ -237,7 +250,7 @@ function projectStars(repo?: string): number | null {
 export function getProfileApi() {
 	return {
 		version: 1,
-		updated: '2026-09-17',
+		updated: '2026-11-03',
 		format: 'ouse-profile',
 		urls: {
 			markdown: `${SITE_URL}/api/me.md`,
@@ -257,6 +270,7 @@ export function getProfileApi() {
 			description: project.description,
 			url: project.url,
 			docs: project.docs ?? null,
+			marketplace: project.marketplace ?? null,
 			tags: project.tags,
 			platform: project.platform,
 			stars: projectStars(project.githubRepo)
@@ -288,6 +302,7 @@ export function renderProfileMarkdown(): string {
 				`### ${project.name}`,
 				project.description,
 				`- 仓库: ${project.url}`,
+				project.marketplace ? `- 安装扩展: ${project.marketplace}` : null,
 				project.docs ? `- 文档: ${project.docs}` : null,
 				`- 标签: ${project.tags.join(', ')}`,
 				stars !== null ? `- GitHub Stars: ${stars}` : null

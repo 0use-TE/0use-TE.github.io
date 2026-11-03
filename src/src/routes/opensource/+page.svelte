@@ -11,7 +11,7 @@
 
 <svelte:head>
   <title>作品 · Ouse</title>
-  <meta name="description" content="Ouse 的精选作品与开源项目：KodoLauncher、BrakeLord、ReSerialSync、OusePocket，以及各类开发库和小工具。" />
+  <meta name="description" content="Ouse 的精选作品与开源项目：KodoLauncher、BrakeLord、ReSerialSync、OusePocket、Reverse Ports，以及各类开发库和小工具。" />
 </svelte:head>
 
 <div class="opensource-page">
@@ -118,7 +118,12 @@
         </div>
 
         <div class="links">
-          <a href={project.url} target="_blank" rel="noopener noreferrer" class="link primary">
+          {#if project.marketplace}
+            <a href={project.marketplace} target="_blank" rel="noopener noreferrer" class="link primary">
+              安装扩展<span class="sr-only">（VS Code Marketplace，在新标签页打开）</span>
+            </a>
+          {/if}
+          <a href={project.url} target="_blank" rel="noopener noreferrer" class="link" class:primary={!project.marketplace}>
             仓库
           </a>
           {#if project.docs}
