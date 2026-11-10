@@ -11,7 +11,7 @@
 
 <svelte:head>
   <title>作品 · Ouse</title>
-  <meta name="description" content="Ouse 的精选作品与开源项目：KodoLauncher、BrakeLord、ReSerialSync、OusePocket、Reverse Ports，以及各类开发库和小工具。" />
+  <meta name="description" content="Ouse 的精选作品与开源项目：Perch、OusePet、KodoLauncher、BrakeLord、ReSerialSync、OusePocket、Reverse Ports，以及各类开发库和小工具。" />
 </svelte:head>
 
 <div class="opensource-page">
@@ -22,6 +22,36 @@
 
   <section class="products-section" aria-labelledby="products-heading">
     <h2 id="products-heading" class="section-title">精选作品</h2>
+    <article class="product-feature game-feature">
+      <a class="product-preview game-preview" href="https://0use.net/Perch/" target="_blank" rel="noopener noreferrer" aria-label="查看栖点 Perch 主页（在新标签页打开）">
+        <img src="/images/products/perch.png" alt="栖点 Perch 效率岛概览：时间、天气、月历、待办与笔记" width="1526" height="560" loading="lazy" />
+      </a>
+      <div class="product-info">
+        <span class="product-label">桌面效率岛 · Avalonia / .NET</span>
+        <h3>栖点 · Perch</h3>
+        <p>常驻屏幕顶部的效率岛，悬停展开、离开收起。把音乐控制、番茄钟、待办、笔记、天气、文件中转与 AI 助手放在随手可达的位置。</p>
+        <span class="product-domain">0use.net/Perch</span>
+      </div>
+      <div class="game-links">
+        <a class="link primary" href="https://0use.net/Perch/" target="_blank" rel="noopener noreferrer">项目主页 ↗<span class="sr-only">（在新标签页打开）</span></a>
+        <a class="link" href="https://github.com/0use-TE/Perch" target="_blank" rel="noopener noreferrer">仓库 ↗<span class="sr-only">（在新标签页打开）</span></a>
+      </div>
+    </article>
+    <article class="product-feature game-feature">
+      <a class="product-preview game-preview" href="https://0use.net/OusePet/" target="_blank" rel="noopener noreferrer" aria-label="查看有宠相簿 OusePet 主页（在新标签页打开）">
+        <img src="/images/products/ousepet.webp" alt="有宠相簿 OusePet 宠物档案：猫咪和刺猬的封面、名称与照片视频数量" width="1440" height="750" loading="lazy" />
+      </a>
+      <div class="product-info">
+        <span class="product-label">自托管宠物相簿 · NAS / Docker</span>
+        <h3>有宠相簿 · OusePet</h3>
+        <p>为猫咪和刺猬准备的自托管相簿。本地识别照片与视频中的宠物，整理专属档案，按时间浏览日常，并把珍贵片段收进回忆、分享给朋友。</p>
+        <span class="product-domain">0use.net/OusePet</span>
+      </div>
+      <div class="game-links">
+        <a class="link primary" href="https://0use.net/OusePet/" target="_blank" rel="noopener noreferrer">项目主页 ↗<span class="sr-only">（在新标签页打开）</span></a>
+        <a class="link" href="https://github.com/0use-TE/OusePet" target="_blank" rel="noopener noreferrer">仓库 ↗<span class="sr-only">（在新标签页打开）</span></a>
+      </div>
+    </article>
     <article class="product-feature game-feature">
       <a class="product-preview game-preview" href="https://0use.net/OusePocket/" target="_blank" rel="noopener noreferrer" aria-label="查看 OusePocket 主页（在新标签页打开）">
         <img src="/images/products/ousepocket.jpg" alt="OusePocket 桌面：状态栏、应用图标与分页" width="320" height="480" loading="lazy" />

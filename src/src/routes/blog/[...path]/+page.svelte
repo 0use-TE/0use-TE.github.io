@@ -9,7 +9,7 @@
   const GITHUB_RAW = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads/main';
   const INDEX_URL = 'https://raw.githubusercontent.com/0use-TE/OuseBlog/refs/heads/generated/index.json';
 
-  let path = $derived(decodeURIComponent($page.params.path));
+  let path = $derived(decodeURIComponent($page.params.path ?? ''));
   let content = $state('');
   let loading = $state(true);
   let error = $state('');
